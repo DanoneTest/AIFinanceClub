@@ -5,7 +5,7 @@ import { SearchOverlay } from "./SearchOverlay";
 import logo from "@/assets/logo.png.asset.json";
 
 const NAV = [
-  { to: "/understand", label: "Understand AI in Finance" },
+  { to: "/discover", label: "Discover" },
   { to: "/upskill", label: "Upskill" },
   { to: "/explore", label: "Explore & Build" },
   { to: "/champions", label: "AI Champions" },
@@ -20,7 +20,10 @@ export function Layout({ children }: { children: ReactNode }) {
         <div className="container-page flex h-16 items-center justify-between gap-8">
           <Link to="/" className="flex items-center gap-2.5 font-medium tracking-tight">
             <img src={logo.url} alt="Logo" className="h-9 w-9 object-contain" />
-            <span className="hidden sm:inline">AI Finance Hub</span>
+            <span className="hidden sm:flex flex-col leading-tight">
+              <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">Finance Digital Transformation</span>
+              <span className="text-sm font-semibold">AI.Finance Club</span>
+            </span>
           </Link>
           <nav className="hidden lg:flex items-center gap-1">
             {NAV.map(item => (
@@ -62,11 +65,11 @@ export function Layout({ children }: { children: ReactNode }) {
 
       <main className="flex-1">{children}</main>
 
-      <footer className="border-t mt-24">
-        <div className="container-page py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+      <footer className="border-t mt-16">
+        <div className="container-page py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <img src={logo.url} alt="Logo" className="h-6 w-6 object-contain" />
-            <span>AI Finance Transformation Hub</span>
+            <span>Finance Digital Transformation · AI.Finance Club</span>
           </div>
           <div>Built for Finance. Designed for adoption.</div>
         </div>

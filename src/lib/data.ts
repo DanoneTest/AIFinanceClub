@@ -140,9 +140,9 @@ export type SearchItem = {
 };
 
 export const searchIndex: SearchItem[] = [
-  ...news.map(n => ({ id: n.id, type: "News" as const, title: n.title, description: n.summary, meta: n.tag, href: "/understand" })),
-  ...tips.map(t => ({ id: t.id, type: "Tip" as const, title: t.title, description: t.description, meta: t.tool, href: "/understand" })),
-  ...tools.map(t => ({ id: `tool-${t}`, type: "Tool" as const, title: t, description: `Tool used across Finance AI tips and workflows.`, meta: "Tool", href: "/understand" })),
+  ...news.map(n => ({ id: n.id, type: "News" as const, title: n.title, description: n.summary, meta: n.tag, href: "/discover" })),
+  ...tips.map(t => ({ id: t.id, type: "Tip" as const, title: t.title, description: t.description, meta: t.tool, href: "/discover" })),
+  ...tools.map(t => ({ id: `tool-${t}`, type: "Tool" as const, title: t, description: `Tool used across Finance AI tips and workflows.`, meta: "Tool", href: "/discover" })),
   ...useCases.map(u => ({ id: u.id, type: "Use Case" as const, title: u.title, description: u.problem, meta: `${u.capability} · ${u.status}`, href: "/explore" })),
   ...resources.map(r => ({ id: r.id, type: "Resource" as const, title: r.name, description: r.description, meta: "Learning", href: "/upskill" })),
   ...events.map(e => ({ id: e.id, type: "Event" as const, title: e.title, description: e.description, meta: `${e.type} · ${e.date}`, href: "/explore" })),

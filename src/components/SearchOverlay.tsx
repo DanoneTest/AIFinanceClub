@@ -20,8 +20,10 @@ export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () =>
     };
   }, [open, onClose]);
 
+  const term = q.trim().toLowerCase();
+  const hasQuery = term.length > 0 || activeTypes.length > 0;
   const results = useMemo(() => {
-    const term = q.trim().toLowerCase();
+    if (!hasQuery) return [];
     return searchIndex.filter(item => {
       if (activeTypes.length && !activeTypes.includes(item.type)) return false;
       if (!term) return true;
@@ -31,7 +33,7 @@ export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () =>
         (item.meta?.toLowerCase().includes(term) ?? false)
       );
     }).slice(0, 40);
-  }, [q, activeTypes]);
+  }, [term, activeTypes, hasQuery]);
 
   if (!open) return null;
 
@@ -69,8 +71,10 @@ export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () =>
           ))}
         </div>
         <div className="max-h-[55vh] overflow-y-auto p-3">
-          {results.length === 0 ? (
-            <div className="px-6 py-12 text-center text-muted-foreground">No matches yet. Try a different keyword.</div>
+          {!hasQuery ? (
+            <div className="px-6 py-10 text-center text-sm text-muted-foreground">Start typing or pick a filter to search.</div>
+          ) : results.length === 0 ? (
+            <div className="px-6 py-10 text-center text-muted-foreground">No matches. Try a different keyword.</div>
           ) : (
             <ul className="divide-y">
               {results.map(r => (
