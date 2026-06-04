@@ -148,8 +148,8 @@
 
 @utility hero-gradient {
   background:
-    radial-gradient(1200px 600px at 80% -10%, color-mix(in oklab, var(--accent-blue) 18%, transparent), transparent 60%),
-    radial-gradient(900px 500px at 0% 10%, color-mix(in oklab, var(--navy) 14%, transparent), transparent 55%),
+    radial-gradient(1200px 600px at 80% -10%, color-mix(in oklab, var(--accent-blue) 21%, transparent), transparent 60%),
+    radial-gradient(900px 500px at 0% 10%, color-mix(in oklab, var(--accent-blue) 16%, transparent), transparent 55%),
     linear-gradient(180deg, var(--background), var(--surface));
 }
 

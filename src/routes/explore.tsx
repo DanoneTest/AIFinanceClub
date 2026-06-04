@@ -37,7 +37,7 @@ function Explore() {
     <>
       <section className="hero-gradient">
         <div className="container-page pt-24 pb-24 md:pt-32 md:pb-32 text-center">
-          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Page 3 · Explore & Build</p>
+          
           <h1 className="mt-5 text-5xl md:text-6xl font-semibold tracking-tight">Turn ideas into impact.</h1>
           <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">
             Explore AI, automation, and low-code capabilities — then build the next Finance use case.

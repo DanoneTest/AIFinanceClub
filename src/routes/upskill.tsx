@@ -73,7 +73,7 @@ function Upskill() {
     <>
       <section className="hero-gradient">
         <div className="container-page pt-24 pb-24 md:pt-32 md:pb-32 text-center">
-          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Page 2 · Upskill</p>
+          
           <h1 className="mt-5 text-5xl md:text-6xl font-semibold tracking-tight">Build your AI confidence.</h1>
           <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">
             A practical learning experience for every Finance profile — from first discovery to leading use cases.
@@ -101,7 +101,6 @@ function Upskill() {
           </div>
           <div className="mt-8 flex items-center gap-4 flex-wrap">
             <button className="rounded-full bg-navy text-navy-foreground px-6 py-3 text-sm font-medium">Start AI Boost</button>
-            <span className="text-xs text-muted-foreground">Content to be reviewed with Corwin.</span>
           </div>
         </div>
       </section>
