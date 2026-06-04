@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UpskillRouteImport } from './routes/upskill'
 import { Route as UnderstandRouteImport } from './routes/understand'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UpskillRoute = UpskillRouteImport.update({
+  id: '/upskill',
+  path: '/upskill',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UnderstandRoute = UnderstandRouteImport.update({
   id: '/understand',
   path: '/understand',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/understand': typeof UnderstandRoute
+  '/upskill': typeof UpskillRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/understand': typeof UnderstandRoute
+  '/upskill': typeof UpskillRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/understand': typeof UnderstandRoute
+  '/upskill': typeof UpskillRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/understand'
+  fullPaths: '/' | '/understand' | '/upskill'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/understand'
-  id: '__root__' | '/' | '/understand'
+  to: '/' | '/understand' | '/upskill'
+  id: '__root__' | '/' | '/understand' | '/upskill'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   UnderstandRoute: typeof UnderstandRoute
+  UpskillRoute: typeof UpskillRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/upskill': {
+      id: '/upskill'
+      path: '/upskill'
+      fullPath: '/upskill'
+      preLoaderRoute: typeof UpskillRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/understand': {
       id: '/understand'
       path: '/understand'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   UnderstandRoute: UnderstandRoute,
+  UpskillRoute: UpskillRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
