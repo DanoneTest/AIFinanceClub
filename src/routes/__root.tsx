@@ -85,6 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Understand, learn, build, and scale AI across Finance." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "AI Finance Transformation Hub" },
+      { name: "twitter:description", content: "Understand, learn, build, and scale AI across Finance." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9e424efa-ac65-4b09-8856-ba36d39e97de/id-preview-54d860ab--58dee014-31db-434a-a357-108148be4215.lovable.app-1780569806263.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9e424efa-ac65-4b09-8856-ba36d39e97de/id-preview-54d860ab--58dee014-31db-434a-a357-108148be4215.lovable.app-1780569806263.png" },
     ],
     links: [
       {
