@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UpskillRouteImport } from './routes/upskill'
+import { Route as UnderstandRouteImport } from './routes/understand'
+import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as ChampionsRouteImport } from './routes/champions'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UpskillRoute = UpskillRouteImport.update({
+  id: '/upskill',
+  path: '/upskill',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnderstandRoute = UnderstandRouteImport.update({
+  id: '/understand',
+  path: '/understand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChampionsRoute = ChampionsRouteImport.update({
+  id: '/champions',
+  path: '/champions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,72 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/champions': typeof ChampionsRoute
+  '/explore': typeof ExploreRoute
+  '/understand': typeof UnderstandRoute
+  '/upskill': typeof UpskillRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/champions': typeof ChampionsRoute
+  '/explore': typeof ExploreRoute
+  '/understand': typeof UnderstandRoute
+  '/upskill': typeof UpskillRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/champions': typeof ChampionsRoute
+  '/explore': typeof ExploreRoute
+  '/understand': typeof UnderstandRoute
+  '/upskill': typeof UpskillRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/champions' | '/explore' | '/understand' | '/upskill'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/champions' | '/explore' | '/understand' | '/upskill'
+  id: '__root__' | '/' | '/champions' | '/explore' | '/understand' | '/upskill'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChampionsRoute: typeof ChampionsRoute
+  ExploreRoute: typeof ExploreRoute
+  UnderstandRoute: typeof UnderstandRoute
+  UpskillRoute: typeof UpskillRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/upskill': {
+      id: '/upskill'
+      path: '/upskill'
+      fullPath: '/upskill'
+      preLoaderRoute: typeof UpskillRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/understand': {
+      id: '/understand'
+      path: '/understand'
+      fullPath: '/understand'
+      preLoaderRoute: typeof UnderstandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/champions': {
+      id: '/champions'
+      path: '/champions'
+      fullPath: '/champions'
+      preLoaderRoute: typeof ChampionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +121,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChampionsRoute: ChampionsRoute,
+  ExploreRoute: ExploreRoute,
+  UnderstandRoute: UnderstandRoute,
+  UpskillRoute: UpskillRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
