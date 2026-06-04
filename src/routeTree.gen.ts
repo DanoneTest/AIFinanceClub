@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as UpskillRouteImport } from './routes/upskill'
 import { Route as UnderstandRouteImport } from './routes/understand'
 import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as ChampionsRouteImport } from './routes/champions'
 import { Route as IndexRouteImport } from './routes/index'
 
 const UpskillRoute = UpskillRouteImport.update({
@@ -29,6 +30,11 @@ const ExploreRoute = ExploreRouteImport.update({
   path: '/explore',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChampionsRoute = ChampionsRouteImport.update({
+  id: '/champions',
+  path: '/champions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/champions': typeof ChampionsRoute
   '/explore': typeof ExploreRoute
   '/understand': typeof UnderstandRoute
   '/upskill': typeof UpskillRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/champions': typeof ChampionsRoute
   '/explore': typeof ExploreRoute
   '/understand': typeof UnderstandRoute
   '/upskill': typeof UpskillRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/champions': typeof ChampionsRoute
   '/explore': typeof ExploreRoute
   '/understand': typeof UnderstandRoute
   '/upskill': typeof UpskillRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/explore' | '/understand' | '/upskill'
+  fullPaths: '/' | '/champions' | '/explore' | '/understand' | '/upskill'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/explore' | '/understand' | '/upskill'
-  id: '__root__' | '/' | '/explore' | '/understand' | '/upskill'
+  to: '/' | '/champions' | '/explore' | '/understand' | '/upskill'
+  id: '__root__' | '/' | '/champions' | '/explore' | '/understand' | '/upskill'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChampionsRoute: typeof ChampionsRoute
   ExploreRoute: typeof ExploreRoute
   UnderstandRoute: typeof UnderstandRoute
   UpskillRoute: typeof UpskillRoute
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExploreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/champions': {
+      id: '/champions'
+      path: '/champions'
+      fullPath: '/champions'
+      preLoaderRoute: typeof ChampionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChampionsRoute: ChampionsRoute,
   ExploreRoute: ExploreRoute,
   UnderstandRoute: UnderstandRoute,
   UpskillRoute: UpskillRoute,
