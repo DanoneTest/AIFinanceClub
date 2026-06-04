@@ -32,7 +32,7 @@ function Champions() {
     <>
       <section className="hero-gradient">
         <div className="container-page pt-24 pb-24 md:pt-32 md:pb-32 text-center">
-          <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Page 4 · AI Champions</p>
+          
           <h1 className="mt-5 text-5xl md:text-6xl font-semibold tracking-tight">Meet the people making AI real.</h1>
           <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">
             AI Champions help Finance teams learn, experiment, and scale practical AI use cases.

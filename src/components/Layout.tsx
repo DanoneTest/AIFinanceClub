@@ -2,6 +2,7 @@ import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 import { SearchOverlay } from "./SearchOverlay";
+import logo from "@/assets/logo.png.asset.json";
 
 const NAV = [
   { to: "/understand", label: "Understand AI in Finance" },
@@ -17,8 +18,8 @@ export function Layout({ children }: { children: ReactNode }) {
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
         <div className="container-page flex h-16 items-center justify-between gap-8">
-          <Link to="/" className="flex items-center gap-2 font-medium tracking-tight">
-            <span className="inline-block size-6 rounded-md bg-navy" />
+          <Link to="/" className="flex items-center gap-2.5 font-medium tracking-tight">
+            <img src={logo.url} alt="Logo" className="h-9 w-9 object-contain" />
             <span className="hidden sm:inline">AI Finance Hub</span>
           </Link>
           <nav className="hidden lg:flex items-center gap-1">
@@ -64,7 +65,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <footer className="border-t mt-24">
         <div className="container-page py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <span className="inline-block size-5 rounded-md bg-navy" />
+            <img src={logo.url} alt="Logo" className="h-6 w-6 object-contain" />
             <span>AI Finance Transformation Hub</span>
           </div>
           <div>Built for Finance. Designed for adoption.</div>
