@@ -1,45 +1,86 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Shield, Scale, Compass, Route as RouteIcon, Gavel } from "lucide-react";
+import { Shield, Scale, Compass, Route as RouteIcon, Gavel, Play, Target, BarChart3, CheckCircle2, XCircle, AlertCircle, Lock } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
-import { news, newsletters } from "@/lib/data";
 
 export const Route = createFileRoute("/discover")({
   head: () => ({
     meta: [
-      { title: "Discover — AI.Finance Club" },
-      { name: "description", content: "Vision, journey, governance, responsible AI, and the AI Gate Committee for Finance." },
-      { property: "og:title", content: "Discover AI in Finance" },
-      { property: "og:description", content: "Vision, journey, governance, and the AI Gate." },
+      { title: "Discover — AI.finance" },
+      { name: "description", content: "Ambition, journey, governance, responsible AI, and the AI Gate Committee for Finance." },
     ],
   }),
   component: Discover,
 });
 
 const SECTIONS = [
-  { id: "vision", label: "Vision", icon: Compass },
+  { id: "ambition", label: "Ambition", icon: Compass },
   { id: "journey", label: "Journey", icon: RouteIcon },
   { id: "governance", label: "AI Governance", icon: Scale },
   { id: "responsible", label: "Responsible AI", icon: Shield },
   { id: "ai-gate", label: "AI Gate", icon: Gavel },
 ];
 
+const QUOTES = [
+  "I was super impressed and super proud of the energy I could feel.",
+  "First superpower, the power of visible leadership.",
+  "Second superpower is about upskilling at scale.",
+  "Power of collaborations and partnerships.",
+];
+
 const JOURNEY = [
-  { year: "2023", title: "Awareness", desc: "First experiments. Build a shared language around AI in Finance." },
-  { year: "2024", title: "Foundations", desc: "Tools, governance, and the first community of AI Champions." },
-  { year: "2025", title: "Practical adoption", desc: "AI Boost beta, daily-use Copilot, scaled tips, and live use cases." },
-  { year: "2026", title: "Scale & value", desc: "Industrialised use cases, measured value, and Finance-wide adoption." },
+  {
+    year: "2024",
+    label: "Experimentations",
+    color: "text-accent-blue",
+    items: [
+      "Build data foundations",
+      "Experiment with available capabilities",
+      "Establish Finance AI governance",
+      "Deliver quick wins with M365 Copilot",
+    ],
+  },
+  {
+    year: "2025",
+    label: "Foundations",
+    color: "text-navy",
+    items: [
+      "Launch AI Champions Community",
+      "Deliver value through squads",
+      "Biweekly Tips & Tricks",
+      "FD Calls",
+      "AI Gate Committee",
+    ],
+  },
+  {
+    year: "2026",
+    label: "Accelerations",
+    color: "text-emerald-600",
+    items: [],
+    groups: [
+      { title: "Upskilling", items: ["Champions animation", "AI.Lympics", "AI Sandbox"] },
+      { title: "Scale for Value", items: ["AI Lab Flagships", "Advanced Forecasting", "Agents in DBS & Controlling", "Global Portfolio"] },
+    ],
+  },
+];
+
+const GOLDEN_RULES = [
+  { icon: CheckCircle2, color: "text-emerald-600 bg-emerald-50", title: "Always verify AI outputs", body: "before sharing or making decisions. AI can be wrong — you remain accountable at all times." },
+  { icon: XCircle, color: "text-red-600 bg-red-50", title: "Never paste confidential data", body: "(unpublished results, customer data, M&A info) into any unapproved tool — including public ChatGPT, Gemini or personal AI tools." },
+  { icon: CheckCircle2, color: "text-emerald-600 bg-emerald-50", title: "Report any incident or unexpected behaviour", body: "to your local Champion or via the AI in Finance Teams channel. No panic — but the team must know." },
+  { icon: AlertCircle, color: "text-amber-600 bg-amber-50", title: "AI is an assistant, not a decision-maker.", body: "Every AI-generated output must be reviewed and validated by a human before being shared or acted upon." },
+  { icon: CheckCircle2, color: "text-emerald-600 bg-emerald-50", title: "Apply the Decision Science Canvas", body: "before starting any AI use case: define the decision, measure success, assess value vs cost, check data availability and identify responsible AI risks." },
 ];
 
 function Discover() {
   return (
     <>
       <section className="hero-gradient">
-        <div className="container-page pt-16 pb-16 md:pt-20 md:pb-20 text-center">
-          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">Discover AI in Finance.</h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            The vision, journey, governance, and responsible use of AI shaping how Finance transforms.
+        <div className="container-page pt-10 pb-10 text-center">
+          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">Discover AI in Finance.</h1>
+          <p className="mt-3 text-base text-muted-foreground max-w-2xl mx-auto">
+            Ambition, journey, governance, and the responsible use of AI shaping Finance.
           </p>
-          <nav className="mt-8 flex flex-wrap justify-center gap-2">
+          <nav className="mt-5 flex flex-wrap justify-center gap-2">
             {SECTIONS.map(s => (
               <a key={s.id} href={`#${s.id}`} className="chip hover:bg-surface-2">
                 <s.icon className="size-3.5" /> {s.label}
@@ -49,154 +90,213 @@ function Discover() {
         </div>
       </section>
 
-      {/* Vision */}
-      <section id="vision" className="container-page py-14">
-        <div className="grid md:grid-cols-3 gap-8 items-start">
-          <div>
-            <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Vision</div>
-            <h2 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight">AI as a daily Finance partner.</h2>
+      {/* Ambition */}
+      <section id="ambition" className="container-page py-10">
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">1</span>Ambition</div>
+        <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">AI as a daily Finance partner.</h2>
+
+        <div className="mt-6 grid md:grid-cols-2 gap-5">
+          {/* Executive sponsor */}
+          <div className="rounded-2xl border bg-card p-5">
+            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Executive sponsor</div>
+            <div className="mt-3 rounded-xl bg-surface-2 aspect-video flex items-center justify-center relative group cursor-pointer">
+              <div className="size-14 rounded-full bg-navy text-navy-foreground flex items-center justify-center">
+                <Play className="size-5 ml-0.5" />
+              </div>
+              <span className="absolute bottom-2 left-3 text-[11px] text-muted-foreground">Video placeholder</span>
+            </div>
+            <div className="mt-3">
+              <div className="font-semibold">Jurgen Esser</div>
+              <div className="text-sm text-muted-foreground">Deputy CEO & CFO Danone</div>
+            </div>
+            <button className="mt-4 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">Watch the message</button>
           </div>
-          <div className="md:col-span-2 grid sm:grid-cols-2 gap-4">
-            {[
-              { t: "Free time for insight", d: "Reduce repetitive work so teams focus on analysis and decisions." },
-              { t: "Better, faster decisions", d: "Bring evidence and synthesis to every leadership conversation." },
-              { t: "Trusted by design", d: "Responsible, governed AI — fit for Finance standards." },
-              { t: "Owned by Finance", d: "Driven by Finance teams, not delegated to IT alone." },
-            ].map(c => (
-              <div key={c.t} className="rounded-2xl border bg-card p-5">
-                <div className="font-semibold">{c.t}</div>
-                <p className="mt-1 text-sm text-muted-foreground">{c.d}</p>
+
+          {/* Quotes */}
+          <div className="rounded-2xl border bg-surface p-5">
+            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Key quotes</div>
+            <ul className="mt-3 space-y-3">
+              {QUOTES.map(q => (
+                <li key={q} className="rounded-xl bg-card border p-3 text-sm italic text-foreground/80">"{q}"</li>
+              ))}
+            </ul>
+            <button className="mt-4 rounded-full border bg-card px-4 py-2 text-sm font-medium">Read full message</button>
+          </div>
+        </div>
+      </section>
+
+      {/* Journey */}
+      <section id="journey" className="container-page py-10">
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">2</span>Our Journey — 2024 → 2025 → 2026</div>
+        <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">From experimentation to value at scale.</h2>
+        <p className="mt-2 text-sm text-muted-foreground">From bottom-up experiencing in 2024… to upskilling acceleration and value at scale in 2026.</p>
+
+        {/* Timeline rail */}
+        <div className="mt-8 relative">
+          <div className="hidden md:block absolute top-3 left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-accent-blue via-navy to-emerald-500" />
+          <div className="grid md:grid-cols-3 gap-5">
+            {JOURNEY.map((p, i) => (
+              <div key={p.year} className="relative">
+                <div className="hidden md:flex justify-center mb-3">
+                  <div className={`size-5 rounded-full border-2 bg-card ${i===0?"border-accent-blue":i===1?"border-navy":"border-emerald-500"}`} />
+                </div>
+                <div className={`text-center text-xs font-semibold tracking-wider ${p.color}`}>{p.year} — {p.label.toUpperCase()}</div>
+                <div className="mt-3 rounded-2xl border bg-card p-5">
+                  {p.items.length > 0 && (
+                    <ul className="space-y-1.5 text-sm">
+                      {p.items.map(it => (
+                        <li key={it} className="flex gap-2"><span className="text-muted-foreground">·</span>{it}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {p.groups?.map(g => (
+                    <div key={g.title} className="mt-3 first:mt-0">
+                      <div className="text-xs font-semibold text-accent-blue">{g.title}</div>
+                      <ul className="mt-1.5 space-y-1.5 text-sm">
+                        {g.items.map(it => (
+                          <li key={it} className="flex gap-2"><span className="text-muted-foreground">·</span>{it}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Journey */}
-      <section id="journey" className="container-page py-14">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Journey</div>
-        <h2 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight">From awareness to scaled adoption.</h2>
-        <ol className="mt-8 grid md:grid-cols-4 gap-4 relative">
-          {JOURNEY.map((j, i) => (
-            <li key={j.year} className="rounded-2xl border bg-card p-5 relative">
-              <div className="text-xs text-accent-blue font-medium">Phase {i + 1} · {j.year}</div>
-              <div className="mt-1 text-lg font-semibold">{j.title}</div>
-              <p className="mt-1 text-sm text-muted-foreground">{j.desc}</p>
-            </li>
-          ))}
-        </ol>
-      </section>
+      {/* AI Governance */}
+      <section id="governance" className="container-page py-10">
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">3</span>AI Governance & Responsible AI</div>
+        <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">Structured by Decision Science.</h2>
 
-      {/* News */}
-      <section className="container-page py-14">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Latest news</h2>
-        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {news.map(n => (
-            <article key={n.id} className="rounded-2xl border bg-card p-5">
-              <div className="flex items-center justify-between">
-                <span className="chip">{n.tag}</span>
-                <span className="text-[11px] text-muted-foreground">{n.date}</span>
-              </div>
-              <h3 className="mt-3 font-semibold leading-snug">{n.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground line-clamp-3">{n.summary}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="container-page py-10">
-        <div className="rounded-2xl border bg-card p-8 grid md:grid-cols-2 gap-8">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">AI.Finance Newsletter</h2>
-            <p className="mt-2 text-sm text-muted-foreground">A monthly digest of news, events, tips, and use cases.</p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              <button className="rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium">Subscribe</button>
-              <button className="rounded-full border px-5 py-2 text-sm font-medium">View archive</button>
+        <div className="mt-5 grid lg:grid-cols-2 gap-4">
+          <div className="rounded-2xl border bg-card p-5">
+            <div className="flex items-center gap-2"><Target className="size-4 text-accent-blue" /><span className="font-semibold">The AI Governance Framework</span></div>
+            <p className="mt-2 text-sm text-muted-foreground">Danone's AI governance is enabled by Decision Science — a structured approach to ensure every AI project creates real, measurable business value while managing risks responsibly.</p>
+            <div className="mt-3 text-sm">
+              <div className="font-semibold">Two compasses guide every AI project:</div>
+              <p className="mt-2 text-sm text-muted-foreground"><span className="font-semibold text-foreground">· Opportunity Compass:</span> Maps decisions by importance and volume to recommend the right AI approach (Automation Agents, ML/AI, Statistics, Self-Service Analytics).</p>
+              <p className="mt-1 text-sm text-muted-foreground"><span className="font-semibold text-foreground">· Risk Compass:</span> Identifies risks linked to each decision type — bias, accuracy drift, regulatory constraints and more.</p>
             </div>
           </div>
-          <ul className="space-y-2">
-            {newsletters.map(n => (
-              <li key={n.id} className="rounded-xl border p-4 bg-surface flex items-center justify-between">
-                <div>
-                  <div className="font-medium text-sm">{n.issue}</div>
-                  <div className="text-xs text-muted-foreground">{n.summary}</div>
-                </div>
-                <ArrowRight className="size-4 text-muted-foreground" />
+
+          <div className="rounded-2xl border bg-card p-5">
+            <div className="flex items-center gap-2"><BarChart3 className="size-4 text-accent-blue" /><span className="font-semibold">Decision Science Canvas — 5 questions before any AI use case</span></div>
+            <ol className="mt-3 space-y-2 text-sm">
+              {[
+                "What decision will this AI improve, and what outcome will change?",
+                "How will we measure success and prove impact?",
+                "What is the value hypothesis vs cost?",
+                "Is the data, technology and capability available?",
+                "What is the Responsible AI risk category and required mitigations?",
+              ].map((q, i) => (
+                <li key={i} className="flex gap-2"><span className="font-semibold text-accent-blue">{i+1}.</span>{q}</li>
+              ))}
+            </ol>
+            <button className="mt-4 text-sm text-accent-blue inline-flex items-center gap-1">▷ Watch: AI Governance in Danone video →</button>
+          </div>
+        </div>
+
+        {/* Maturity Scale */}
+        <div className="mt-6">
+          <div className="text-[11px] uppercase tracking-wider text-muted-foreground">AI Product Maturity Scale</div>
+          <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[
+              { stars: "★", label: "THEORETICAL", color: "text-muted-foreground", desc: "If we can do this, we can gain this" },
+              { stars: "★★", label: "EMPIRICAL", color: "text-foreground", desc: "By comparing with history, we can gain this" },
+              { stars: "★★★", label: "APPLICABLE", color: "text-accent-blue", desc: "After experimenting in real life, we gain this" },
+              { stars: "★★★★★", label: "IMPACT", color: "text-emerald-600", desc: "We continuously gain this vs our baseline" },
+            ].map((m, i) => (
+              <div key={i} className="rounded-2xl border bg-card p-4 text-center">
+                <div className="text-amber-500 text-lg">{m.stars}</div>
+                <div className={`mt-1 text-xs font-bold tracking-wider ${m.color}`}>{m.label}</div>
+                <div className="mt-1 text-xs text-muted-foreground">{m.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tools allowed per context */}
+        <div className="mt-5 rounded-2xl border bg-surface p-5">
+          <div className="font-semibold">Tools allowed per context</div>
+          <ul className="mt-3 space-y-1.5 text-sm">
+            {[
+              { k: "Copilot Chat", v: "✅ Available to all — No confidential data, no unpublished results", i: CheckCircle2, c: "text-emerald-600" },
+              { k: "Copilot M365", v: "✅ M365 licence — Internal non-classified data OK. Verify classification.", i: CheckCircle2, c: "text-emerald-600" },
+              { k: "Power Automate", v: "✅ Available to all — Sensitive flows reviewed by manager before go-live", i: CheckCircle2, c: "text-emerald-600" },
+              { k: "Azure OpenAI", v: "🔒 Validated projects only — AI Committee brief + IT access required", i: Lock, c: "text-amber-600" },
+              { k: "Forbidden", v: "Public ChatGPT, Gemini, or any unapproved tool with Danone data", i: XCircle, c: "text-red-600" },
+            ].map((r, i) => (
+              <li key={i} className="grid grid-cols-[140px_1fr] gap-3 items-start">
+                <span className="text-muted-foreground text-sm flex items-center gap-1.5"><r.i className={`size-3.5 ${r.c}`} />{r.k}</span>
+                <span>{r.v}</span>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* AI Governance */}
-      <section id="governance" className="container-page py-14">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">AI Governance</div>
-        <h2 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight">A clear way to evaluate, prioritise, and scale.</h2>
-        <p className="mt-3 text-muted-foreground max-w-2xl">
-          Governance ensures AI initiatives in Finance are valuable, feasible, safe, and aligned with company standards.
-        </p>
-        <div className="mt-6 rounded-2xl border bg-card p-6">
-          <div className="text-xs uppercase tracking-wider text-muted-foreground">Cross-functional</div>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {["Finance Transformation", "IT", "Data & Analytics", "Legal / Risk / Compliance", "Business owners"].map(x => (
-              <span key={x} className="chip">{x}</span>
-            ))}
-          </div>
-        </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {[
-            { t: "Strategic alignment", d: "Initiatives connect to Finance priorities and value." },
-            { t: "Risk & compliance", d: "Data, legal, and ethical checks built in from day one." },
-            { t: "Scalability", d: "Pilots designed with scale in mind, not just experiments." },
-          ].map(c => (
-            <div key={c.t} className="rounded-2xl border bg-card p-5">
-              <div className="font-semibold">{c.t}</div>
-              <p className="mt-1 text-sm text-muted-foreground">{c.d}</p>
+      {/* Responsible AI — 5 Golden Rules */}
+      <section id="responsible" className="container-page py-10">
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">4</span>The 5 Golden Rules — Responsible AI in Finance</div>
+        <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">Trusted, safe, and human in the loop.</h2>
+        <div className="mt-5 space-y-2">
+          {GOLDEN_RULES.map((r, i) => (
+            <div key={i} className="rounded-xl border bg-card p-4 flex items-start gap-3">
+              <div className={`rounded-full p-1.5 ${r.color}`}><r.icon className="size-4" /></div>
+              <div className="text-sm"><span className="font-semibold">{r.title}</span> <span className="text-muted-foreground">{r.body}</span></div>
             </div>
           ))}
         </div>
-      </section>
-
-      {/* Responsible AI */}
-      <section id="responsible" className="container-page py-14">
-        <div className="rounded-2xl border bg-surface p-8 md:p-10">
-          <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Responsible AI</div>
-          <h2 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight">Trusted, safe, and human in the loop.</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              { t: "Data protection", d: "Only approved tools and data sources." },
-              { t: "Human oversight", d: "Finance keeps the final decision." },
-              { t: "Explainability", d: "Understand how and why AI suggests an output." },
-              { t: "Fairness & ethics", d: "No use case that conflicts with company values." },
-            ].map(c => (
-              <div key={c.t} className="rounded-xl border bg-card p-4">
-                <div className="font-semibold text-sm">{c.t}</div>
-                <p className="mt-1 text-xs text-muted-foreground">{c.d}</p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-4">
+          <a className="text-sm text-accent-blue inline-flex items-center gap-1" href="#">Read the Responsible AI Policy →</a>
+          <span className="ml-2 text-xs text-muted-foreground">(link to be provided)</span>
         </div>
       </section>
 
-      {/* AI Gate */}
-      <section id="ai-gate" className="container-page py-14">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">AI Gate</div>
-        <h2 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight">The AI Gate Committee.</h2>
-        <p className="mt-3 text-muted-foreground max-w-2xl">
-          A single checkpoint to review every Finance AI initiative — from idea to scale — with the right people in the room.
-        </p>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {[
-            { t: "What it reviews", d: "AI ideas, risks, value potential, feasibility, and data readiness." },
-            { t: "What it decides", d: "Move forward, refine, redirect, or stop an initiative." },
-            { t: "How to prepare", d: "Clarify problem, value, users, data, and responsible AI considerations." },
-          ].map(c => (
-            <div key={c.t} className="rounded-2xl border bg-card p-5">
-              <div className="font-semibold">{c.t}</div>
-              <p className="mt-1 text-sm text-muted-foreground">{c.d}</p>
-            </div>
-          ))}
+      {/* AI Gate Committee */}
+      <section id="ai-gate" className="container-page py-10">
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">5</span>AI Project GATE Committee</div>
+        <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">The AI Gate Committee.</h2>
+
+        <div className="mt-5 grid md:grid-cols-2 gap-5">
+          <div className="rounded-2xl border bg-card p-5">
+            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Role of the Committee</div>
+            <ul className="mt-3 space-y-2 text-sm">
+              {[
+                "🎯 Verify the relevance and strategic fit of each AI project submitted",
+                "📊 Evaluate the maturity level of the use case (Theoretical → Impact)",
+                "⚖️ Assess the benefit vs cost of implementation",
+                "✅ Validate before project creation and IT resource allocation",
+              ].map((it, i) => (
+                <li key={i} className="rounded-lg bg-surface p-2.5">{it}</li>
+              ))}
+            </ul>
+            <div className="mt-5 text-[11px] uppercase tracking-wider text-muted-foreground">Composition</div>
+            <ul className="mt-2 space-y-2 text-sm">
+              <li className="rounded-lg bg-surface p-2.5">👥 Finance Transformation + IT + Data & Analytics (D&A) AI team</li>
+              <li className="rounded-lg bg-surface p-2.5">📅 Meets approximately every 3 months. Minutes shared with submitters.</li>
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border bg-card p-5">
+            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">How to submit a project</div>
+            <ol className="mt-3 space-y-3 text-sm">
+              {[
+                { t: "Fill in the AI.DEA form", d: "Describe the decision to improve, expected value and tool envisaged." },
+                { t: "Kick off with AI.finance team", d: "Pre-validation and use-case framing with D&A AI team." },
+                { t: "Assessment & GATE validation", d: "Committee evaluates: relevance, maturity, benefit vs cost → Project creation or MINI.LAB routing." },
+              ].map((s, i) => (
+                <li key={i} className="flex gap-3">
+                  <span className="size-7 rounded-full bg-accent-blue/10 text-accent-blue font-semibold text-sm flex items-center justify-center shrink-0">{i+1}</span>
+                  <div><div className="font-semibold">{s.t}</div><div className="text-muted-foreground">{s.d}</div></div>
+                </li>
+              ))}
+            </ol>
+            <button className="mt-5 rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium">📝 Submit to the AI GATE Committee →</button>
+          </div>
         </div>
       </section>
 

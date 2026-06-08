@@ -1,25 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, Sparkles, Copy, Check } from "lucide-react";
+import { ArrowRight, Sparkles, Copy, Check, X, Gamepad2, Compass, PlayCircle, Crown } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
-import { tips, tools } from "@/lib/data";
+import { tips, tools, resources, type Tip } from "@/lib/data";
 
 export const Route = createFileRoute("/upskill")({
   head: () => ({
     meta: [
-      { title: "Upskill — AI.Finance Club" },
-      { name: "description", content: "AI Boost beta, learning platforms, and practical tips for Finance." },
-      { property: "og:title", content: "Upskill" },
-      { property: "og:description", content: "Build your AI confidence." },
+      { title: "Upskill — AI.finance" },
+      { name: "description", content: "AI Boost, learning platforms, and practical tips for Finance." },
     ],
   }),
   component: Upskill,
 });
 
+const PATHS = [
+  { id: "discover", n: "1", icon: Compass, title: "Discover", desc: "Get oriented. Build a shared language around AI in Finance.", duration: "~1h" },
+  { id: "apply", n: "2", icon: PlayCircle, title: "Apply", desc: "Use AI in daily Finance work — prompts, Copilot, Power BI.", duration: "~3h" },
+  { id: "lead", n: "3", icon: Crown, title: "Lead", desc: "Propose, scope, and lead high-value Finance use cases.", duration: "~5h" },
+];
+
 function Upskill() {
   const [activeTool, setActiveTool] = useState<string>("All");
   const [q, setQ] = useState("");
   const [copied, setCopied] = useState<string | null>(null);
+  const [showQuiz, setShowQuiz] = useState(false);
+  const [showResources, setShowResources] = useState(false);
+  const [openTip, setOpenTip] = useState<Tip | null>(null);
 
   const filteredTips = tips.filter(t => {
     if (activeTool !== "All" && t.tool !== activeTool) return false;
@@ -36,90 +43,72 @@ function Upskill() {
   return (
     <>
       <section className="hero-gradient">
-        <div className="container-page pt-16 pb-16 md:pt-20 md:pb-20 text-center">
-          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight">Build your AI confidence.</h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+        <div className="container-page pt-10 pb-10 text-center">
+          <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">Build your AI confidence.</h1>
+          <p className="mt-3 text-base text-muted-foreground max-w-2xl mx-auto">
             One Finance learning path, the right resources, and tips you can use today.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-2">
-            <a href="#ai-boost" className="rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium">AI Boost</a>
-            <a href="#resources" className="rounded-full border bg-card px-5 py-2 text-sm font-medium">Other Resources</a>
-            <a href="#tips" className="rounded-full border bg-card px-5 py-2 text-sm font-medium">Tips & Tricks</a>
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            <a href="#ai-boost" className="rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium">AI Boost</a>
+            <a href="#resources" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Learning Platforms</a>
+            <a href="#tips" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Tips & Tricks</a>
+            <a href="#play" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Play the Game</a>
           </div>
         </div>
       </section>
 
-      {/* AI Boost – Beta Version */}
-      <section id="ai-boost" className="container-page py-12">
-        <div className="rounded-2xl border bg-card p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute -top-24 -right-24 size-72 rounded-full bg-accent-blue/15 blur-3xl" />
-          <div className="flex items-center gap-3">
-            <Sparkles className="size-6 text-accent-blue" />
-            <span className="chip chip-active">Beta</span>
-          </div>
-          <h2 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tight">AI Boost – Beta Version</h2>
-          <p className="mt-3 text-base md:text-lg text-muted-foreground max-w-2xl">
-            A selected Finance learning path to help teams understand AI, use it in daily work, and propose high-value use cases.
-          </p>
-          <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl">
-            {["Selected for Finance", "Practical learning", "Built around real use cases", "Designed for adoption"].map(x => (
-              <div key={x} className="rounded-xl border bg-surface p-3 text-sm font-medium">{x}</div>
-            ))}
-          </div>
-          <div className="mt-6 flex items-center gap-3 flex-wrap">
-            <button className="rounded-full bg-navy text-navy-foreground px-5 py-2.5 text-sm font-medium inline-flex items-center gap-2">
-              Start AI Boost <ArrowRight className="size-4" />
-            </button>
-          </div>
+      {/* AI Boost — 3 paths */}
+      <section id="ai-boost" className="container-page py-10">
+        <div className="flex items-center gap-3">
+          <Sparkles className="size-5 text-accent-blue" />
+          <span className="chip chip-active">Beta</span>
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">AI Boost</h2>
         </div>
-      </section>
+        <p className="mt-2 text-sm text-muted-foreground max-w-2xl">A selected Finance learning path — choose the level that matches where you are today.</p>
 
-      {/* Other Resources */}
-      <section id="resources" className="container-page py-12">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Other Resources</div>
-        <h2 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight">Keep learning beyond AI Boost.</h2>
-
-        <div className="mt-8 grid gap-5 lg:grid-cols-3">
-          {/* A. Danone Digital & AI Academy — smaller */}
-          <article className="rounded-2xl border bg-surface p-6 flex flex-col">
-            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Academy</div>
-            <h3 className="mt-2 text-xl font-semibold tracking-tight">Danone Digital & AI Academy</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              The company-wide foundation for digital and AI literacy. Start here for general AI concepts and learning journeys.
-            </p>
-            <button className="mt-5 self-start inline-flex items-center gap-1.5 text-sm text-navy">
-              Open the Academy <ArrowRight className="size-4" />
-            </button>
-          </article>
-
-          {/* B. Learning Platforms — larger */}
-          <article className="rounded-2xl border bg-card p-6 lg:col-span-2">
-            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Learning platforms</div>
-            <h3 className="mt-2 text-xl font-semibold tracking-tight">Selected platforms for Finance teams</h3>
-            <div className="mt-5 grid sm:grid-cols-3 gap-3">
-              {[
-                { t: "LinkedIn Learning", d: "Curated AI, productivity, and business content." },
-                { t: "AI Skill Navigator", d: "Identify the right AI learning by role and level." },
-                { t: "Ad Hoc Trainings", d: "Targeted sessions for teams, tools, or use cases." },
-              ].map(p => (
-                <div key={p.t} className="rounded-xl border bg-surface p-4">
-                  <div className="font-semibold text-sm">{p.t}</div>
-                  <p className="mt-1 text-xs text-muted-foreground">{p.d}</p>
-                  <button className="mt-3 inline-flex items-center gap-1 text-xs text-navy">Open <ArrowRight className="size-3" /></button>
-                </div>
-              ))}
+        <div className="mt-5 grid md:grid-cols-3 gap-4">
+          {PATHS.map(p => (
+            <div key={p.id} className="rounded-2xl border bg-card p-5 flex flex-col">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-accent-blue">{p.n}</span>
+                <p.icon className="size-4 text-accent-blue" />
+                <span className="text-[11px] text-muted-foreground ml-auto">{p.duration}</span>
+              </div>
+              <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground flex-1">{p.desc}</p>
+              <div className="mt-4 flex gap-2">
+                <button onClick={() => setShowResources(true)} className="flex-1 rounded-full bg-navy text-navy-foreground px-3 py-1.5 text-xs font-medium inline-flex items-center justify-center gap-1">
+                  Start <ArrowRight className="size-3" />
+                </button>
+                <button onClick={() => setShowQuiz(true)} className="rounded-full border px-3 py-1.5 text-xs font-medium">Quiz</button>
+              </div>
             </div>
-          </article>
+          ))}
         </div>
       </section>
 
-      {/* Tips & Tricks */}
-      <section id="tips" className="container-page py-12">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+      {/* Learning Platforms — 8 */}
+      <section id="resources" className="container-page py-10">
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Other Resources</div>
+        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">8 learning platforms for Finance.</h2>
+        <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {resources.map(r => (
+            <a key={r.id} href="#" className="rounded-2xl border bg-card p-4 hover:shadow-soft transition flex flex-col">
+              <div className="size-10 rounded-lg bg-surface-2 border flex items-center justify-center text-[10px] text-muted-foreground">LOGO</div>
+              <div className="mt-3 font-semibold text-sm">{r.name}</div>
+              <p className="mt-1 text-xs text-muted-foreground flex-1">{r.description}</p>
+              <span className="mt-3 text-xs text-accent-blue inline-flex items-center gap-1">Open <ArrowRight className="size-3" /></span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Tips & Tricks — compact */}
+      <section id="tips" className="container-page py-10">
+        <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Tips & Tricks</div>
-            <h2 className="mt-2 text-3xl md:text-4xl font-semibold tracking-tight">Practical tips you can use today.</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Monthly tips, prompt examples, and a searchable tips database — filter by tool.</p>
+            <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Practical tips you can use today.</h2>
           </div>
           <input
             value={q}
@@ -129,40 +118,41 @@ function Upskill() {
           />
         </div>
 
-        <div className="mt-5 flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-2">
           {["All", ...tools].map(t => (
             <button key={t} onClick={() => setActiveTool(t)} className={`chip ${activeTool === t ? "chip-active" : ""}`}>{t}</button>
           ))}
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {filteredTips.map(tip => (
-            <article key={tip.id} className="rounded-2xl border bg-card p-5 flex flex-col">
+            <button key={tip.id} onClick={() => setOpenTip(tip)} className="rounded-xl border bg-card p-3 text-left hover:shadow-soft transition">
               <div className="flex items-center justify-between">
-                <span className="chip">{tip.tool}</span>
-                {tip.prompt && <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Prompt</span>}
+                <span className="chip text-[10px] py-0.5">{tip.tool}</span>
+                {tip.prompt && <span className="text-[9px] uppercase tracking-wider text-muted-foreground">Prompt</span>}
               </div>
-              <h3 className="mt-3 text-base font-semibold leading-snug">{tip.title}</h3>
-              <p className="mt-1.5 text-sm text-muted-foreground">{tip.description}</p>
-              {tip.prompt && (
-                <div className="mt-4 rounded-xl bg-surface-2 p-3 text-xs font-mono text-foreground/80">{tip.prompt}</div>
-              )}
-              {tip.prompt && (
-                <button
-                  onClick={() => copy(tip.id, tip.prompt!)}
-                  className="mt-3 self-start inline-flex items-center gap-1.5 text-xs text-navy hover:opacity-80"
-                >
-                  {copied === tip.id ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
-                  {copied === tip.id ? "Copied" : "Copy prompt"}
-                </button>
-              )}
-            </article>
+              <h3 className="mt-2 text-sm font-semibold leading-snug line-clamp-2">{tip.title}</h3>
+              <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{tip.description}</p>
+            </button>
           ))}
           {filteredTips.length === 0 && (
-            <div className="md:col-span-2 lg:col-span-3 rounded-2xl border bg-card p-8 text-center text-sm text-muted-foreground">
+            <div className="sm:col-span-2 lg:col-span-4 rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground">
               No tips match your search yet.
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Play the Game */}
+      <section id="play" className="container-page py-10">
+        <div className="rounded-2xl border bg-gradient-to-br from-navy to-accent-blue text-navy-foreground p-6 md:p-8 flex items-center gap-5 flex-wrap">
+          <Gamepad2 className="size-10" />
+          <div className="flex-1 min-w-[200px]">
+            <div className="text-[11px] uppercase tracking-[0.18em] opacity-80">Coming soon</div>
+            <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Play the Game</h2>
+            <p className="mt-1 text-sm opacity-90">An interactive AI.finance challenge — content placeholder. To be provided.</p>
+          </div>
+          <button className="rounded-full bg-background text-foreground px-5 py-2 text-sm font-medium">Notify me</button>
         </div>
       </section>
 
@@ -171,6 +161,68 @@ function Upskill() {
         subtitle="Explore capabilities, use cases, and submit your own idea."
         actions={[{ to: "/explore", label: "Go to Explore & Build" }]}
       />
+
+      {/* Tip Modal */}
+      {openTip && (
+        <div className="fixed inset-0 z-50 bg-foreground/40 backdrop-blur-md flex items-center justify-center p-4" onClick={() => setOpenTip(null)}>
+          <div onClick={e => e.stopPropagation()} className="bg-card border rounded-3xl max-w-lg w-full p-6 shadow-elevated">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <span className="chip">{openTip.tool}</span>
+                <h3 className="mt-3 text-xl font-semibold tracking-tight">{openTip.title}</h3>
+              </div>
+              <button onClick={() => setOpenTip(null)} className="rounded-full p-1.5 hover:bg-muted"><X className="size-4" /></button>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">{openTip.description}</p>
+            {openTip.prompt && (
+              <>
+                <div className="mt-4 rounded-xl bg-surface-2 p-3 text-xs font-mono">{openTip.prompt}</div>
+                <button onClick={() => copy(openTip.id, openTip.prompt!)} className="mt-2 inline-flex items-center gap-1.5 text-xs text-navy">
+                  {copied === openTip.id ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+                  {copied === openTip.id ? "Copied" : "Copy prompt"}
+                </button>
+              </>
+            )}
+            {openTip.related && (
+              <div className="mt-4">
+                <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Related</div>
+                <div className="mt-1.5 flex flex-wrap gap-1.5">{openTip.related.map(r => <span key={r} className="chip text-[11px]">{r}</span>)}</div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Quiz Modal */}
+      {showQuiz && (
+        <div className="fixed inset-0 z-50 bg-foreground/40 backdrop-blur-md flex items-center justify-center p-4" onClick={() => setShowQuiz(false)}>
+          <div onClick={e => e.stopPropagation()} className="bg-card border rounded-3xl max-w-md w-full p-6 shadow-elevated">
+            <div className="flex items-start justify-between">
+              <h3 className="text-xl font-semibold tracking-tight">Find your AI Boost path</h3>
+              <button onClick={() => setShowQuiz(false)} className="rounded-full p-1.5 hover:bg-muted"><X className="size-4" /></button>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">A 3-question quiz that recommends Discover, Apply, or Lead. Content to be provided.</p>
+            <button onClick={() => setShowQuiz(false)} className="mt-4 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm">Close</button>
+          </div>
+        </div>
+      )}
+
+      {/* Resources Modal */}
+      {showResources && (
+        <div className="fixed inset-0 z-50 bg-foreground/40 backdrop-blur-md flex items-center justify-center p-4" onClick={() => setShowResources(false)}>
+          <div onClick={e => e.stopPropagation()} className="bg-card border rounded-3xl max-w-2xl w-full p-6 shadow-elevated">
+            <div className="flex items-start justify-between">
+              <h3 className="text-xl font-semibold tracking-tight">AI Boost — Learning resources</h3>
+              <button onClick={() => setShowResources(false)} className="rounded-full p-1.5 hover:bg-muted"><X className="size-4" /></button>
+            </div>
+            <div className="mt-4 grid sm:grid-cols-2 gap-2">
+              {resources.map(r => (
+                <a key={r.id} href="#" className="rounded-xl border bg-surface p-3 text-sm font-medium hover:bg-surface-2">{r.name}</a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
