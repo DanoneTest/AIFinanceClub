@@ -1,4 +1,4 @@
-export type ResultType = "News" | "Tip" | "Tool" | "Use Case" | "Champion" | "Resource" | "Event";
+export type ResultType = "News" | "Tip" | "Tool" | "Use Case" | "Champion" | "Resource" | "Event" | "FAQ";
 
 export type News = {
   id: string;
@@ -6,11 +6,12 @@ export type News = {
   tag: string;
   summary: string;
   date: string;
+  image?: string;
 };
 
 export const news: News[] = [
-  { id: "n1", title: "AI Boost Beta launches for Finance", tag: "Learning", summary: "A selected Finance learning pathway is now available to help teams build practical AI confidence.", date: "Jun 2025" },
-  { id: "n2", title: "New Tip of the Month available", tag: "Tips & Tricks", summary: "This month's tip shows how to use Copilot to summarize variance commentary.", date: "Jun 2025" },
+  { id: "n1", title: "Talk to My Anything now live across 3 zones", tag: "Initiative", summary: "The conversational Finance AI interface is available to FP&A and Controlling teams in AMEA, AMER and EMEA.", date: "May 2025" },
+  { id: "n2", title: "AI Boost Beta launches for Finance", tag: "Learning", summary: "A selected Finance learning pathway is now available to help teams build practical AI confidence.", date: "Jun 2025" },
   { id: "n3", title: "AI Champions community expands", tag: "Community", summary: "More Finance teams are now represented in the AI Champions network.", date: "May 2025" },
   { id: "n4", title: "Use case scorecard introduced", tag: "Explore & Build", summary: "AI initiatives can now be tracked from idea to live impact.", date: "May 2025" },
 ];
@@ -21,12 +22,13 @@ export type Tip = {
   tool: string;
   description: string;
   prompt?: string;
+  related?: string[];
 };
 
 export const tools = ["Copilot", "Excel", "Power BI", "Power Automate", "Prompting", "Automation"] as const;
 
 export const tips: Tip[] = [
-  { id: "t1", title: "Turn variance notes into executive commentary", tool: "Copilot", description: "Transform raw variance notes into a concise executive summary.", prompt: "Rewrite these variance notes into a concise executive summary with key risks and actions." },
+  { id: "t1", title: "Turn variance notes into executive commentary", tool: "Copilot", description: "Transform raw variance notes into a concise executive summary.", prompt: "Rewrite these variance notes into a concise executive summary with key risks and actions.", related: ["Monthly close", "FP&A"] },
   { id: "t2", title: "Generate a first draft of a monthly close summary", tool: "Copilot", description: "Create structured close summaries with key highlights.", prompt: "Create a monthly close summary using the following highlights, organized by revenue, margin, cost, and risk." },
   { id: "t3", title: "Explain movements in a Power BI dashboard", tool: "Power BI", description: "Summarize key drivers in your dashboards.", prompt: "Summarize the main movements by region and identify the top three drivers." },
   { id: "t4", title: "Automate recurring reminder emails", tool: "Power Automate", description: "A simple flow that reminds stakeholders before reporting deadlines." },
@@ -39,17 +41,22 @@ export type Champion = {
   name: string;
   role: string;
   region: string;
+  country: string;
   function: string;
   expertise: string[];
 };
 
 export const champions: Champion[] = [
-  { id: "c1", name: "A. Laurent", role: "Finance Manager", region: "EMEA", function: "FP&A", expertise: ["Copilot", "Prompting", "AI Use Cases"] },
-  { id: "c2", name: "S. Okafor", role: "Controller", region: "AMER", function: "Controlling", expertise: ["Power BI", "Automation"] },
-  { id: "c3", name: "M. Tanaka", role: "Senior Analyst", region: "APAC", function: "Reporting", expertise: ["Python", "Power BI"] },
-  { id: "c4", name: "L. Müller", role: "Treasury Lead", region: "EMEA", function: "Treasury", expertise: ["Low-Code", "Automation"] },
-  { id: "c5", name: "R. Patel", role: "Tax Analyst", region: "AMER", function: "Tax", expertise: ["Copilot", "AI Use Cases"] },
-  { id: "c6", name: "J. Kim", role: "Audit Manager", region: "APAC", function: "Audit", expertise: ["Prompting", "Low-Code"] },
+  { id: "c1", name: "A. Laurent", role: "Finance Manager", region: "EMEA", country: "France", function: "FP&A", expertise: ["Copilot", "Prompting", "AI Use Cases"] },
+  { id: "c2", name: "S. Okafor", role: "Controller", region: "AMER", country: "USA", function: "Controlling", expertise: ["Power BI", "Automation"] },
+  { id: "c3", name: "M. Tanaka", role: "Senior Analyst", region: "APAC", country: "Japan", function: "Reporting", expertise: ["Python", "Power BI"] },
+  { id: "c4", name: "L. Müller", role: "Treasury Lead", region: "EMEA", country: "Germany", function: "Treasury", expertise: ["Low-Code", "Automation"] },
+  { id: "c5", name: "R. Patel", role: "Tax Analyst", region: "AMER", country: "Canada", function: "Tax", expertise: ["Copilot", "AI Use Cases"] },
+  { id: "c6", name: "J. Kim", role: "Audit Manager", region: "APAC", country: "South Korea", function: "Audit", expertise: ["Prompting", "Low-Code"] },
+  { id: "c7", name: "E. Rossi", role: "FP&A Lead", region: "EMEA", country: "Italy", function: "FP&A", expertise: ["Copilot", "Power BI"] },
+  { id: "c8", name: "C. Silva", role: "Controller", region: "AMER", country: "Brazil", function: "Controlling", expertise: ["Automation", "Low-Code"] },
+  { id: "c9", name: "N. Wang", role: "Reporting Analyst", region: "APAC", country: "China", function: "Reporting", expertise: ["Python", "AI Use Cases"] },
+  { id: "c10", name: "F. Garcia", role: "FP&A Analyst", region: "EMEA", country: "Spain", function: "FP&A", expertise: ["Prompting"] },
 ];
 
 export const regions = ["EMEA", "AMER", "APAC"];
@@ -94,39 +101,51 @@ export type Resource = {
   description: string;
 };
 
+// 8 Learning platforms
 export const resources: Resource[] = [
-  { id: "r1", name: "DDAI Academy", description: "General AI and data learning resources." },
-  { id: "r2", name: "LinkedIn Learning", description: "Curated AI, productivity, and business learning content." },
-  { id: "r3", name: "AI Skill Navigator", description: "A guide to identify the right AI learning resources by role and level." },
-  { id: "r4", name: "Ad Hoc Trainings", description: "Targeted sessions for teams, tools, or specific use cases." },
-  { id: "r5", name: "AI Sandbox", description: "A safe environment to experiment with AI concepts and prototypes." },
+  { id: "r1", name: "Danone Digital & AI Academy", description: "Company-wide foundation for digital and AI literacy." },
+  { id: "r2", name: "Campus X", description: "Cross-functional learning hub for Danone." },
+  { id: "r3", name: "LinkedIn Learning", description: "Curated AI, productivity, and business learning content." },
+  { id: "r4", name: "DataCamp", description: "Hands-on data and Python learning tracks." },
+  { id: "r5", name: "Microsoft Hub", description: "Official Copilot and M365 enablement." },
+  { id: "r6", name: "ESI", description: "Executive Skills Institute training paths." },
+  { id: "r7", name: "Ad Hoc Trainings", description: "Targeted sessions for teams, tools, or use cases." },
+  { id: "r8", name: "Microsoft AI Skill Navigator", description: "Identify the right AI learning by role and level." },
 ];
 
-export type Event = {
+export type EventItem = {
   id: string;
   title: string;
-  type: "Upcoming" | "Past";
+  type: string; // FD Call, Training, Mini-Lab…
   description: string;
-  date: string;
-  materials?: string[];
+  date: string; // ISO-like or display
+  day: string;
+  month: string;
+  meta?: string;
 };
 
-export const events: Event[] = [
-  { id: "e1", title: "AI Finance Demo Day", type: "Upcoming", description: "See practical use cases from Finance teams.", date: "Jul 18, 2025" },
-  { id: "e2", title: "Copilot for Finance Session", type: "Past", description: "Hands-on session on Copilot use in daily Finance work.", date: "May 22, 2025", materials: ["Recording", "Slides", "Key takeaways"] },
-  { id: "e3", title: "AI Champion Showcase", type: "Past", description: "Champions present use cases, learnings, and next steps.", date: "Apr 9, 2025", materials: ["Use cases", "Learnings", "Next steps"] },
+export const events: EventItem[] = [
+  { id: "e1", title: "Finance Directors AI Call #31", type: "FD Call", description: "Teams · 10:00 CET", date: "Jun 5", day: "5", month: "JUN", meta: "Teams · 10:00 CET" },
+  { id: "e2", title: "AI Boost — APAC session", type: "Training", description: "Remote · 09:00 SGT", date: "Jun 12", day: "12", month: "JUN", meta: "Remote · 09:00 SGT" },
+  { id: "e3", title: "Mini-Lab: Copilot for Forecasting", type: "Mini-Lab", description: "Champions only", date: "Jun 19", day: "19", month: "JUN", meta: "Champions only" },
+  { id: "e4", title: "AI Finance Demo Day", type: "Event", description: "See practical use cases from Finance teams.", date: "Jul 18", day: "18", month: "JUL", meta: "Hybrid" },
 ];
 
-export type Newsletter = {
-  id: string;
-  issue: string;
-  summary: string;
-};
-
+export type Newsletter = { id: string; issue: string; summary: string };
 export const newsletters: Newsletter[] = [
   { id: "nl1", issue: "June 2025", summary: "AI Boost Beta & Copilot Tips" },
   { id: "nl2", issue: "May 2025", summary: "Champions Month Highlights" },
   { id: "nl3", issue: "April 2025", summary: "Explore & Build Special" },
+];
+
+export type FAQ = { id: string; q: string; a: string };
+export const faqs: FAQ[] = [
+  { id: "f1", q: "What is AI.finance?", a: "AI.finance is the Finance Transformation hub for AI capabilities, learning, use cases and the Champions community." },
+  { id: "f2", q: "Who can use Copilot M365 with internal data?", a: "Anyone with an M365 licence may use internal non-classified data. Confidential or unpublished data is not allowed." },
+  { id: "f3", q: "How do I submit an AI idea?", a: "Use the AI.DEA form on Explore & Build. The AI Gate Committee reviews ideas every ~3 months." },
+  { id: "f4", q: "Can I use public ChatGPT or Gemini for Finance data?", a: "No. Public ChatGPT, Gemini, or any unapproved tool must never receive Danone data." },
+  { id: "f5", q: "How do I become an AI Champion?", a: "Express interest from the AI Champions page. You don't need to be technical — curiosity and willingness to share is what matters." },
+  { id: "f6", q: "Where can I learn AI for Finance?", a: "Start with AI Boost on the Upskill page, then explore 8 partner platforms including LinkedIn Learning, DataCamp and the Microsoft AI Skill Navigator." },
 ];
 
 // Unified search index
@@ -140,11 +159,12 @@ export type SearchItem = {
 };
 
 export const searchIndex: SearchItem[] = [
+  ...faqs.map(f => ({ id: f.id, type: "FAQ" as const, title: f.q, description: f.a, meta: "FAQ", href: "/" })),
   ...news.map(n => ({ id: n.id, type: "News" as const, title: n.title, description: n.summary, meta: n.tag, href: "/discover" })),
-  ...tips.map(t => ({ id: t.id, type: "Tip" as const, title: t.title, description: t.description, meta: t.tool, href: "/discover" })),
-  ...tools.map(t => ({ id: `tool-${t}`, type: "Tool" as const, title: t, description: `Tool used across Finance AI tips and workflows.`, meta: "Tool", href: "/discover" })),
+  ...tips.map(t => ({ id: t.id, type: "Tip" as const, title: t.title, description: t.description, meta: t.tool, href: "/upskill" })),
+  ...tools.map(t => ({ id: `tool-${t}`, type: "Tool" as const, title: t, description: `Tool used across Finance AI tips and workflows.`, meta: "Tool", href: "/upskill" })),
   ...useCases.map(u => ({ id: u.id, type: "Use Case" as const, title: u.title, description: u.problem, meta: `${u.capability} · ${u.status}`, href: "/explore" })),
   ...resources.map(r => ({ id: r.id, type: "Resource" as const, title: r.name, description: r.description, meta: "Learning", href: "/upskill" })),
-  ...events.map(e => ({ id: e.id, type: "Event" as const, title: e.title, description: e.description, meta: `${e.type} · ${e.date}`, href: "/explore" })),
+  ...events.map(e => ({ id: e.id, type: "Event" as const, title: e.title, description: e.description, meta: `${e.type} · ${e.date}`, href: "/" })),
   ...champions.map(c => ({ id: c.id, type: "Champion" as const, title: c.name, description: `${c.role} · ${c.function} · ${c.region}`, meta: c.expertise.join(", "), href: "/champions" })),
 ];

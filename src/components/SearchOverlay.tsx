@@ -3,14 +3,16 @@ import { Link } from "@tanstack/react-router";
 import { searchIndex, type ResultType } from "@/lib/data";
 import { Search, X } from "lucide-react";
 
-const TYPES: ResultType[] = ["News", "Tip", "Tool", "Use Case", "Champion", "Resource", "Event"];
+const TYPES: ResultType[] = ["FAQ", "News", "Tip", "Tool", "Use Case", "Champion", "Resource", "Event"];
 
 export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [q, setQ] = useState("");
-  const [activeTypes, setActiveTypes] = useState<ResultType[]>([]);
+  const [activeTypes, setActiveTypes] = useState<ResultType[]>(["FAQ"]);
 
   useEffect(() => {
     if (!open) return;
+    setActiveTypes(["FAQ"]);
+    setQ("");
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -21,9 +23,7 @@ export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () =>
   }, [open, onClose]);
 
   const term = q.trim().toLowerCase();
-  const hasQuery = term.length > 0 || activeTypes.length > 0;
   const results = useMemo(() => {
-    if (!hasQuery) return [];
     return searchIndex.filter(item => {
       if (activeTypes.length && !activeTypes.includes(item.type)) return false;
       if (!term) return true;
@@ -33,7 +33,7 @@ export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () =>
         (item.meta?.toLowerCase().includes(term) ?? false)
       );
     }).slice(0, 40);
-  }, [term, activeTypes, hasQuery]);
+  }, [term, activeTypes]);
 
   if (!open) return null;
 
@@ -52,14 +52,14 @@ export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () =>
             autoFocus
             value={q}
             onChange={e => setQ(e.target.value)}
-            placeholder="Search news, tips, tools, use cases, resources, and champions…"
+            placeholder="Search FAQ, news, tips, tools, use cases, champions…"
             className="flex-1 bg-transparent outline-none text-lg placeholder:text-muted-foreground"
           />
           <button onClick={onClose} className="rounded-full p-2 hover:bg-muted">
             <X className="size-4" />
           </button>
         </div>
-        <div className="flex flex-wrap gap-2 px-6 py-4 border-b bg-surface">
+        <div className="flex flex-wrap gap-2 px-6 py-3 border-b bg-surface">
           {TYPES.map(t => (
             <button
               key={t}
@@ -71,9 +71,7 @@ export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () =>
           ))}
         </div>
         <div className="max-h-[55vh] overflow-y-auto p-3">
-          {!hasQuery ? (
-            <div className="px-6 py-10 text-center text-sm text-muted-foreground">Start typing or pick a filter to search.</div>
-          ) : results.length === 0 ? (
+          {results.length === 0 ? (
             <div className="px-6 py-10 text-center text-muted-foreground">No matches. Try a different keyword.</div>
           ) : (
             <ul className="divide-y">
@@ -82,13 +80,13 @@ export function SearchOverlay({ open, onClose }: { open: boolean; onClose: () =>
                   <Link
                     to={r.href}
                     onClick={onClose}
-                    className="block px-4 py-4 rounded-2xl hover:bg-surface-2 transition-colors"
+                    className="block px-4 py-3.5 rounded-2xl hover:bg-surface-2 transition-colors"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="min-w-0">
                         <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">{r.type}</div>
                         <div className="font-medium text-foreground mt-0.5 truncate">{r.title}</div>
-                        <div className="text-sm text-muted-foreground mt-1 line-clamp-2">{r.description}</div>
+                        <div className="text-sm text-muted-foreground mt-0.5 line-clamp-2">{r.description}</div>
                       </div>
                       {r.meta && <span className="chip whitespace-nowrap">{r.meta}</span>}
                     </div>

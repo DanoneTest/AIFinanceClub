@@ -1,15 +1,25 @@
 import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { Search } from "lucide-react";
+import { Search, Home } from "lucide-react";
 import { SearchOverlay } from "./SearchOverlay";
 import logo from "@/assets/logo.png.asset.json";
 
 const NAV = [
-  { to: "/discover", label: "Discover" },
-  { to: "/upskill", label: "Upskill" },
-  { to: "/explore", label: "Explore & Build" },
-  { to: "/champions", label: "AI Champions" },
+  { to: "/discover", label: "Discover", n: "1" },
+  { to: "/upskill", label: "Upskill", n: "2" },
+  { to: "/explore", label: "Explore & Build", n: "3" },
+  { to: "/champions", label: "AI Champions", n: "4" },
 ] as const;
+
+function Wordmark() {
+  return (
+    <span className="inline-flex items-baseline font-semibold tracking-tight text-foreground">
+      <span>AI</span>
+      <span className="mx-[1px] inline-block size-1.5 rounded-full bg-accent-blue translate-y-[-1px]" aria-hidden />
+      <span>finance</span>
+    </span>
+  );
+}
 
 export function Layout({ children }: { children: ReactNode }) {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -17,15 +27,25 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
-        <div className="container-page flex h-16 items-center justify-between gap-8">
-          <Link to="/" className="flex items-center gap-2.5 font-medium tracking-tight">
-            <img src={logo.url} alt="Logo" className="h-9 w-9 object-contain" />
+        <div className="container-page flex h-14 items-center justify-between gap-6">
+          <Link to="/" className="flex items-center gap-2.5">
+            <img src={logo.url} alt="Logo" className="h-8 w-8 object-contain" />
             <span className="hidden sm:flex flex-col leading-tight">
-              <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">Finance Digital Transformation</span>
-              <span className="text-sm font-semibold">AI.Finance Club</span>
+              <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Finance Transformation</span>
+              <Wordmark />
             </span>
           </Link>
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5">
+            <Link
+              to="/"
+              activeOptions={{ exact: true }}
+              activeProps={{ className: "text-foreground bg-surface-2" }}
+              inactiveProps={{ className: "text-muted-foreground" }}
+              className="px-2.5 py-1.5 rounded-full text-sm hover:text-foreground transition-colors inline-flex items-center gap-1.5"
+              aria-label="Home"
+            >
+              <Home className="size-4" />
+            </Link>
             {NAV.map(item => (
               <Link
                 key={item.to}
@@ -34,7 +54,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 inactiveProps={{ className: "text-muted-foreground" }}
                 className="px-3 py-1.5 rounded-full text-sm hover:text-foreground transition-colors"
               >
-                {item.label}
+                <span className="text-muted-foreground/70 mr-1.5">{item.n}.</span>{item.label}
               </Link>
             ))}
           </nav>
@@ -48,6 +68,7 @@ export function Layout({ children }: { children: ReactNode }) {
         </div>
         <nav className="lg:hidden border-t bg-background/90">
           <div className="container-page flex gap-1 overflow-x-auto py-2 text-sm">
+            <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground bg-surface-2" }} inactiveProps={{ className: "text-muted-foreground" }} className="px-3 py-1.5 rounded-full whitespace-nowrap inline-flex items-center gap-1"><Home className="size-3.5" /></Link>
             {NAV.map(item => (
               <Link
                 key={item.to}
@@ -56,7 +77,7 @@ export function Layout({ children }: { children: ReactNode }) {
                 inactiveProps={{ className: "text-muted-foreground" }}
                 className="px-3 py-1.5 rounded-full whitespace-nowrap"
               >
-                {item.label}
+                <span className="opacity-60 mr-1">{item.n}.</span>{item.label}
               </Link>
             ))}
           </div>
@@ -65,13 +86,13 @@ export function Layout({ children }: { children: ReactNode }) {
 
       <main className="flex-1">{children}</main>
 
-      <footer className="border-t mt-16">
-        <div className="container-page py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+      <footer className="border-t mt-12">
+        <div className="container-page py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <img src={logo.url} alt="Logo" className="h-6 w-6 object-contain" />
-            <span>Finance Digital Transformation · AI.Finance Club</span>
+            <img src={logo.url} alt="Logo" className="h-5 w-5 object-contain" />
+            <span>Finance Transformation · </span><Wordmark />
           </div>
-          <div>Built for Finance. Designed for adoption.</div>
+          <div>Built by Finance for Finance. Designed for adoption.</div>
         </div>
       </footer>
 
