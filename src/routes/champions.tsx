@@ -168,18 +168,18 @@ function Champions() {
 
       {/* Champion Corner */}
       <section className="container-page py-10">
-        <div className="rounded-2xl border border-[#d4af37]/40 bg-gradient-to-br from-[#3a2e10] via-[#1f1808] to-[#0f0a02] text-[#f5e6a8] p-6 md:p-8">
-          <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-[#d4af37]">
+        <div className="rounded-2xl border border-white/10 bg-black text-white p-6 md:p-8">
+          <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-white">
             <Lock className="size-3.5" />
             For Champions
           </div>
-          <h2 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-[#d4af37]">Champion Corner</h2>
-          <p className="mt-2 opacity-80 max-w-2xl text-sm">
+          <h2 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-white">Champion Corner</h2>
+          <p className="mt-2 text-white/80 max-w-2xl text-sm">
             A dedicated space with resources, playbooks, and community sessions.
           </p>
           <div className="mt-5 grid gap-3 md:grid-cols-3">
             {["Champion resources", "Upcoming community sessions", "Playbooks", "Templates", "Event materials", "Recognition / spotlight"].map(s => (
-              <div key={s} className="rounded-xl bg-[#d4af37]/10 backdrop-blur-sm border border-[#d4af37]/20 p-4 text-sm">
+              <div key={s} className="rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-4 text-sm text-white">
                 {s}
               </div>
             ))}
