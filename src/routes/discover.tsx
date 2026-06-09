@@ -278,7 +278,7 @@ function Discover() {
             </ul>
             <div className="mt-5 text-[11px] uppercase tracking-wider text-muted-foreground">Composition</div>
             <ul className="mt-2 space-y-2 text-sm">
-              <li className="rounded-lg bg-surface p-2.5">👥 Finance Transformation + IT + Data & Analytics (D&A) AI team</li>
+              <li className="rounded-lg bg-surface p-2.5">👥 Finance Transformation + IT Data & Analytics (D&A) AI team</li>
               <li className="rounded-lg bg-surface p-2.5">📅 Meets approximately every 3 months. Minutes shared with submitters.</li>
             </ul>
           </div>
