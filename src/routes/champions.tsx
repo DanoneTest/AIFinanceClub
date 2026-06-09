@@ -150,25 +150,64 @@ function Champions() {
       {/* Apply */}
       <section id="apply" className="container-page py-10">
         <div className="rounded-2xl border bg-card p-6 md:p-8">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">March = AI Champion Month.</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Why join the AI Champion community.</h2>
           <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
-            Join. Learn. Test. Shape the future of Finance with AI.
+            Everything you need to know about the community, who it's for, and what's in it for you.
           </p>
-          <ol className="mt-5 grid gap-3 md:grid-cols-4">
-            {[
-              { t: "Test AI tools", d: "& Finance use cases" },
-              { t: "Join Mini-Labs", d: "& learning sessions" },
-              { t: "Share learnings", d: "with peers" },
-              { t: "Be a local AI relay", d: "in your team" },
-            ].map((s, i) => (
-              <li key={s.t} className="rounded-xl bg-surface p-3">
-                <div className="text-xs text-muted-foreground">Step {i + 1}</div>
-                <div className="mt-0.5 font-medium text-sm">{s.t}</div>
-                <div className="text-xs text-muted-foreground">{s.d}</div>
-              </li>
-            ))}
-          </ol>
-          <button className="mt-5 rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium">Apply now</button>
+
+          <div className="mt-6 grid gap-3 md:grid-cols-2">
+            <div className="rounded-xl bg-surface p-4">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">Why it exists</div>
+              <ul className="mt-2 space-y-1.5 text-sm list-disc pl-5">
+                <li>Accelerate AI <strong>adoption</strong> across Finance</li>
+                <li>Identify, test and <strong>scale</strong> high-impact AI use cases</li>
+                <li>Build a strong, sustainable <strong>AI learning culture</strong> in Finance</li>
+              </ul>
+            </div>
+            <div className="rounded-xl bg-surface p-4">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">How the community works</div>
+              <ul className="mt-2 space-y-1.5 text-sm list-disc pl-5">
+                <li><strong>1 global</strong> AI Champions Community driven by the AI Finance team</li>
+                <li><strong>150 Champions worldwide</strong>, across Finance functions</li>
+                <li><strong>Hands-on Mini-Labs</strong> to explore new AI technologies</li>
+                <li><strong>Use-case driven</strong> — test, share, scale</li>
+                <li>Practical · Finance-driven · Impact-oriented</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-3 grid gap-3 md:grid-cols-3">
+            <div className="rounded-xl bg-surface p-4">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">Who can join</div>
+              <ul className="mt-2 space-y-1.5 text-sm">
+                <li>✓ All Finance & DBS Finance professionals</li>
+                <li>✓ Any <strong>role</strong>, any <strong>seniority</strong>, any <strong>geography</strong></li>
+                <li>✓ <strong>Curious</strong>, willing to learn</li>
+                <li>✓ Motivated to <strong>test AI in daily work</strong></li>
+              </ul>
+            </div>
+            <div className="rounded-xl bg-surface p-4">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">What it really means</div>
+              <ul className="mt-2 space-y-1.5 text-sm">
+                <li>○ <strong>Test AI tools</strong> & Finance use cases</li>
+                <li>○ <strong>Join Mini-Labs</strong> & learning sessions</li>
+                <li>○ <strong>Share learnings</strong> with peers</li>
+                <li>○ Be a <strong>local AI relay</strong></li>
+              </ul>
+            </div>
+            <div className="rounded-xl bg-surface p-4">
+              <div className="text-xs uppercase tracking-wider text-muted-foreground">What's in it for you</div>
+              <ul className="mt-2 space-y-1.5 text-sm">
+                <li>★ <strong>Early access</strong> to AI tools, pilots & initiatives</li>
+                <li>★ <strong>Hands-on</strong>, Finance-focused <strong>learnings</strong></li>
+                <li>★ Digital, analytical & leadership skills dev</li>
+                <li>★ <strong>Global network</strong> with Finance peers</li>
+                <li>★ <strong>Visible</strong> impact on Finance transfo</li>
+              </ul>
+            </div>
+          </div>
+
+          <button className="mt-6 rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium">Apply now</button>
         </div>
       </section>
 
