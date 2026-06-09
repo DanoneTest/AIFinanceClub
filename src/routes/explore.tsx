@@ -58,11 +58,8 @@ function Explore() {
             <article key={c.name} className="rounded-2xl border bg-card p-4 flex flex-col">
               <span className="chip self-start">{c.name}</span>
               <p className="mt-2 text-xs text-muted-foreground flex-1">{c.what}</p>
-              <div className="mt-3 text-[11px] space-y-1">
+              <div className="mt-3 text-[11px]">
                 <div><span className="text-muted-foreground">Typical: </span>{c.use}</div>
-                <div className="flex flex-wrap gap-1 pt-1.5">
-                  {c.tools.map(t => <span key={t} className="chip text-[10px] py-0.5">{t}</span>)}
-                </div>
               </div>
             </article>
           ))}
