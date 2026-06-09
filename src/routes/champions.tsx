@@ -150,15 +150,21 @@ function Champions() {
       {/* Apply */}
       <section id="apply" className="container-page py-10">
         <div className="rounded-2xl border bg-card p-6 md:p-8">
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Become an AI Champion.</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">March = AI Champion Month.</h2>
           <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
-            You do not need to be technical. You need curiosity, practical thinking, and willingness to help others learn.
+            Join. Learn. Test. Shape the future of Finance with AI.
           </p>
           <ol className="mt-5 grid gap-3 md:grid-cols-4">
-            {["Express interest", "Join onboarding", "Participate in learning and community sessions", "Share tips, use cases, and feedback"].map((s, i) => (
-              <li key={s} className="rounded-xl bg-surface p-3">
+            {[
+              { t: "Test AI tools", d: "& Finance use cases" },
+              { t: "Join Mini-Labs", d: "& learning sessions" },
+              { t: "Share learnings", d: "with peers" },
+              { t: "Be a local AI relay", d: "in your team" },
+            ].map((s, i) => (
+              <li key={s.t} className="rounded-xl bg-surface p-3">
                 <div className="text-xs text-muted-foreground">Step {i + 1}</div>
-                <div className="mt-0.5 font-medium text-sm">{s}</div>
+                <div className="mt-0.5 font-medium text-sm">{s.t}</div>
+                <div className="text-xs text-muted-foreground">{s.d}</div>
               </li>
             ))}
           </ol>
