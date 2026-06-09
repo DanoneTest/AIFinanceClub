@@ -46,8 +46,14 @@ function Explore() {
           <p className="mt-3 text-base text-muted-foreground max-w-2xl mx-auto">
             AI tools powering Finance use cases, a searchable library, and your idea submission.
           </p>
+          <div className="mt-5 flex flex-wrap justify-center gap-2">
+            <a href="#capabilities" className="rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium">Capabilities</a>
+            <a href="#usecases" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Use Cases</a>
+            <a href="#idea" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">I Have an Idea</a>
+          </div>
         </div>
       </section>
+
 
       {/* Capabilities */}
       <section id="capabilities" className="container-page py-10">
