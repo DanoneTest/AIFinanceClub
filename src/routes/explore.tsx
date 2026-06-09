@@ -15,7 +15,7 @@ export const Route = createFileRoute("/explore")({
 });
 
 const FUNCTIONS = ["All", "FP&A", "Controlling", "Reporting", "Treasury", "Audit", "Tax"];
-const CAP_FILTERS = ["All", "AI", "Automation", "Low-Code", "Python", "Vibe Coding"];
+const CAP_FILTERS = ["All", "Copilot", "Power Automate", "Power Apps", "Python", "Vibe Coding"];
 const STAGES: { name: Maturity; desc: string }[] = [
   { name: "Idea", desc: "Opportunity identified." },
   { name: "Pilot", desc: "Small test with users." },
@@ -52,7 +52,7 @@ function Explore() {
       {/* Capabilities */}
       <section id="capabilities" className="container-page py-10">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Capabilities</div>
-        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">AI Tools Powering Finance Use Cases.</h2>
+        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Capabilities powering Finance use cases.</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-5">
           {capabilities.map(c => (
             <article key={c.name} className="rounded-2xl border bg-card p-4 flex flex-col">
@@ -160,7 +160,7 @@ function Explore() {
               <Field label="Finance process impacted"><input className={inputClass} required /></Field>
               <Field label="Problem to solve" full><textarea className={inputClass} rows={2} required /></Field>
               <Field label="Expected benefit" full><textarea className={inputClass} rows={2} required /></Field>
-              <Field label="Tools or capabilities"><input className={inputClass} placeholder="AI, Automation, Low-Code…" /></Field>
+              <Field label="Tools or capabilities"><input className={inputClass} placeholder="Copilot, Power Automate, Power Apps…" /></Field>
               <Field label="Team / contact"><input className={inputClass} /></Field>
               <div className="md:col-span-2">
                 <button type="submit" className="rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium inline-flex items-center gap-2">
