@@ -114,15 +114,6 @@ function Explore() {
           ))}
         </div>
 
-        {/* Finance Awards CTA */}
-        <div className="mt-6 rounded-2xl border bg-gradient-to-r from-amber-50 to-amber-100/50 dark:from-amber-900/20 dark:to-amber-900/10 p-5 flex items-center gap-4 flex-wrap">
-          <Trophy className="size-8 text-amber-600" />
-          <div className="flex-1 min-w-[200px]">
-            <div className="font-semibold">Do you want to submit this use case to the Finance Awards?</div>
-            <div className="text-sm text-muted-foreground">Recognize your team's AI impact at the next Finance Awards ceremony.</div>
-          </div>
-          <button className="rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium">Submit to Finance Awards</button>
-        </div>
 
         {/* Scorecards */}
         <div className="mt-6 rounded-2xl border bg-card p-5">
@@ -159,8 +150,13 @@ function Explore() {
               <Field label="Expected benefit" full><textarea className={inputClass} rows={2} required /></Field>
               <Field label="Tools or capabilities"><input className={inputClass} placeholder="Copilot, Power Automate, Power Apps…" /></Field>
               <Field label="Team / contact"><input className={inputClass} /></Field>
-              <div className="md:col-span-2">
-                <button type="submit" className="rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium inline-flex items-center gap-2">
+              <div className="md:col-span-2 flex flex-wrap items-center gap-4">
+                <label className="inline-flex items-center gap-2 text-sm">
+                  <input type="checkbox" className="size-4 rounded border-input accent-navy" />
+                  <Trophy className="size-4 text-amber-600" />
+                  <span>Submit this use case to the Finance Awards</span>
+                </label>
+                <button type="submit" className="rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium inline-flex items-center gap-2 ml-auto">
                   Submit idea <ArrowRight className="size-4" />
                 </button>
               </div>
