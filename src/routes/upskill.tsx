@@ -18,15 +18,15 @@ const PATHS = [
   {
     id: "discover",
     title: "Discover",
-    desc: "Understand what AI is, what it can do, and how it applies to Finance.",
-    bestFor: "People starting their AI journey.",
-    outcomes: ["Understand AI capabilities", "Learn key concepts", "Identify simple opportunities in daily work"],
+    desc: "Understand what Copilot is, what it can do, and how it applies to Finance.",
+    bestFor: "People starting their Copilot journey.",
+    outcomes: ["Understand Copilot capabilities", "Learn key concepts", "Identify simple opportunities in daily work"],
   },
   {
     id: "apply",
     title: "Apply",
-    desc: "Use Copilot and M365 AI tools to improve everyday productivity.",
-    bestFor: "People who want to use AI in daily Finance tasks.",
+    desc: "Use Copilot and M365 tools to improve everyday productivity.",
+    bestFor: "People who want to use Copilot in daily Finance tasks.",
     outcomes: [
       "Use Copilot in Outlook, Excel, Word, Teams",
       "Write better prompts",
@@ -37,9 +37,9 @@ const PATHS = [
   {
     id: "lead",
     title: "Lead",
-    desc: "Propose use cases, shape initiatives, and help your team scale AI.",
+    desc: "Propose use cases, shape initiatives, and help your team scale Copilot.",
     bestFor: "Future AI Champions and use case owners.",
-    outcomes: ["Frame AI use cases", "Submit ideas", "Support adoption", "Join the Champion community"],
+    outcomes: ["Frame Copilot use cases", "Submit ideas", "Support adoption", "Join the Champion community"],
   },
 ];
 

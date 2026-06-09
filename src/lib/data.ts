@@ -48,22 +48,22 @@ export type Champion = {
 
 export const champions: Champion[] = [
   { id: "c1", name: "A. Laurent", role: "Finance Manager", region: "EMEA", country: "France", function: "FP&A", expertise: ["Copilot", "Prompting", "AI Use Cases"] },
-  { id: "c2", name: "S. Okafor", role: "Controller", region: "AMER", country: "USA", function: "Controlling", expertise: ["Power BI", "Automation"] },
+  { id: "c2", name: "S. Okafor", role: "Controller", region: "AMER", country: "USA", function: "Controlling", expertise: ["Power BI", "Power Automate"] },
   { id: "c3", name: "M. Tanaka", role: "Senior Analyst", region: "APAC", country: "Japan", function: "Reporting", expertise: ["Python", "Power BI"] },
-  { id: "c4", name: "L. Müller", role: "Treasury Lead", region: "EMEA", country: "Germany", function: "Treasury", expertise: ["Low-Code", "Automation"] },
+  { id: "c4", name: "L. Müller", role: "Treasury Lead", region: "EMEA", country: "Germany", function: "Treasury", expertise: ["Power Apps", "Power Automate"] },
   { id: "c5", name: "R. Patel", role: "Tax Analyst", region: "AMER", country: "Canada", function: "Tax", expertise: ["Copilot", "AI Use Cases"] },
-  { id: "c6", name: "J. Kim", role: "Audit Manager", region: "APAC", country: "South Korea", function: "Audit", expertise: ["Prompting", "Low-Code"] },
+  { id: "c6", name: "J. Kim", role: "Audit Manager", region: "APAC", country: "South Korea", function: "Audit", expertise: ["Prompting", "Power Apps"] },
   { id: "c7", name: "E. Rossi", role: "FP&A Lead", region: "EMEA", country: "Italy", function: "FP&A", expertise: ["Copilot", "Power BI"] },
-  { id: "c8", name: "C. Silva", role: "Controller", region: "AMER", country: "Brazil", function: "Controlling", expertise: ["Automation", "Low-Code"] },
+  { id: "c8", name: "C. Silva", role: "Controller", region: "AMER", country: "Brazil", function: "Controlling", expertise: ["Power Automate", "Power Apps"] },
   { id: "c9", name: "N. Wang", role: "Reporting Analyst", region: "APAC", country: "China", function: "Reporting", expertise: ["Python", "AI Use Cases"] },
   { id: "c10", name: "F. Garcia", role: "FP&A Analyst", region: "EMEA", country: "Spain", function: "FP&A", expertise: ["Prompting"] },
 ];
 
 export const regions = ["EMEA", "AMER", "APAC"];
 export const functions = ["FP&A", "Controlling", "Reporting", "Treasury", "Audit", "Tax"];
-export const expertiseTags = ["Copilot", "Power BI", "Automation", "AI Use Cases", "Prompting", "Python", "Low-Code"];
+export const expertiseTags = ["Copilot", "Power BI", "Power Automate", "AI Use Cases", "Prompting", "Python", "Power Apps"];
 
-export type Capability = "AI" | "Automation" | "Low-Code" | "Python" | "Vibe Coding";
+export type Capability = "Copilot" | "Power Automate" | "Power Apps" | "Python" | "Vibe Coding";
 export type Maturity = "Idea" | "Pilot" | "Scaling" | "Live";
 
 export type UseCase = {
@@ -79,18 +79,18 @@ export type UseCase = {
 };
 
 export const useCases: UseCase[] = [
-  { id: "u1", title: "Monthly variance commentary assistant", problem: "Finance teams spend time rewriting variance notes for leadership.", solution: "AI helps transform raw notes into concise executive commentary.", capability: "AI", function: "FP&A", status: "Pilot", impact: "Faster monthly reporting", owner: "FP&A EMEA" },
-  { id: "u2", title: "Automated reporting reminders", problem: "Teams manually chase stakeholders for reporting inputs.", solution: "Automation sends reminders and tracks responses.", capability: "Automation", function: "Reporting", status: "Live", impact: "Reduced manual follow-up", owner: "Reporting Hub" },
-  { id: "u3", title: "Power BI insight summarizer", problem: "Dashboard users need help interpreting key movements.", solution: "AI summarizes main drivers and highlights anomalies.", capability: "AI", function: "Controlling", status: "Idea", impact: "Faster insight generation", owner: "Controlling AMER" },
+  { id: "u1", title: "Monthly variance commentary assistant", problem: "Finance teams spend time rewriting variance notes for leadership.", solution: "Copilot helps transform raw notes into concise executive commentary.", capability: "Copilot", function: "FP&A", status: "Pilot", impact: "Faster monthly reporting", owner: "FP&A EMEA" },
+  { id: "u2", title: "Automated reporting reminders", problem: "Teams manually chase stakeholders for reporting inputs.", solution: "Power Automate sends reminders and tracks responses.", capability: "Power Automate", function: "Reporting", status: "Live", impact: "Reduced manual follow-up", owner: "Reporting Hub" },
+  { id: "u3", title: "Power BI insight summarizer", problem: "Dashboard users need help interpreting key movements.", solution: "Copilot summarizes main drivers and highlights anomalies.", capability: "Copilot", function: "Controlling", status: "Idea", impact: "Faster insight generation", owner: "Controlling AMER" },
   { id: "u4", title: "Forecast data preparation script", problem: "Forecast files require repetitive cleaning.", solution: "Python automates data preparation.", capability: "Python", function: "FP&A", status: "Scaling", impact: "Cleaner inputs and time saved", owner: "FP&A APAC" },
-  { id: "u5", title: "Internal Finance knowledge assistant", problem: "Teams struggle to find policies, templates, and past learnings.", solution: "AI Q&A over selected internal knowledge sources.", capability: "AI", function: "Reporting", status: "Idea", impact: "Faster access to knowledge", owner: "Finance Transformation" },
-  { id: "u6", title: "Tax filing low-code workflow", problem: "Tax filings rely on fragmented spreadsheets.", solution: "Low-code app centralizes tasks and approvals.", capability: "Low-Code", function: "Tax", status: "Pilot", impact: "Centralized tax workflow", owner: "Tax AMER" },
+  { id: "u5", title: "Internal Finance knowledge assistant", problem: "Teams struggle to find policies, templates, and past learnings.", solution: "Copilot Q&A over selected internal knowledge sources.", capability: "Copilot", function: "Reporting", status: "Idea", impact: "Faster access to knowledge", owner: "Finance Transformation" },
+  { id: "u6", title: "Tax filing app", problem: "Tax filings rely on fragmented spreadsheets.", solution: "Power Apps centralizes tasks and approvals.", capability: "Power Apps", function: "Tax", status: "Pilot", impact: "Centralized tax workflow", owner: "Tax AMER" },
 ];
 
 export const capabilities = [
-  { name: "AI" as Capability, what: "Use for content generation, summarization, analysis, Q&A, and decision support.", use: "Variance commentary, summaries, internal Q&A", example: "Monthly variance commentary assistant", tools: ["Copilot", "ChatGPT Enterprise"] },
-  { name: "Automation" as Capability, what: "Use for repetitive workflows, notifications, approvals, and reporting routines.", use: "Reminders, approvals, status tracking", example: "Automated reporting reminders", tools: ["Power Automate"] },
-  { name: "Low-Code" as Capability, what: "Use to build apps and workflows without heavy development.", use: "Centralized data capture and approvals", example: "Tax filing workflow app", tools: ["Power Apps"] },
+  { name: "Copilot" as Capability, what: "Use for content generation, summarization, analysis, Q&A, and decision support.", use: "Variance commentary, summaries, internal Q&A", example: "Monthly variance commentary assistant", tools: ["Copilot", "ChatGPT Enterprise"] },
+  { name: "Power Automate" as Capability, what: "Use for repetitive workflows, notifications, approvals, and reporting routines.", use: "Reminders, approvals, status tracking", example: "Automated reporting reminders", tools: ["Power Automate"] },
+  { name: "Power Apps" as Capability, what: "Use to build apps and workflows without heavy development.", use: "Centralized data capture and approvals", example: "Tax filing workflow app", tools: ["Power Apps"] },
   { name: "Python" as Capability, what: "Use for data transformation, financial analysis, forecasting, and repeatable scripts.", use: "Data prep, modeling, automation of analysis", example: "Forecast data preparation script", tools: ["Python", "Pandas"] },
   { name: "Vibe Coding" as Capability, what: "Use AI coding tools to prototype simple apps, dashboards, and internal tools quickly.", use: "Rapid prototypes for Finance ideas", example: "Internal calculator prototype", tools: ["Lovable", "Cursor"] },
 ];
