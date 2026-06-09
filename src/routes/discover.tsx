@@ -83,7 +83,7 @@ function Discover() {
           <nav className="mt-5 flex flex-wrap justify-center gap-2">
             {SECTIONS.map(s => (
               <a key={s.id} href={`#${s.id}`} className="chip hover:bg-surface-2">
-                <s.icon className="size-3.5" /> {s.label}
+                {s.label}
               </a>
             ))}
           </nav>
