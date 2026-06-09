@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, Sparkles, Copy, Check, X, Gamepad2, Compass, PlayCircle, Crown } from "lucide-react";
+import { ArrowRight, Sparkles, Copy, Check, X, Gamepad2 } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
 import { tips, tools, resources, type Tip } from "@/lib/data";
 
@@ -15,9 +15,32 @@ export const Route = createFileRoute("/upskill")({
 });
 
 const PATHS = [
-  { id: "discover", n: "1", icon: Compass, title: "Discover", desc: "Get oriented. Build a shared language around AI in Finance.", duration: "~1h" },
-  { id: "apply", n: "2", icon: PlayCircle, title: "Apply", desc: "Use AI in daily Finance work — prompts, Copilot, Power BI.", duration: "~3h" },
-  { id: "lead", n: "3", icon: Crown, title: "Lead", desc: "Propose, scope, and lead high-value Finance use cases.", duration: "~5h" },
+  {
+    id: "discover",
+    title: "Discover",
+    desc: "Understand what AI is, what it can do, and how it applies to Finance.",
+    bestFor: "People starting their AI journey.",
+    outcomes: ["Understand AI capabilities", "Learn key concepts", "Identify simple opportunities in daily work"],
+  },
+  {
+    id: "apply",
+    title: "Apply",
+    desc: "Use Copilot and M365 AI tools to improve everyday productivity.",
+    bestFor: "People who want to use AI in daily Finance tasks.",
+    outcomes: [
+      "Use Copilot in Outlook, Excel, Word, Teams",
+      "Write better prompts",
+      "Save time on recurring tasks",
+      "Understand when a license is required",
+    ],
+  },
+  {
+    id: "lead",
+    title: "Lead",
+    desc: "Propose use cases, shape initiatives, and help your team scale AI.",
+    bestFor: "Future AI Champions and use case owners.",
+    outcomes: ["Frame AI use cases", "Submit ideas", "Support adoption", "Join the Champion community"],
+  },
 ];
 
 function Upskill() {
