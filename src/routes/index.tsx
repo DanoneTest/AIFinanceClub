@@ -142,25 +142,6 @@ function Index() {
         </div>
       </section>
 
-      {/* By the numbers */}
-      <section className="container-page py-8">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-3">
-          <span className="text-accent-blue font-semibold mr-2">03</span> AI in Finance — by the numbers
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { n: "400+", t: "AI Champions across all Finance zones & CBUs" },
-            { n: "30+", t: "FD Calls with Champion-led AI presentations" },
-            { n: "50+", t: "AI & Automation initiatives identified in Finance" },
-            { n: "5", t: "AI tools approved & available for Finance today" },
-          ].map((s, i) => (
-            <div key={i} className="rounded-2xl border bg-card p-5">
-              <div className="text-3xl font-bold text-navy">{s.n}</div>
-              <div className="mt-1 text-xs text-muted-foreground">{s.t}</div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className="container-page py-8">
