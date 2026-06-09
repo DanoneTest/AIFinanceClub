@@ -95,10 +95,10 @@ function Discover() {
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">1</span>Ambition</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">AI as a daily Finance partner.</h2>
 
-        <div className="mt-6 rounded-2xl border bg-surface p-5">
-          <div className="grid md:grid-cols-2 gap-0">
+        <div className="mt-6 rounded-2xl border bg-card p-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Executive sponsor */}
-            <div className="rounded-2xl border bg-card p-5">
+            <div>
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Executive sponsor</div>
               <div className="mt-3 rounded-xl bg-surface-2 aspect-video flex items-center justify-center relative group cursor-pointer">
                 <div className="size-14 rounded-full bg-navy text-navy-foreground flex items-center justify-center">
@@ -114,7 +114,7 @@ function Discover() {
             </div>
 
             {/* Quotes */}
-            <div className="rounded-2xl border bg-card p-5">
+            <div className="md:border-l md:pl-8">
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Key quotes</div>
               <ul className="mt-3 space-y-3">
                 {QUOTES.map(q => (
