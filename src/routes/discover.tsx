@@ -81,8 +81,8 @@ function Discover() {
             Ambition, journey, governance, and the responsible use of AI shaping Finance.
           </p>
           <nav className="mt-5 flex flex-wrap justify-center gap-2">
-            {SECTIONS.map(s => (
-              <a key={s.id} href={`#${s.id}`} className="chip hover:bg-surface-2">
+            {SECTIONS.map((s, i) => (
+              <a key={s.id} href={`#${s.id}`} className={i === 0 ? "rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium" : "rounded-full border bg-card px-4 py-1.5 text-sm font-medium"}>
                 {s.label}
               </a>
             ))}
