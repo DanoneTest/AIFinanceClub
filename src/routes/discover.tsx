@@ -96,7 +96,7 @@ function Discover() {
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">AI as a daily Finance partner.</h2>
 
         <div className="mt-6 rounded-2xl border bg-surface p-5">
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-0">
             {/* Executive sponsor */}
             <div className="rounded-2xl border bg-card p-5">
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Executive sponsor</div>
