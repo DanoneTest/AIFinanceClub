@@ -218,7 +218,7 @@ function Champions() {
             <Lock className="size-3.5" />
             For Champions
           </div>
-          <h2 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-white">Champion Corner</h2>
+          <h2 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-[#d4af37]">Champion Corner</h2>
           <p className="mt-2 text-white/80 max-w-2xl text-sm">
             A dedicated space with programs, mini-labs, and the community channel.
           </p>
