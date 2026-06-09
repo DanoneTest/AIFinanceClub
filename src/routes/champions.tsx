@@ -166,6 +166,24 @@ function Champions() {
         </div>
       </section>
 
+      {/* Champion Corner */}
+      <section className="container-page py-10">
+        <div className="rounded-2xl border bg-navy text-navy-foreground p-6 md:p-8">
+          <div className="text-[11px] uppercase tracking-[0.18em] opacity-70">For Champions</div>
+          <h2 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight">Champion Corner</h2>
+          <p className="mt-2 opacity-80 max-w-2xl text-sm">
+            A dedicated space with resources, playbooks, and community sessions.
+          </p>
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
+            {["Champion resources", "Upcoming community sessions", "Playbooks", "Templates", "Event materials", "Recognition / spotlight"].map(s => (
+              <div key={s} className="rounded-xl bg-background/10 backdrop-blur-sm border border-white/10 p-4 text-sm">
+                {s}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <WhatsNext
         headline="Start your AI Finance journey today."
         subtitle="Learn the basics, explore use cases, or connect with a Champion."
