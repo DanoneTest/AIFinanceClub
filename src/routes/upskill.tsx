@@ -37,9 +37,9 @@ const PATHS = [
   {
     id: "lead",
     title: "Lead",
-    desc: "Propose use cases, shape initiatives, and help your team scale AI.",
+    desc: "Propose use cases, shape initiatives, and help your team scale Copilot.",
     bestFor: "Future AI Champions and use case owners.",
-    outcomes: ["Frame AI use cases", "Submit ideas", "Support adoption", "Join the Champion community"],
+    outcomes: ["Frame Copilot use cases", "Submit ideas", "Support adoption", "Join the Champion community"],
   },
 ];
 
