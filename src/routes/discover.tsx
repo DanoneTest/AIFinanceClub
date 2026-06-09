@@ -95,32 +95,34 @@ function Discover() {
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">1</span>Ambition</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">AI as a daily Finance partner.</h2>
 
-        <div className="mt-6 grid md:grid-cols-2 gap-5">
-          {/* Executive sponsor */}
-          <div className="rounded-2xl border bg-card p-5">
-            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Executive sponsor</div>
-            <div className="mt-3 rounded-xl bg-surface-2 aspect-video flex items-center justify-center relative group cursor-pointer">
-              <div className="size-14 rounded-full bg-navy text-navy-foreground flex items-center justify-center">
-                <Play className="size-5 ml-0.5" />
+        <div className="mt-6 rounded-2xl border bg-surface p-5">
+          <div className="grid md:grid-cols-2 gap-5">
+            {/* Executive sponsor */}
+            <div className="rounded-2xl border bg-card p-5">
+              <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Executive sponsor</div>
+              <div className="mt-3 rounded-xl bg-surface-2 aspect-video flex items-center justify-center relative group cursor-pointer">
+                <div className="size-14 rounded-full bg-navy text-navy-foreground flex items-center justify-center">
+                  <Play className="size-5 ml-0.5" />
+                </div>
+                <span className="absolute bottom-2 left-3 text-[11px] text-muted-foreground">Video placeholder</span>
               </div>
-              <span className="absolute bottom-2 left-3 text-[11px] text-muted-foreground">Video placeholder</span>
+              <div className="mt-3">
+                <div className="font-semibold">Jurgen Esser</div>
+                <div className="text-sm text-muted-foreground">Deputy CEO & CFO Danone</div>
+              </div>
+              <button className="mt-4 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">Watch the message</button>
             </div>
-            <div className="mt-3">
-              <div className="font-semibold">Jurgen Esser</div>
-              <div className="text-sm text-muted-foreground">Deputy CEO & CFO Danone</div>
-            </div>
-            <button className="mt-4 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">Watch the message</button>
-          </div>
 
-          {/* Quotes */}
-          <div className="rounded-2xl border bg-surface p-5">
-            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Key quotes</div>
-            <ul className="mt-3 space-y-3">
-              {QUOTES.map(q => (
-                <li key={q} className="rounded-xl bg-card border p-3 text-sm italic text-foreground/80">"{q}"</li>
-              ))}
-            </ul>
-            <button className="mt-4 rounded-full border bg-card px-4 py-2 text-sm font-medium">Read full message</button>
+            {/* Quotes */}
+            <div className="rounded-2xl border bg-card p-5">
+              <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Key quotes</div>
+              <ul className="mt-3 space-y-3">
+                {QUOTES.map(q => (
+                  <li key={q} className="rounded-xl bg-surface border p-3 text-sm italic text-foreground/80">"{q}"</li>
+                ))}
+              </ul>
+              <button className="mt-4 rounded-full border bg-card px-4 py-2 text-sm font-medium">Read full message</button>
+            </div>
           </div>
         </div>
       </section>
