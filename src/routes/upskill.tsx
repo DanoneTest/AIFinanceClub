@@ -91,15 +91,23 @@ function Upskill() {
 
         <div className="mt-5 grid md:grid-cols-3 gap-4">
           {PATHS.map(p => (
-            <div key={p.id} className="rounded-2xl border bg-card p-5 flex flex-col">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-accent-blue">{p.n}</span>
-                <p.icon className="size-4 text-accent-blue" />
-                <span className="text-[11px] text-muted-foreground ml-auto">{p.duration}</span>
+            <div key={p.id} className="rounded-2xl border bg-card p-6 flex flex-col">
+              <div className="text-[11px] uppercase tracking-[0.18em] text-accent-blue font-semibold">Path</div>
+              <h3 className="mt-2 text-2xl font-semibold tracking-tight">{p.title}</h3>
+              <p className="mt-3 text-sm text-muted-foreground">{p.desc}</p>
+              <div className="mt-4 text-sm">
+                <span className="text-muted-foreground">Best for: </span>
+                <span className="text-foreground">{p.bestFor}</span>
               </div>
-              <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground flex-1">{p.desc}</p>
-              <div className="mt-4 flex gap-2">
+              <ul className="mt-4 space-y-2 text-sm flex-1">
+                {p.outcomes.map(o => (
+                  <li key={o} className="flex gap-2">
+                    <Check className="size-4 text-accent-blue shrink-0 mt-0.5" />
+                    <span>{o}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5 flex gap-2">
                 <button onClick={() => setShowResources(true)} className="flex-1 rounded-full bg-navy text-navy-foreground px-3 py-1.5 text-xs font-medium inline-flex items-center justify-center gap-1">
                   Start <ArrowRight className="size-3" />
                 </button>
