@@ -220,14 +220,27 @@ function Champions() {
           </div>
           <h2 className="mt-2 text-2xl md:text-3xl font-semibold tracking-tight text-white">Champion Corner</h2>
           <p className="mt-2 text-white/80 max-w-2xl text-sm">
-            A dedicated space with resources, playbooks, and community sessions.
+            A dedicated space with programs, mini-labs, and the community channel.
           </p>
           <div className="mt-5 grid gap-3 md:grid-cols-3">
-            {["Champion resources", "Upcoming community sessions", "Playbooks", "Templates", "Event materials", "Recognition / spotlight"].map(s => (
-              <div key={s} className="rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-4 text-sm text-white">
-                {s}
-              </div>
-            ))}
+            <div className="rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-4 text-sm text-white">
+              <div className="text-[11px] uppercase tracking-wider text-white/60">Program</div>
+              <div className="mt-1 font-medium">Champ Up learning program</div>
+            </div>
+            <div className="rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-4 text-sm text-white md:col-span-1">
+              <div className="text-[11px] uppercase tracking-wider text-white/60">Minilab sections</div>
+              <ul className="mt-1 space-y-1">
+                <li>• Shape the community 2025</li>
+                <li>• Copilot PBI</li>
+                <li>• Shape the sharpoint</li>
+                <li>• Mendo — new ways of upskilling</li>
+                <li>• Copilot Finance</li>
+              </ul>
+            </div>
+            <div className="rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-4 text-sm text-white">
+              <div className="text-[11px] uppercase tracking-wider text-white/60">Community</div>
+              <div className="mt-1 font-medium">Join the Community Channel</div>
+            </div>
           </div>
         </div>
       </section>
