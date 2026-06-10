@@ -93,7 +93,7 @@ function Discover() {
 
       {/* Ambition */}
       <section id="ambition" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">1</span>Ambition</div>
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Ambition</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">AI as a daily Finance partner.</h2>
 
         <div className="mt-6 rounded-2xl border bg-card p-6">
@@ -132,7 +132,7 @@ function Discover() {
 
       {/* Journey */}
       <section id="journey" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">2</span>Our Journey — 2024 → 2025 → 2026</div>
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Our Journey — 2024 → 2025 → 2026</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">From experimentation to value at scale.</h2>
         <p className="mt-2 text-sm text-muted-foreground">From bottom-up experiencing in 2024… to upskilling acceleration and value at scale in 2026.</p>
 
@@ -173,7 +173,7 @@ function Discover() {
 
       {/* AI Governance */}
       <section id="governance" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">2</span>AI Governance & Responsible AI</div>
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">AI Governance & Responsible AI</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">Structured by Decision Science.</h2>
 
         <div className="mt-5 grid lg:grid-cols-2 gap-4">
@@ -245,7 +245,7 @@ function Discover() {
 
       {/* Responsible AI — 5 Golden Rules */}
       <section id="responsible" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">2</span>The 5 Golden Rules — Responsible AI in Finance</div>
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">The 5 Golden Rules — Responsible AI in Finance</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">Trusted, safe, and human in the loop.</h2>
         <div className="mt-5 space-y-2">
           {GOLDEN_RULES.map((r, i) => (
@@ -263,7 +263,7 @@ function Discover() {
 
       {/* AI Gate Committee */}
       <section id="ai-gate" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">3</span>AI Project GATE Committee</div>
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">AI Project GATE Committee</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">The AI Gate Committee.</h2>
 
         <div className="mt-5 grid md:grid-cols-2 gap-5">
