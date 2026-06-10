@@ -128,7 +128,7 @@ function Index() {
                       <span className="chip text-[10px] py-0.5">{e.type}</span>
                       <span>{e.meta}</span>
                     </div>
-                    <button className="mt-1 text-xs text-accent-blue inline-flex items-center gap-1">Register <ArrowRight className="size-3" /></button>
+                    <button className="mt-1 text-xs text-accent-blue inline-flex items-center gap-1"></button>
                   </div>
                 </li>
               ))}
