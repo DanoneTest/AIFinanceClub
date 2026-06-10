@@ -125,8 +125,7 @@ function Upskill() {
         <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {resources.map(r => (
             <a key={r.id} href="#" className="rounded-2xl border bg-card p-4 hover:shadow-soft transition flex flex-col">
-              <div className="size-10 rounded-lg bg-surface-2 border flex items-center justify-center text-[10px] text-muted-foreground">LOGO</div>
-              <div className="mt-3 font-semibold text-sm">{r.name}</div>
+              <div className="font-semibold text-sm">{r.name}</div>
               <p className="mt-1 text-xs text-muted-foreground flex-1">{r.description}</p>
               <span className="mt-3 text-xs text-accent-blue inline-flex items-center gap-1">Open <ArrowRight className="size-3" /></span>
             </a>
