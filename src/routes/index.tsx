@@ -81,7 +81,7 @@ function Index() {
       {/* Latest News & Upcoming Events */}
       <section className="container-page py-8">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-3">
-          <span className="text-accent-blue font-semibold mr-2">02</span> Latest news & upcoming events
+          <span className="text-accent-blue font-semibold mr-2">03</span> Latest news & upcoming events
         </div>
         <div className="grid gap-5 lg:grid-cols-2">
           {/* Latest News carousel */}
