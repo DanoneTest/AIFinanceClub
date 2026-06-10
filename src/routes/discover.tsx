@@ -113,16 +113,21 @@ function Discover() {
               <button className="mt-4 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">Watch the message</button>
             </div>
 
-            {/* Quotes */}
-            <div className="md:border-l md:pl-8">
-              <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Key quotes</div>
-              <ul className="mt-3 space-y-3">
-                {QUOTES.map(q => (
-                  <li key={q} className="rounded-xl bg-surface border p-3 text-sm italic text-foreground/80">"{q}"</li>
-                ))}
-              </ul>
-              <button className="mt-4 rounded-full border bg-card px-4 py-2 text-sm font-medium">Read full message</button>
+            {/* Quote */}
+            <div className="md:border-l md:pl-8 flex flex-col">
+              <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Key quote</div>
+              <blockquote className="mt-3 flex-1 rounded-2xl bg-surface border p-6 relative">
+                <span className="absolute top-2 left-4 text-6xl leading-none text-accent-blue/30 font-serif">"</span>
+                <p className="relative text-lg md:text-xl font-medium italic text-foreground/90 leading-relaxed">
+                  First superpower, the power of visible leadership. Visible leadership by showing us the way on how to apply AI on our daily work. I want to pass a big thank you to the Champions we have in the AI community in finance and the Second superpower is about upskilling at scale.
+                </p>
+                <footer className="mt-4 text-sm font-semibold text-foreground not-italic">
+                  — Jurgen Esser<span className="text-muted-foreground font-normal">, Deputy CEO & CFO Danone</span>
+                </footer>
+              </blockquote>
+              <button className="mt-4 self-start rounded-full border bg-card px-4 py-2 text-sm font-medium">Read full message</button>
             </div>
+
           </div>
         </div>
       </section>
