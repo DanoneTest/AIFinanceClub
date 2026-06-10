@@ -101,11 +101,8 @@ function Discover() {
             {/* Executive sponsor */}
             <div>
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Executive sponsor</div>
-              <div className="mt-3 rounded-xl bg-surface-2 aspect-video flex items-center justify-center relative group cursor-pointer">
-                <div className="size-14 rounded-full bg-navy text-navy-foreground flex items-center justify-center">
-                  <Play className="size-5 ml-0.5" />
-                </div>
-                <span className="absolute bottom-2 left-3 text-[11px] text-muted-foreground">Video placeholder</span>
+              <div className="mt-3 rounded-xl bg-surface-2 aspect-video overflow-hidden relative">
+                <img src={teamPhoto.url} alt="AI.lympics team" className="w-full h-full object-cover" />
               </div>
               <div className="mt-3">
                 <div className="font-semibold">Jurgen Esser</div>
