@@ -110,7 +110,7 @@ export type Resource = {
   description: string;
 };
 
-// 8 Learning platforms
+// 9 Learning platforms
 export const resources: Resource[] = [
   { id: "r1", name: "Danone Digital & AI Academy", description: "Company-wide foundation for digital and AI literacy." },
   { id: "r2", name: "Campus X", description: "Cross-functional learning hub for Danone." },
