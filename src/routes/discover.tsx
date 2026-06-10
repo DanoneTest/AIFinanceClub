@@ -173,7 +173,7 @@ function Discover() {
 
       {/* AI Governance */}
       <section id="governance" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">3</span>AI Governance & Responsible AI</div>
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">2</span>AI Governance & Responsible AI</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">Structured by Decision Science.</h2>
 
         <div className="mt-5 grid lg:grid-cols-2 gap-4">
@@ -245,7 +245,7 @@ function Discover() {
 
       {/* Responsible AI — 5 Golden Rules */}
       <section id="responsible" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">3</span>The 5 Golden Rules — Responsible AI in Finance</div>
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">2</span>The 5 Golden Rules — Responsible AI in Finance</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">Trusted, safe, and human in the loop.</h2>
         <div className="mt-5 space-y-2">
           {GOLDEN_RULES.map((r, i) => (
@@ -263,7 +263,7 @@ function Discover() {
 
       {/* AI Gate Committee */}
       <section id="ai-gate" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">4</span>AI Project GATE Committee</div>
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">3</span>AI Project GATE Committee</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">The AI Gate Committee.</h2>
 
         <div className="mt-5 grid md:grid-cols-2 gap-5">
