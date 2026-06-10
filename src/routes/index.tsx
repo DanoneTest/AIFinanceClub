@@ -4,7 +4,6 @@ import { ArrowRight, Sparkles, GraduationCap, Wrench, Users, ChevronLeft, Chevro
 import { SearchOverlay } from "@/components/SearchOverlay";
 import { WhatsNext } from "@/components/WhatsNext";
 import { news, events, faqs } from "@/lib/data";
-import teamPhoto from "@/assets/ai-lympics-team.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -172,7 +171,7 @@ function Index() {
         </div>
         <div className="rounded-2xl border bg-surface p-6 md:p-8 grid md:grid-cols-3 gap-6 items-center">
           <div className="flex flex-col items-center text-center">
-            <img src={teamPhoto.url} alt="AI.finance Team" className="w-full max-w-xs aspect-square object-cover rounded-2xl border" />
+            <div className="size-24 rounded-2xl bg-card border flex items-center justify-center text-muted-foreground text-xs">Team logo</div>
             <button className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
               <Mail className="size-3.5" /> Contact Us
             </button>
