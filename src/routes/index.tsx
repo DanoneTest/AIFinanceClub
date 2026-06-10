@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles, GraduationCap, Wrench, Users, ChevronLeft, Chevro
 import { SearchOverlay } from "@/components/SearchOverlay";
 import { WhatsNext } from "@/components/WhatsNext";
 import { news, events, faqs } from "@/lib/data";
+import teamPhoto from "@/assets/ai-lympics-team.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
