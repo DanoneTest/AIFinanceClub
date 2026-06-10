@@ -65,26 +65,6 @@ function Champions() {
         </div>
       </section>
 
-      {/* Champions by country */}
-      <section className="container-page py-8">
-        <div className="rounded-2xl border bg-surface p-5">
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <div>
-              <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Champions by country</div>
-              <h2 className="mt-1 text-xl font-semibold tracking-tight">Where our Champions are.</h2>
-            </div>
-            <span className="text-xs text-muted-foreground">Interactive map coming soon</span>
-          </div>
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-2">
-            {Object.entries(byCountry).map(([c, n]) => (
-              <button key={c} onClick={() => setCountry(country === c ? "All" : c)} className={`rounded-xl border bg-card p-3 text-left transition ${country === c ? "ring-2 ring-accent-blue" : "hover:bg-surface-2"}`}>
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground"><MapPin className="size-3" />{c}</div>
-                <div className="mt-1 font-semibold">{n}</div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Directory */}
       <section id="directory" className="container-page py-10">
