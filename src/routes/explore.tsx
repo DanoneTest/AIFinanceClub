@@ -119,22 +119,10 @@ function Explore() {
             </article>
           ))}
         </div>
-
-
-        {/* Scorecards */}
-        <div className="mt-6 rounded-2xl border bg-card p-5">
-          <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Initiative scorecards</div>
-          <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
-            {STAGES.map((s, i) => (
-              <div key={s.name} className="rounded-xl bg-surface p-3">
-                <div className="text-[11px] text-muted-foreground">Stage {i + 1}</div>
-                <div className="mt-0.5 text-sm font-semibold">{s.name}</div>
-                <div className="mt-1 text-xs text-muted-foreground">{s.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
+
+
+
 
       {/* I Have an Idea */}
       <section id="idea" className="container-page py-10">
