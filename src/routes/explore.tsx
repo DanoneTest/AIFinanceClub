@@ -58,7 +58,7 @@ function Explore() {
       {/* Capabilities */}
       <section id="capabilities" className="container-page py-10">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Capabilities</div>
-        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Available Capabilities — AI Tools at Danone.</h2>
+        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Available Capabilities - AI Tools at Danone.</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
             {
