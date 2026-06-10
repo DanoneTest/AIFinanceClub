@@ -7,8 +7,8 @@ import logo from "@/assets/logo.png.asset.json";
 const NAV = [
   { to: "/discover", label: "Discover", n: "1" },
   { to: "/upskill", label: "Upskill", n: "2" },
-  { to: "/explore", label: "Explore & Build", n: "3" },
-  { to: "/champions", label: "AI Champions", n: "4" },
+  { to: "/explore", label: "Explore & Build", n: "4" },
+  { to: "/champions", label: "AI Champions", n: "5" },
 ] as const;
 
 function Wordmark() {
