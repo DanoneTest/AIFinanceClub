@@ -81,7 +81,7 @@ function Index() {
       {/* Latest News & Upcoming Events */}
       <section className="container-page py-8">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-3">
-          <span className="text-accent-blue font-semibold mr-2">03</span> Latest news & upcoming events
+          LATEST NEWS & UPCOMING EVENTS
         </div>
         <div className="grid gap-5 lg:grid-cols-2">
           {/* Latest News carousel */}
@@ -146,7 +146,7 @@ function Index() {
       {/* FAQ */}
       <section className="container-page py-8">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-3">
-          <span className="text-accent-blue font-semibold mr-2">04</span> Frequently asked questions
+          Frequently asked questions
         </div>
         <div className="rounded-2xl border bg-card divide-y">
           {faqs.map(f => (
@@ -167,7 +167,7 @@ function Index() {
       {/* AI.finance Team */}
       <section className="container-page py-8">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-3">
-          <span className="text-accent-blue font-semibold mr-2">05</span> AI.finance Team
+          AI.finance Team
         </div>
         <div className="rounded-2xl border bg-surface p-6 md:p-8 grid md:grid-cols-3 gap-6 items-center">
           <div className="flex flex-col items-center text-center">
