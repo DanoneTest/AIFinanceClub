@@ -42,7 +42,7 @@ function Champions() {
         <div className="container-page pt-10 pb-10 text-center">
           <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">Meet the people making AI real.</h1>
           <p className="mt-3 text-base text-muted-foreground max-w-2xl mx-auto">
-            400+ AI Champions help Finance teams learn, experiment, and scale practical AI use cases.
+            500+ AI Champions help Finance teams learn, experiment, and scale practical AI use cases.
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
             <a href="#directory" className="rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium">Meet My Champion</a>
