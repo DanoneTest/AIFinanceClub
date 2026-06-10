@@ -121,7 +121,7 @@ function Upskill() {
       {/* Learning Platforms — 8 */}
       <section id="resources" className="container-page py-10">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Other Resources</div>
-        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">8 learning platforms for Finance.</h2>
+        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">9 learning platforms for Finance.</h2>
         <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {resources.map(r => (
             <a key={r.id} href="#" className="rounded-2xl border bg-card p-4 hover:shadow-soft transition flex flex-col">
@@ -231,7 +231,7 @@ function Upskill() {
               <h3 className="text-xl font-semibold tracking-tight">Find your AI Boost path</h3>
               <button onClick={() => setShowQuiz(false)} className="rounded-full p-1.5 hover:bg-muted"><X className="size-4" /></button>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">A 3-question quiz that recommends Discover, Apply, or Lead. Content to be provided.</p>
+            <p className="mt-2 text-sm text-muted-foreground">A 4-question quiz that recommends Discover, Apply, or Lead. Content to be provided.</p>
             <button onClick={() => setShowQuiz(false)} className="mt-4 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm">Close</button>
           </div>
         </div>
