@@ -154,7 +154,7 @@ export const faqs: FAQ[] = [
   { id: "f3", q: "How do I submit an AI idea?", a: "Use the AI.DEA form on Explore & Build. The AI Gate Committee reviews ideas every ~3 months." },
   { id: "f4", q: "Can I use public ChatGPT or Gemini for Finance data?", a: "No. Public ChatGPT, Gemini, or any unapproved tool must never receive Danone data." },
   { id: "f5", q: "How do I become an AI Champion?", a: "Express interest from the AI Champions page. You don't need to be technical — curiosity and willingness to share is what matters." },
-  { id: "f6", q: "Where can I learn AI for Finance?", a: "Start with AI Boost on the Upskill page, then explore 8 partner platforms including LinkedIn Learning, DataCamp and the Microsoft AI Skill Navigator." },
+  { id: "f6", q: "Where can I learn AI for Finance?", a: "Start with AI Boost on the Upskill page, then explore 9 partner platforms including LinkedIn Learning, DataCamp and the Microsoft AI Skill Navigator." },
 ];
 
 // Unified search index
