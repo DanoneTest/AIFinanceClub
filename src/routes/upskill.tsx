@@ -231,7 +231,7 @@ function Upskill() {
               <h3 className="text-xl font-semibold tracking-tight">Find your AI Boost path</h3>
               <button onClick={() => setShowQuiz(false)} className="rounded-full p-1.5 hover:bg-muted"><X className="size-4" /></button>
             </div>
-            <p className="mt-2 text-sm text-muted-foreground">A 3-question quiz that recommends Discover, Apply, or Lead. Content to be provided.</p>
+            <p className="mt-2 text-sm text-muted-foreground">A 4-question quiz that recommends Discover, Apply, or Lead. Content to be provided.</p>
             <button onClick={() => setShowQuiz(false)} className="mt-4 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm">Close</button>
           </div>
         </div>
