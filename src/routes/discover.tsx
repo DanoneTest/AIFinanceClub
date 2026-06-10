@@ -263,7 +263,7 @@ function Discover() {
 
       {/* AI Gate Committee */}
       <section id="ai-gate" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">4</span>AI Project GATE Committee</div>
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">5</span>AI Project GATE Committee</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">The AI Gate Committee.</h2>
 
         <div className="mt-5 grid md:grid-cols-2 gap-5">
