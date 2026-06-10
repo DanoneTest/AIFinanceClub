@@ -21,7 +21,7 @@ const journeys = [
   { to: "/discover", n: "1", label: "Discover", subtitle: "Ambition, governance, journey.", icon: Sparkles },
   { to: "/upskill", n: "2", label: "Upskill", subtitle: "AI Boost, learning, tips.", icon: GraduationCap },
   { to: "/explore", n: "4", label: "Explore & Build", subtitle: "Capabilities, use cases, ideas.", icon: Wrench },
-  { to: "/champions", n: "5", label: "AI Champions", subtitle: "400+ Champions across Finance.", icon: Users },
+  { to: "/champions", n: "5", label: "AI Champions", subtitle: "500+ Champions across Finance.", icon: Users },
 ] as const;
 
 function Index() {
