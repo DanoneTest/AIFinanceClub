@@ -132,7 +132,7 @@ function Discover() {
 
       {/* Journey */}
       <section id="journey" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">3</span>Our Journey — 2024 → 2025 → 2026</div>
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground"><span className="text-accent-blue font-semibold mr-2">2</span>Our Journey — 2024 → 2025 → 2026</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">From experimentation to value at scale.</h2>
         <p className="mt-2 text-sm text-muted-foreground">From bottom-up experiencing in 2024… to upskilling acceleration and value at scale in 2026.</p>
 
