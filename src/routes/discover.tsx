@@ -108,7 +108,7 @@ function Discover() {
                 <div className="font-semibold">Jurgen Esser</div>
                 <div className="text-sm text-muted-foreground">Deputy CEO & CFO Danone</div>
               </div>
-              <button className="mt-4 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">Watch the message</button>
+              
             </div>
 
             {/* Quote */}
