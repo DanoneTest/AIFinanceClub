@@ -10,7 +10,7 @@ export type News = {
 };
 
 export const news: News[] = [
-  { id: "n1", title: "Talk to My Anything now live across 3 zones", tag: "Initiative", summary: "The conversational Finance AI interface is available to FP&A and Controlling teams in AMEA, AMER and EMEA.", date: "May 2025" },
+  { id: "n1", title: "Tip of the Month - May Edition ", tag: "AI Tip", summary: "Verify your Onedrive shared files and spread of confidential data.", date: "May 2025" },
   { id: "n2", title: "AI Boost Beta launches for Finance", tag: "Learning", summary: "A selected Finance learning pathway is now available to help teams build practical AI confidence.", date: "Jun 2025" },
   { id: "n3", title: "AI Champions community expands", tag: "Community", summary: "More Finance teams are now represented in the AI Champions network.", date: "May 2025" },
   { id: "n4", title: "Use case scorecard introduced", tag: "Explore & Build", summary: "AI initiatives can now be tracked from idea to live impact.", date: "May 2025" },
