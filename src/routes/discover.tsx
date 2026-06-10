@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Shield, Scale, Compass, Route as RouteIcon, Gavel, Play, Target, BarChart3, CheckCircle2, XCircle, AlertCircle, Lock } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
+import teamPhoto from "@/assets/ai-lympics-team.jpg.asset.json";
 
 export const Route = createFileRoute("/discover")({
   head: () => ({
