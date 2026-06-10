@@ -58,19 +58,87 @@ function Explore() {
       {/* Capabilities */}
       <section id="capabilities" className="container-page py-10">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Capabilities</div>
-        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Capabilities powering Finance use cases.</h2>
-        <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-5">
-          {capabilities.map(c => (
-            <article key={c.name} className="rounded-2xl border bg-card p-4 flex flex-col">
-              <span className="chip self-start">{c.name}</span>
-              <p className="mt-2 text-xs text-muted-foreground flex-1">{c.what}</p>
-              <div className="mt-3 text-[11px]">
-                <div><span className="text-muted-foreground">Typical: </span>{c.use}</div>
+        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Available Capabilities — AI Tools at Danone.</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {[
+            {
+              name: "Copilot Chat",
+              status: "Available to all (O365)",
+              statusTone: "bg-emerald-100 text-emerald-700",
+              rows: [
+                ["What it does", "Conversational AI: writes, summarises, reformulates, brainstorms, answers in natural language"],
+                ["Finance uses", "Committee notes · Variance commentary · Policy Q&A · Presentation first drafts"],
+                ["Access", "Via O365 browser — no request needed · Finance user guide · Tips & Tricks"],
+              ],
+            },
+            {
+              name: "Copilot M365 — Excel · Word · Outlook · Teams · PowerPoint",
+              status: "M365 licence required",
+              statusTone: "bg-sky-100 text-sky-700",
+              rows: [
+                ["Excel", "Natural language formulas · Column analysis · Auto pivot tables · Anomaly detection"],
+                ["Outlook / Teams", "Email thread summary · Meeting summary with actions · Transcription"],
+                ["Access", "Check with your manager for licence · Request form · Per-app guide"],
+              ],
+            },
+            {
+              name: "Copilot for Power BI",
+              status: "On request",
+              statusTone: "bg-amber-100 text-amber-700",
+              rows: [
+                ["What it does", "Natural language Q&A on dashboards · Auto visual generation · Close report summaries"],
+                ["Access", "Access request form · Lead time: X days · Finance guide"],
+              ],
+            },
+            {
+              name: "Power Automate",
+              status: "Available to all (O365)",
+              statusTone: "bg-emerald-100 text-emerald-700",
+              rows: [
+                ["What it does", "No-code workflow automation · Triggers and automatic actions across Microsoft tools"],
+                ["Finance uses", "Approval circuits · Budget alerts · Supplier data extraction · SharePoint ↔ Teams sync"],
+                ["Access", "Available O365 · Library of Finance flows · Support via your local Champion"],
+              ],
+            },
+            {
+              name: "Power Apps",
+              status: "On request",
+              statusTone: "bg-amber-100 text-amber-700",
+              rows: [
+                ["What it does", "Build apps and workflows without heavy development"],
+                ["Finance uses", "Centralized data capture · Approval apps · Lightweight internal tools"],
+                ["Access", "Request via IT · Champion support available"],
+              ],
+            },
+            {
+              name: "More Advanced Tools — Azure OpenAI, Agents, Python",
+              status: "Validated projects only",
+              statusTone: "bg-rose-100 text-rose-700",
+              rows: [
+                ["What they do", "Custom AI solutions: agents, advanced automation, ML models, complex data pipelines"],
+                ["Examples", "Talk to My Anything · DBS Agent · Python for Controlling · Advanced Forecasting models"],
+                ["Access", "Submit to AI GATE Committee via Understand page · Brief + Validation + IT access"],
+              ],
+            },
+          ].map(c => (
+            <article key={c.name} className="rounded-2xl border bg-card p-5 flex flex-col">
+              <div className="flex items-start justify-between gap-3">
+                <h3 className="text-sm font-semibold">{c.name}</h3>
+                <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-medium ${c.statusTone}`}>{c.status}</span>
               </div>
+              <dl className="mt-3 space-y-1.5 text-xs">
+                {c.rows.map(([k, v]) => (
+                  <div key={k} className="grid grid-cols-[110px_1fr] gap-2">
+                    <dt className="text-muted-foreground">{k}</dt>
+                    <dd className="text-foreground">{v}</dd>
+                  </div>
+                ))}
+              </dl>
             </article>
           ))}
         </div>
       </section>
+
 
       {/* Use Cases */}
       <section id="usecases" className="container-page py-10">
