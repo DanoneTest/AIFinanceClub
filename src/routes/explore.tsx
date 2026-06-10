@@ -119,6 +119,8 @@ function Explore() {
             </article>
           ))}
         </div>
+      </section>
+
 
 
 
