@@ -54,13 +54,13 @@ function Champions() {
 
       {/* Champions Video Section */}
       <section className="container-page py-10">
-        <div className="rounded-2xl border bg-card p-5">
+        <div className="rounded-2xl border bg-card p-5 max-w-md mx-auto">
           <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Champions video</div>
           <div className="mt-3 rounded-xl aspect-video bg-gradient-to-br from-navy to-accent-blue flex items-center justify-center relative cursor-pointer">
-            <div className="size-16 rounded-full bg-card text-foreground flex items-center justify-center">
-              <Play className="size-6 ml-1" />
+            <div className="size-10 rounded-full bg-card text-foreground flex items-center justify-center">
+              <Play className="size-4 ml-0.5" />
             </div>
-            <span className="absolute bottom-3 left-4 text-xs text-white/80">Video placeholder · Champions in action</span>
+            <span className="absolute bottom-2 left-3 text-[10px] text-white/80">Video placeholder · Champions in action</span>
           </div>
         </div>
       </section>
