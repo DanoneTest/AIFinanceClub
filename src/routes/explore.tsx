@@ -87,7 +87,7 @@ function Explore() {
               statusTone: "bg-amber-100 text-amber-700",
               rows: [
                 ["What it does", "Natural language Q&A on dashboards · Auto visual generation · Close report summaries"],
-                ["Access", "Access request form · Lead time: X days · Finance guide"],
+                ["Access", "Access request form · Lead time: 5 days · Finance guide"],
               ],
             },
             {
