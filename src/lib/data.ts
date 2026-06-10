@@ -125,9 +125,9 @@ export type EventItem = {
 };
 
 export const events: EventItem[] = [
-  { id: "e1", title: "Finance Directors AI Call #31", type: "FD Call", description: "Teams · 10:00 CET", date: "Jun 5", day: "5", month: "JUN", meta: "Teams · 10:00 CET" },
-  { id: "e2", title: "AI Boost — APAC session", type: "Training", description: "Remote · 09:00 SGT", date: "Jun 12", day: "12", month: "JUN", meta: "Remote · 09:00 SGT" },
-  { id: "e3", title: "Mini-Lab: Copilot for Forecasting", type: "Mini-Lab", description: "Champions only", date: "Jun 19", day: "19", month: "JUN", meta: "Champions only" },
+  { id: "e1", title: "AI Gate Committee", type: "AI Governance", description: " 14:00 CET", date: "Jun 10", day: "10", month: "JUN", meta: " 14:00 CET" },
+  { id: "e2", title: "FD Call - June", type: "FD Call", description: " 14:30 CET", date: "Jun 16", day: "16", month: "JUN", meta: " 14:30 CET" },
+  { id: "e3", title: "Mini-Lab: Copilot for Finance", type: "Mini-Lab", description: "Champions only", date: "Jun 17", day: "17", month: "JUN", meta: "Champions only" },
   { id: "e4", title: "AI Finance Demo Day", type: "Event", description: "See practical use cases from Finance teams.", date: "Jul 18", day: "18", month: "JUL", meta: "Hybrid" },
 ];
 
