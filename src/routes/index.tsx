@@ -146,7 +146,7 @@ function Index() {
       {/* FAQ */}
       <section className="container-page py-8">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-3">
-          <span className="text-accent-blue font-semibold mr-2">05</span> Frequently asked questions
+          <span className="text-accent-blue font-semibold mr-2">04</span> Frequently asked questions
         </div>
         <div className="rounded-2xl border bg-card divide-y">
           {faqs.map(f => (
