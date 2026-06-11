@@ -121,7 +121,7 @@ function Upskill() {
       {/* Learning Platforms — 8 */}
       <section id="resources" className="container-page py-10">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Other Resources</div>
-        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">9 learning platforms for Finance.</h2>
+        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Learning platforms for Finance.</h2>
         <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {resources.map(r => (
             <a key={r.id} href="#" className="rounded-2xl border bg-card p-4 hover:shadow-soft transition flex flex-col">
