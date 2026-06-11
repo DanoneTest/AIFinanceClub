@@ -169,25 +169,21 @@ function Index() {
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-3">
           AI.finance Team
         </div>
-        <div className="rounded-2xl border bg-surface p-6 md:p-8 grid md:grid-cols-3 gap-6 items-center">
-          <div className="flex flex-col items-center text-center">
-            <div className="size-24 rounded-2xl bg-card border flex items-center justify-center text-muted-foreground text-xs">Team logo</div>
-            <button className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
-              <Mail className="size-3.5" /> Contact Us
-            </button>
-          </div>
-          <div className="md:col-span-2">
-            <h3 className="text-xl md:text-2xl font-semibold tracking-tight">
-              <span className="inline-flex items-baseline">AI<span className="mx-0.5 inline-block size-1.5 rounded-full bg-accent-blue translate-y-[-1px]" />finance</span> Team
-            </h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              The Finance Digital & AI team drives the transformation of Finance by enabling teams with digital and AI capabilities and scaling high-impact use cases.
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              It acts as a central accelerator, combining strategy, tools, and community to boost productivity, insights, and decision-making across Finance.
-            </p>
-          </div>
+        <div className="rounded-2xl border bg-surface p-6 md:p-8">
+          <h3 className="text-xl md:text-2xl font-semibold tracking-tight">
+            <span className="inline-flex items-baseline">AI<span className="mx-0.5 inline-block size-1.5 rounded-full bg-accent-blue translate-y-[-1px]" />finance</span> Team
+          </h3>
+          <p className="mt-2 text-sm text-muted-foreground">
+            The Finance Digital & AI team drives the transformation of Finance by enabling teams with digital and AI capabilities and scaling high-impact use cases.
+          </p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            It acts as a central accelerator, combining strategy, tools, and community to boost productivity, insights, and decision-making across Finance.
+          </p>
+          <button className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
+            <Mail className="size-3.5" /> Contact Us
+          </button>
         </div>
+
       </section>
 
       <WhatsNext
