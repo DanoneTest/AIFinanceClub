@@ -43,7 +43,7 @@ function Index() {
             <span className="inline-flex items-baseline">
               <span>AI</span>
               <span className="mx-1 inline-block size-2.5 md:size-3 rounded-full bg-accent-blue translate-y-[-2px]" aria-hidden />
-              <span className="lowercase">finance c</span>
+              <span className="lowercase">finance club</span>
             </span>
           </h1>
           <p className="mt-3 text-base md:text-lg text-muted-foreground max-w-xl mx-auto animate-fade-up">
