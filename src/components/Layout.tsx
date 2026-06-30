@@ -16,7 +16,7 @@ function Wordmark() {
     <span className="inline-flex items-baseline font-semibold tracking-tight text-foreground">
       <span>AI</span>
       <span className="mx-[1px] inline-block size-1.5 rounded-full bg-accent-blue translate-y-[-1px]" aria-hidden />
-      <span>finance</span>
+      <span>finance club</span>
     </span>
   );
 }
