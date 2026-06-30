@@ -4,6 +4,8 @@ import { ArrowRight, Sparkles, GraduationCap, Wrench, Users, ChevronLeft, Chevro
 import { SearchOverlay } from "@/components/SearchOverlay";
 import { WhatsNext } from "@/components/WhatsNext";
 import { news, events, faqs } from "@/lib/data";
+import teamPhoto from "@/assets/ai-lympics-team.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -169,20 +171,24 @@ function Index() {
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-3">
           AI.finance Team
         </div>
-        <div className="rounded-2xl border bg-surface p-6 md:p-8">
-          <h3 className="text-xl md:text-2xl font-semibold tracking-tight">
-            <span className="inline-flex items-baseline">AI<span className="mx-0.5 inline-block size-1.5 rounded-full bg-accent-blue translate-y-[-1px]" />finance club</span> Team
-          </h3>
-          <p className="mt-2 text-sm text-muted-foreground">
-            The Finance Digital & AI team drives the transformation of Finance by enabling teams with digital and AI capabilities and scaling high-impact use cases.
-          </p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            It acts as a central accelerator, combining strategy, tools, and community to boost productivity, insights, and decision-making across Finance.
-          </p>
-          <button className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
-            <Mail className="size-3.5" /> Contact Us
-          </button>
+        <div className="rounded-2xl border bg-surface p-6 md:p-8 grid gap-6 md:grid-cols-[1.1fr_1fr] items-center">
+          <div>
+            <h3 className="text-xl md:text-2xl font-semibold tracking-tight">
+              <span className="inline-flex items-baseline">AI<span className="mx-0.5 inline-block size-1.5 rounded-full bg-accent-blue translate-y-[-1px]" />finance club</span> Team
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              The Finance Digital & AI team drives the transformation of Finance by enabling teams with digital and AI capabilities and scaling high-impact use cases.
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              It acts as a central accelerator, combining strategy, tools, and community to boost productivity, insights, and decision-making across Finance.
+            </p>
+            <button className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
+              <Mail className="size-3.5" /> Contact Us
+            </button>
+          </div>
+          <img src={teamPhoto.url} alt="AI.finance club team" className="w-full h-auto rounded-xl object-cover shadow-elevated" />
         </div>
+
 
       </section>
 
