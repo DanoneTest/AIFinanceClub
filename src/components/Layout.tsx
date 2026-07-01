@@ -2,7 +2,8 @@ import { useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Search, Home } from "lucide-react";
 import { SearchOverlay } from "./SearchOverlay";
-import logo from "@/assets/logo.png.asset.json";
+
+const logo = "/logo.png";
 
 const NAV = [
   { to: "/discover", label: "Discover", n: "1" },
@@ -29,7 +30,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
         <div className="container-page flex h-14 items-center justify-between gap-6">
           <Link to="/" className="flex items-center gap-2.5">
-            <img src={logo.url} alt="Logo" className="h-8 w-8 object-contain" />
+            <img src={logo} alt="Logo" className="h-8 w-8 object-contain" />
             <span className="hidden sm:flex flex-col leading-tight">
               <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Finance Transformation</span>
               <Wordmark />
@@ -89,7 +90,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <footer className="border-t mt-12">
         <div className="container-page py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
-            <img src={logo.url} alt="Logo" className="h-5 w-5 object-contain" />
+            <img src={logo} alt="Logo" className="h-5 w-5 object-contain" />
             <span>Finance Transformation · </span><Wordmark />
           </div>
           <div>Built by Finance for Finance. Designed for adoption.</div>

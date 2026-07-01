@@ -186,7 +186,7 @@ function Index() {
               <Mail className="size-3.5" /> Contact Us
             </button>
           </div>
-          <img src={teamPhoto.url} alt="AI.finance club team" className="w-full h-auto rounded-xl object-cover shadow-elevated" />
+          <img src={teamPhoto} alt="AI.finance club team" className="w-full h-auto rounded-xl object-cover shadow-elevated" />
         </div>
 
 

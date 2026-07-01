@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Shield, Scale, Compass, Route as RouteIcon, Gavel, Play, Target, BarChart3, CheckCircle2, XCircle, AlertCircle, Lock } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
-import sponsorPhoto from "@/assets/jurgen-esser.png.asset.json";
+
+const sponsorPhoto = "/jurgen-esser.png";
 
 export const Route = createFileRoute("/discover")({
   head: () => ({
@@ -102,7 +103,7 @@ function Discover() {
             <div>
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Executive sponsor</div>
               <div className="mt-3 rounded-xl bg-surface-2 aspect-video overflow-hidden relative">
-                <img src={sponsorPhoto.url} alt="Jurgen Esser" className="w-full h-full object-cover" />
+                <img src={sponsorPhoto} alt="Jurgen Esser" className="w-full h-full object-cover" />
               </div>
               <div className="mt-3">
                 <div className="font-semibold">Jurgen Esser</div>
