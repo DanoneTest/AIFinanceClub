@@ -110,7 +110,7 @@ function Upskill() {
                 ))}
               </ul>
               <div className="mt-5 flex gap-2">
-                <button onClick={() => setShowResources(true)} className="flex-1 rounded-full bg-navy text-navy-foreground px-3 py-1.5 text-xs font-medium inline-flex items-center justify-center gap-1">
+                <button onClick={() => setOpenPathway(p.id)} aria-expanded={openPathway === p.id} className="flex-1 rounded-full bg-navy text-navy-foreground px-3 py-1.5 text-xs font-medium inline-flex items-center justify-center gap-1">
                   Start <ArrowRight className="size-3" />
                 </button>
                 <button onClick={() => setShowQuiz(true)} className="rounded-full border px-3 py-1.5 text-xs font-medium">Quiz</button>
