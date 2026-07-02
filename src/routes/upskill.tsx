@@ -49,8 +49,9 @@ function Upskill() {
   const [q, setQ] = useState("");
   const [copied, setCopied] = useState<string | null>(null);
   const [showQuiz, setShowQuiz] = useState(false);
-  const [showResources, setShowResources] = useState(false);
+  const [openPathway, setOpenPathway] = useState<string | null>(null);
   const [openTip, setOpenTip] = useState<Tip | null>(null);
+  const activePathway = pathways.find(p => p.key === openPathway) ?? null;
 
   const filteredTips = tips.filter(t => {
     if (activeTool !== "All" && t.tool !== activeTool) return false;
