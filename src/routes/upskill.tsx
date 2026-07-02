@@ -239,17 +239,40 @@ function Upskill() {
         </div>
       )}
 
-      {/* Resources Modal */}
-      {showResources && (
-        <div className="fixed inset-0 z-50 bg-foreground/40 backdrop-blur-md flex items-center justify-center p-4" onClick={() => setShowResources(false)}>
-          <div onClick={e => e.stopPropagation()} className="bg-card border rounded-3xl max-w-2xl w-full p-6 shadow-elevated">
-            <div className="flex items-start justify-between">
-              <h3 className="text-xl font-semibold tracking-tight">AI Boost — Learning resources</h3>
-              <button onClick={() => setShowResources(false)} className="rounded-full p-1.5 hover:bg-muted"><X className="size-4" /></button>
+      {/* Pathway Resources Modal */}
+      {activePathway && (
+        <div className="fixed inset-0 z-50 bg-foreground/40 backdrop-blur-md flex items-center justify-center p-4" onClick={() => setOpenPathway(null)}>
+          <div onClick={e => e.stopPropagation()} className="bg-card border rounded-3xl max-w-2xl w-full p-6 shadow-elevated max-h-[85vh] flex flex-col">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <div className="text-[11px] uppercase tracking-[0.18em] text-accent-blue font-semibold">Pathway</div>
+                <h3 className="mt-1 text-xl font-semibold tracking-tight">{activePathway.label} — Learning resources</h3>
+              </div>
+              <button onClick={() => setOpenPathway(null)} aria-label="Close" className="rounded-full p-1.5 hover:bg-muted"><X className="size-4" /></button>
             </div>
-            <div className="mt-4 grid sm:grid-cols-2 gap-2">
-              {resources.map(r => (
-                <a key={r.id} href="#" className="rounded-xl border bg-surface p-3 text-sm font-medium hover:bg-surface-2">{r.name}</a>
+            <div className="mt-4 overflow-y-auto pr-1 -mr-1 space-y-2">
+              {activePathway.resources.map(r => (
+                <a
+                  key={r.id}
+                  href={r.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-3 rounded-xl border bg-surface p-3 hover:bg-surface-2 hover:border-accent-blue/40 transition"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      <span className="text-sm font-medium text-foreground group-hover:text-navy group-hover:underline">{r.title}</span>
+                      {r.mustDo && (
+                        <span className="chip chip-active text-[10px] py-0.5">Must do</span>
+                      )}
+                    </div>
+                    <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                      <span className="chip text-[10px] py-0.5">{r.type}</span>
+                      <span>{r.provider}</span>
+                    </div>
+                  </div>
+                  <span className="shrink-0 rounded-full border bg-card px-2 py-0.5 text-[11px] text-muted-foreground">{r.timeMinutes} min</span>
+                </a>
               ))}
             </div>
           </div>
