@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { ChevronDown, ChevronUp, Download, Trash2, X } from "lucide-react";
-import { useDynamicTips, useDynamicUseCases, addTip, addUseCase, exportTipsJSON, exportUseCasesJSON } from "@/hooks/useLocalStorageCards";
+import { ChevronDown, ChevronUp, Trash2, X } from "lucide-react";
+import { useDynamicTips, useDynamicUseCases } from "@/hooks/useLocalStorageCards";
 
 interface AdminPanelProps {
   open: boolean;
   onClose: () => void;
 }
 
+const API_BASE = "http://10.1.192.240:3001";
 const TOOL_OPTIONS = ["Copilot", "Excel", "Power BI", "Power Automate", "Prompting", "Automation"];
 const CAPABILITY_OPTIONS = ["Copilot", "Power Automate", "Power Apps", "Python", "Vibe Coding"];
 const FUNCTION_OPTIONS = ["FP&A", "Controlling", "Reporting", "Treasury", "Audit", "Tax"];
@@ -15,8 +16,8 @@ const STATUS_OPTIONS = ["Live", "Pilot", "Scaling", "Idea"];
 export function AdminPanel({ open, onClose }: AdminPanelProps) {
   const [collapsed, setCollapsed] = useState(false);
   const [activeTab, setActiveTab] = useState<"tips" | "usecases">("tips");
-  const [tips, , deleteTip] = useDynamicTips();
-  const [useCases, , deleteUseCase] = useDynamicUseCases();
+  const { cards: tips, loading: tipsLoading } = useDynamicTips();
+  const { cards: useCases, loading: useCasesLoading } = useDynamicUseCases();
 
   // Tip form state
   const [tipTool, setTipTool] = useState(TOOL_OPTIONS[0]);
@@ -43,50 +44,98 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
     onClose();
   };
 
-  const handleAddTip = (e: React.FormEvent) => {
+  const handleAddTip = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!tipTitle.trim() || !tipDescription.trim()) return;
     
-    addTip({
-      title: tipTitle,
-      tool: tipTool,
-      description: tipDescription,
-      type: tipType,
-    });
+    try {
+      const response = await fetch(`${API_BASE}/api/tips`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: tipTitle,
+          tool: tipTool,
+          description: tipDescription,
+          type: tipType,
+        }),
+      });
 
-    setTipTitle("");
-    setTipDescription("");
-    setTipTool(TOOL_OPTIONS[0]);
-    setTipType("PROMPT");
-    setTipSuccess(true);
-    setTimeout(() => setTipSuccess(false), 2000);
+      if (response.ok) {
+        setTipTitle("");
+        setTipDescription("");
+        setTipTool(TOOL_OPTIONS[0]);
+        setTipType("PROMPT");
+        setTipSuccess(true);
+        setTimeout(() => setTipSuccess(false), 2000);
+        window.dispatchEvent(new CustomEvent("tips_updated"));
+      }
+    } catch (error) {
+      console.error("Failed to add tip:", error);
+    }
   };
 
-  const handleAddUseCase = (e: React.FormEvent) => {
+  const handleAddUseCase = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!ucTitle.trim() || !ucProblem.trim() || !ucSolution.trim()) return;
 
-    addUseCase({
-      title: ucTitle,
-      problem: ucProblem,
-      solution: ucSolution,
-      capability: ucCapability,
-      function: ucFunction,
-      status: ucStatus,
-      impact: ucImpact,
-      owner: ucOwner,
-    });
+    try {
+      const response = await fetch(`${API_BASE}/api/use-cases`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: ucTitle,
+          problem: ucProblem,
+          solution: ucSolution,
+          capability: ucCapability,
+          function: ucFunction,
+          status: ucStatus,
+          impact: ucImpact,
+          owner: ucOwner,
+        }),
+      });
 
-    setUcTitle("");
-    setUcProblem("");
-    setUcSolution("");
-    setUcCapability(CAPABILITY_OPTIONS[0]);
-    setUcStatus(STATUS_OPTIONS[0]);
-    setUcFunction(FUNCTION_OPTIONS[0]);
-    setUcOwner("");
-    setUcImpact("");
-    setUcSuccess(true);
-    setTimeout(() => setUcSuccess(false), 2000);
+      if (response.ok) {
+        setUcTitle("");
+        setUcProblem("");
+        setUcSolution("");
+        setUcCapability(CAPABILITY_OPTIONS[0]);
+        setUcStatus(STATUS_OPTIONS[0]);
+        setUcFunction(FUNCTION_OPTIONS[0]);
+        setUcOwner("");
+        setUcImpact("");
+        setUcSuccess(true);
+        setTimeout(() => setUcSuccess(false), 2000);
+        window.dispatchEvent(new CustomEvent("use_cases_updated"));
+      }
+    } catch (error) {
+      console.error("Failed to add use case:", error);
+    }
+  };
+
+  const handleDeleteTip = async (id: string) => {
+    try {
+      const response = await fetch(`${API_BASE}/api/tips/${id}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        window.dispatchEvent(new CustomEvent("tips_updated"));
+      }
+    } catch (error) {
+      console.error("Failed to delete tip:", error);
+    }
+  };
+
+  const handleDeleteUseCase = async (id: string) => {
+    try {
+      const response = await fetch(`${API_BASE}/api/use-cases/${id}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        window.dispatchEvent(new CustomEvent("use_cases_updated"));
+      }
+    } catch (error) {
+      console.error("Failed to delete use case:", error);
+    }
   };
 
   return (
@@ -179,19 +228,9 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
                         className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
                       />
                     </label>
-                    <div className="flex gap-2">
-                      <button type="submit" className="rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
-                        Add Tip
-                      </button>
-                      <button
-                        type="button"
-                        onClick={exportTipsJSON}
-                        className="rounded-full border px-4 py-2 text-sm font-medium inline-flex items-center gap-2"
-                      >
-                        <Download className="size-4" />
-                        Export JSON
-                      </button>
-                    </div>
+                    <button type="submit" className="rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
+                      Add Tip
+                    </button>
                     {tipSuccess && <p className="text-xs text-emerald-600">Tip added successfully!</p>}
                   </form>
                 </div>
@@ -199,7 +238,9 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
                 {/* Delete list */}
                 <div>
                   <h4 className="text-sm font-semibold mb-3">Dynamic Tips ({tips.length})</h4>
-                  {tips.length === 0 ? (
+                  {tipsLoading ? (
+                    <p className="text-xs text-muted-foreground">Loading...</p>
+                  ) : tips.length === 0 ? (
                     <p className="text-xs text-muted-foreground">No dynamic tips yet.</p>
                   ) : (
                     <div className="space-y-2 max-h-96 overflow-y-auto">
@@ -207,7 +248,7 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
                         <div key={tip.id} className="flex items-center justify-between gap-2 p-2 rounded-lg border bg-background">
                           <span className="text-xs flex-1 truncate">{tip.title}</span>
                           <button
-                            onClick={() => deleteTip(tip.id)}
+                            onClick={() => handleDeleteTip(tip.id)}
                             className="rounded-full p-1 hover:bg-muted text-red-600"
                           >
                             <Trash2 className="size-4" />
@@ -307,19 +348,9 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
                         className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
                       />
                     </label>
-                    <div className="flex gap-2">
-                      <button type="submit" className="rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
-                        Add Use Case
-                      </button>
-                      <button
-                        type="button"
-                        onClick={exportUseCasesJSON}
-                        className="rounded-full border px-4 py-2 text-sm font-medium inline-flex items-center gap-2"
-                      >
-                        <Download className="size-4" />
-                        Export JSON
-                      </button>
-                    </div>
+                    <button type="submit" className="rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
+                      Add Use Case
+                    </button>
                     {ucSuccess && <p className="text-xs text-emerald-600">Use case added successfully!</p>}
                   </form>
                 </div>
@@ -327,7 +358,9 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
                 {/* Delete list */}
                 <div>
                   <h4 className="text-sm font-semibold mb-3">Dynamic Use Cases ({useCases.length})</h4>
-                  {useCases.length === 0 ? (
+                  {useCasesLoading ? (
+                    <p className="text-xs text-muted-foreground">Loading...</p>
+                  ) : useCases.length === 0 ? (
                     <p className="text-xs text-muted-foreground">No dynamic use cases yet.</p>
                   ) : (
                     <div className="space-y-2 max-h-96 overflow-y-auto">
@@ -335,7 +368,7 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
                         <div key={uc.id} className="flex items-center justify-between gap-2 p-2 rounded-lg border bg-background">
                           <span className="text-xs flex-1 truncate">{uc.title}</span>
                           <button
-                            onClick={() => deleteUseCase(uc.id)}
+                            onClick={() => handleDeleteUseCase(uc.id)}
                             className="rounded-full p-1 hover:bg-muted text-red-600"
                           >
                             <Trash2 className="size-4" />

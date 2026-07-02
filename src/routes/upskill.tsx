@@ -53,7 +53,7 @@ function Upskill() {
   const [openPathway, setOpenPathway] = useState<string | null>(null);
   const [openTip, setOpenTip] = useState<Tip | null>(null);
   const activePathway = pathways.find(p => p.key === openPathway) ?? null;
-  const [dynamicTips] = useDynamicTips();
+  const { cards: dynamicTips } = useDynamicTips();
 
   const filteredTips = tips.filter(t => {
     if (activeTool !== "All" && t.tool !== activeTool) return false;

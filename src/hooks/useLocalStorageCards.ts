@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 
+const API_BASE = "http://10.1.192.240:3001";
+const POLL_INTERVAL = 60000; // 60 seconds
+
 export type DynamicTip = {
   id: string;
   title: string;
@@ -21,90 +24,49 @@ export type DynamicUseCase = {
   owner: string;
 };
 
-const TIPS_KEY = "admin_tips";
-const USECASES_KEY = "admin_use_cases";
+export function useDynamicCards<T>(endpoint: string, eventName: string) {
+  const [cards, setCards] = useState<T[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-export function useLocalStorageCards<T>(key: string, eventName: string): [T[], (items: T[]) => void, (id: string) => void] {
-  const [items, setItems] = useState<T[]>([]);
-
-  const loadItems = () => {
+  const fetchCards = async () => {
     try {
-      const stored = localStorage.getItem(key);
-      setItems(stored ? JSON.parse(stored) : []);
-    } catch {
-      setItems([]);
+      const response = await fetch(`${API_BASE}${endpoint}`);
+      if (!response.ok) throw new Error("Failed to fetch");
+      const data = await response.json();
+      setCards(data);
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to fetch cards");
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    loadItems();
-    
-    const handler = () => loadItems();
+    fetchCards();
+
+    // Listen for custom events
+    const handler = () => fetchCards();
     window.addEventListener(eventName, handler);
-    
-    return () => window.removeEventListener(eventName, handler);
-  }, [key, eventName]);
 
-  const saveItems = (newItems: T[]) => {
-    localStorage.setItem(key, JSON.stringify(newItems));
-    setItems(newItems);
-    window.dispatchEvent(new CustomEvent(eventName));
-  };
+    // Poll every 60 seconds
+    const interval = setInterval(fetchCards, POLL_INTERVAL);
 
-  const deleteItem = (id: string) => {
-    const filtered = items.filter((item: any) => item.id !== id);
-    saveItems(filtered);
-  };
+    return () => {
+      window.removeEventListener(eventName, handler);
+      clearInterval(interval);
+    };
+  }, [endpoint, eventName]);
 
-  return [items, saveItems, deleteItem];
+  return { cards, loading, error };
 }
 
 export function useDynamicTips() {
-  return useLocalStorageCards<DynamicTip>(TIPS_KEY, "admin_tips_updated");
+  return useDynamicCards<DynamicTip>("/api/tips", "tips_updated");
 }
 
 export function useDynamicUseCases() {
-  return useLocalStorageCards<DynamicUseCase>(USECASES_KEY, "admin_use_cases_updated");
+  return useDynamicCards<DynamicUseCase>("/api/use-cases", "use_cases_updated");
 }
 
-export function addTip(tip: Omit<DynamicTip, "id">) {
-  const stored = localStorage.getItem(TIPS_KEY);
-  const items = stored ? JSON.parse(stored) : [];
-  const newTip = { ...tip, id: `tip-${Date.now()}` };
-  items.push(newTip);
-  localStorage.setItem(TIPS_KEY, JSON.stringify(items));
-  window.dispatchEvent(new CustomEvent("admin_tips_updated"));
-}
-
-export function addUseCase(useCase: Omit<DynamicUseCase, "id">) {
-  const stored = localStorage.getItem(USECASES_KEY);
-  const items = stored ? JSON.parse(stored) : [];
-  const newUseCase = { ...useCase, id: `uc-${Date.now()}` };
-  items.push(newUseCase);
-  localStorage.setItem(USECASES_KEY, JSON.stringify(items));
-  window.dispatchEvent(new CustomEvent("admin_use_cases_updated"));
-}
-
-export function exportTipsJSON() {
-  const stored = localStorage.getItem(TIPS_KEY);
-  const items = stored ? JSON.parse(stored) : [];
-  const blob = new Blob([JSON.stringify(items, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "tips.json";
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-export function exportUseCasesJSON() {
-  const stored = localStorage.getItem(USECASES_KEY);
-  const items = stored ? JSON.parse(stored) : [];
-  const blob = new Blob([JSON.stringify(items, null, 2)], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "use_cases.json";
-  a.click();
-  URL.revokeObjectURL(url);
-}

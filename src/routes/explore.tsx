@@ -29,7 +29,7 @@ function Explore() {
   const [capFilter, setCapFilter] = useState("All");
   const [q, setQ] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [dynamicUseCases] = useDynamicUseCases();
+  const { cards: dynamicUseCases } = useDynamicUseCases();
 
   const filtered = useMemo(() => {
     return useCases.filter(u => {
