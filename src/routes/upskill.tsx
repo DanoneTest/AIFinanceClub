@@ -166,24 +166,46 @@ function Upskill() {
 
         <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {filteredTips.map(tip => (
-            <button key={tip.id} onClick={() => setOpenTip(tip)} className="rounded-xl border bg-card p-3 text-left hover:shadow-soft transition">
-              <div className="flex items-center justify-between">
-                <span className="chip text-[10px] py-0.5">{tip.tool}</span>
-                {tip.prompt && <span className="text-[9px] uppercase tracking-wider text-muted-foreground">Prompt</span>}
-              </div>
-              <h3 className="mt-2 text-sm font-semibold leading-snug line-clamp-2">{tip.title}</h3>
-              <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{tip.description}</p>
-            </button>
+            tip.link ? (
+              <a key={tip.id} href={tip.link} target="_blank" rel="noopener noreferrer" className="rounded-xl border bg-card p-3 text-left hover:shadow-soft transition cursor-pointer block">
+                <div className="flex items-center justify-between">
+                  <span className="chip text-[10px] py-0.5">{tip.tool}</span>
+                  {tip.prompt && <span className="text-[9px] uppercase tracking-wider text-muted-foreground">Prompt</span>}
+                </div>
+                <h3 className="mt-2 text-sm font-semibold leading-snug line-clamp-2">{tip.title}</h3>
+                <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{tip.description}</p>
+              </a>
+            ) : (
+              <button key={tip.id} onClick={() => setOpenTip(tip)} className="rounded-xl border bg-card p-3 text-left hover:shadow-soft transition">
+                <div className="flex items-center justify-between">
+                  <span className="chip text-[10px] py-0.5">{tip.tool}</span>
+                  {tip.prompt && <span className="text-[9px] uppercase tracking-wider text-muted-foreground">Prompt</span>}
+                </div>
+                <h3 className="mt-2 text-sm font-semibold leading-snug line-clamp-2">{tip.title}</h3>
+                <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{tip.description}</p>
+              </button>
+            )
           ))}
           {filteredDynamicTips.map(tip => (
-            <button key={tip.id} onClick={() => setOpenTip(tip as any)} className="rounded-xl border bg-card p-3 text-left hover:shadow-soft transition">
-              <div className="flex items-center justify-between">
-                <span className="chip text-[10px] py-0.5">{tip.tool}</span>
-                {tip.type && <span className="text-[9px] uppercase tracking-wider text-muted-foreground">{tip.type}</span>}
-              </div>
-              <h3 className="mt-2 text-sm font-semibold leading-snug line-clamp-2">{tip.title}</h3>
-              <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{tip.description}</p>
-            </button>
+            (tip as any).link ? (
+              <a key={tip.id} href={(tip as any).link} target="_blank" rel="noopener noreferrer" className="rounded-xl border bg-card p-3 text-left hover:shadow-soft transition cursor-pointer block">
+                <div className="flex items-center justify-between">
+                  <span className="chip text-[10px] py-0.5">{tip.tool}</span>
+                  {tip.type && <span className="text-[9px] uppercase tracking-wider text-muted-foreground">{tip.type}</span>}
+                </div>
+                <h3 className="mt-2 text-sm font-semibold leading-snug line-clamp-2">{tip.title}</h3>
+                <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{tip.description}</p>
+              </a>
+            ) : (
+              <button key={tip.id} onClick={() => setOpenTip(tip as any)} className="rounded-xl border bg-card p-3 text-left hover:shadow-soft transition">
+                <div className="flex items-center justify-between">
+                  <span className="chip text-[10px] py-0.5">{tip.tool}</span>
+                  {tip.type && <span className="text-[9px] uppercase tracking-wider text-muted-foreground">{tip.type}</span>}
+                </div>
+                <h3 className="mt-2 text-sm font-semibold leading-snug line-clamp-2">{tip.title}</h3>
+                <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{tip.description}</p>
+              </button>
+            )
           ))}
           {filteredTips.length === 0 && filteredDynamicTips.length === 0 && (
             <div className="sm:col-span-2 lg:col-span-4 rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground">

@@ -183,34 +183,66 @@ function Explore() {
 
         <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map(u => (
-            <article key={u.id} className="rounded-2xl border bg-card p-4 flex flex-col">
-              <div className="flex items-center justify-between">
-                <span className="chip text-[11px]">{u.capability as Capability}</span>
-                <StatusPill status={u.status} />
-              </div>
-              <h3 className="mt-2 text-sm font-semibold leading-snug">{u.title}</h3>
-              <p className="mt-1.5 text-xs text-muted-foreground"><span className="text-foreground/70">Problem:</span> {u.problem}</p>
-              <p className="mt-1 text-xs text-muted-foreground"><span className="text-foreground/70">Solution:</span> {u.solution}</p>
-              <div className="mt-3 pt-2 border-t text-[11px] text-muted-foreground flex justify-between">
-                <span>{u.function} · {u.owner}</span>
-                <span>{u.impact}</span>
-              </div>
-            </article>
+            u.link ? (
+              <a key={u.id} href={u.link} target="_blank" rel="noopener noreferrer" className="rounded-2xl border bg-card p-4 flex flex-col cursor-pointer">
+                <div className="flex items-center justify-between">
+                  <span className="chip text-[11px]">{u.capability as Capability}</span>
+                  <StatusPill status={u.status} />
+                </div>
+                <h3 className="mt-2 text-sm font-semibold leading-snug">{u.title}</h3>
+                <p className="mt-1.5 text-xs text-muted-foreground"><span className="text-foreground/70">Problem:</span> {u.problem}</p>
+                <p className="mt-1 text-xs text-muted-foreground"><span className="text-foreground/70">Solution:</span> {u.solution}</p>
+                <div className="mt-3 pt-2 border-t text-[11px] text-muted-foreground flex justify-between">
+                  <span>{u.function} · {u.owner}</span>
+                  <span>{u.impact}</span>
+                </div>
+              </a>
+            ) : (
+              <article key={u.id} className="rounded-2xl border bg-card p-4 flex flex-col">
+                <div className="flex items-center justify-between">
+                  <span className="chip text-[11px]">{u.capability as Capability}</span>
+                  <StatusPill status={u.status} />
+                </div>
+                <h3 className="mt-2 text-sm font-semibold leading-snug">{u.title}</h3>
+                <p className="mt-1.5 text-xs text-muted-foreground"><span className="text-foreground/70">Problem:</span> {u.problem}</p>
+                <p className="mt-1 text-xs text-muted-foreground"><span className="text-foreground/70">Solution:</span> {u.solution}</p>
+                <div className="mt-3 pt-2 border-t text-[11px] text-muted-foreground flex justify-between">
+                  <span>{u.function} · {u.owner}</span>
+                  <span>{u.impact}</span>
+                </div>
+              </article>
+            )
           ))}
           {filteredDynamic.map(u => (
-            <article key={u.id} className="rounded-2xl border bg-card p-4 flex flex-col">
-              <div className="flex items-center justify-between">
-                <span className="chip text-[11px]">{u.capability as Capability}</span>
-                <StatusPill status={u.status as Maturity} />
-              </div>
-              <h3 className="mt-2 text-sm font-semibold leading-snug">{u.title}</h3>
-              <p className="mt-1.5 text-xs text-muted-foreground"><span className="text-foreground/70">Problem:</span> {u.problem}</p>
-              <p className="mt-1 text-xs text-muted-foreground"><span className="text-foreground/70">Solution:</span> {u.solution}</p>
-              <div className="mt-3 pt-2 border-t text-[11px] text-muted-foreground flex justify-between">
-                <span>{u.function} · {u.owner}</span>
-                <span>{u.impact}</span>
-              </div>
-            </article>
+            (u as any).link ? (
+              <a key={u.id} href={(u as any).link} target="_blank" rel="noopener noreferrer" className="rounded-2xl border bg-card p-4 flex flex-col cursor-pointer">
+                <div className="flex items-center justify-between">
+                  <span className="chip text-[11px]">{u.capability as Capability}</span>
+                  <StatusPill status={u.status as Maturity} />
+                </div>
+                <h3 className="mt-2 text-sm font-semibold leading-snug">{u.title}</h3>
+                <p className="mt-1.5 text-xs text-muted-foreground"><span className="text-foreground/70">Problem:</span> {u.problem}</p>
+                <p className="mt-1 text-xs text-muted-foreground"><span className="text-foreground/70">Solution:</span> {u.solution}</p>
+                <div className="mt-3 pt-2 border-t text-[11px] text-muted-foreground flex justify-between">
+                  <span>{u.function} · {u.owner}</span>
+                  <span>{u.impact}</span>
+                </div>
+              </a>
+            ) : (
+              <article key={u.id} className="rounded-2xl border bg-card p-4 flex flex-col">
+                <div className="flex items-center justify-between">
+                  <span className="chip text-[11px]">{u.capability as Capability}</span>
+                  <StatusPill status={u.status as Maturity} />
+                </div>
+                <h3 className="mt-2 text-sm font-semibold leading-snug">{u.title}</h3>
+                <p className="mt-1.5 text-xs text-muted-foreground"><span className="text-foreground/70">Problem:</span> {u.problem}</p>
+                <p className="mt-1 text-xs text-muted-foreground"><span className="text-foreground/70">Solution:</span> {u.solution}</p>
+                <div className="mt-3 pt-2 border-t text-[11px] text-muted-foreground flex justify-between">
+                  <span>{u.function} · {u.owner}</span>
+                  <span>{u.impact}</span>
+                </div>
+              </article>
+            )
           ))}
         </div>
       </section>
