@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles, Copy, Check, X, Gamepad2 } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
 import { tips, tools, resources, type Tip } from "@/lib/data";
 import { pathways } from "@/lib/pathways";
+import { useDynamicTips } from "@/hooks/useLocalStorageCards";
 
 export const Route = createFileRoute("/upskill")({
   head: () => ({
@@ -52,10 +53,17 @@ function Upskill() {
   const [openPathway, setOpenPathway] = useState<string | null>(null);
   const [openTip, setOpenTip] = useState<Tip | null>(null);
   const activePathway = pathways.find(p => p.key === openPathway) ?? null;
+  const [dynamicTips] = useDynamicTips();
 
   const filteredTips = tips.filter(t => {
     if (activeTool !== "All" && t.tool !== activeTool) return false;
     if (q && !(t.title + t.description + (t.prompt ?? "")).toLowerCase().includes(q.toLowerCase())) return false;
+    return true;
+  });
+
+  const filteredDynamicTips = dynamicTips.filter(t => {
+    if (activeTool !== "All" && t.tool !== activeTool) return false;
+    if (q && !(t.title + t.description).toLowerCase().includes(q.toLowerCase())) return false;
     return true;
   });
 
@@ -167,7 +175,17 @@ function Upskill() {
               <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{tip.description}</p>
             </button>
           ))}
-          {filteredTips.length === 0 && (
+          {filteredDynamicTips.map(tip => (
+            <button key={tip.id} onClick={() => setOpenTip(tip as any)} className="rounded-xl border bg-card p-3 text-left hover:shadow-soft transition">
+              <div className="flex items-center justify-between">
+                <span className="chip text-[10px] py-0.5">{tip.tool}</span>
+                {tip.type && <span className="text-[9px] uppercase tracking-wider text-muted-foreground">{tip.type}</span>}
+              </div>
+              <h3 className="mt-2 text-sm font-semibold leading-snug line-clamp-2">{tip.title}</h3>
+              <p className="mt-1 text-xs text-muted-foreground line-clamp-2">{tip.description}</p>
+            </button>
+          ))}
+          {filteredTips.length === 0 && filteredDynamicTips.length === 0 && (
             <div className="sm:col-span-2 lg:col-span-4 rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground">
               No tips match your search yet.
             </div>

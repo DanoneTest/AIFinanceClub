@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { ArrowRight, Trophy } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
 import { capabilities, useCases, type Capability, type Maturity } from "@/lib/data";
+import { useDynamicUseCases } from "@/hooks/useLocalStorageCards";
 
 export const Route = createFileRoute("/explore")({
   head: () => ({
@@ -28,6 +29,7 @@ function Explore() {
   const [capFilter, setCapFilter] = useState("All");
   const [q, setQ] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [dynamicUseCases] = useDynamicUseCases();
 
   const filtered = useMemo(() => {
     return useCases.filter(u => {
@@ -37,6 +39,15 @@ function Explore() {
       return true;
     });
   }, [fnFilter, capFilter, q]);
+
+  const filteredDynamic = useMemo(() => {
+    return dynamicUseCases.filter(u => {
+      if (fnFilter !== "All" && u.function !== fnFilter) return false;
+      if (capFilter !== "All" && u.capability !== capFilter) return false;
+      if (q && !(u.title + u.problem + u.solution).toLowerCase().includes(q.toLowerCase())) return false;
+      return true;
+    });
+  }, [dynamicUseCases, fnFilter, capFilter, q]);
 
   return (
     <>
@@ -176,6 +187,21 @@ function Explore() {
               <div className="flex items-center justify-between">
                 <span className="chip text-[11px]">{u.capability as Capability}</span>
                 <StatusPill status={u.status} />
+              </div>
+              <h3 className="mt-2 text-sm font-semibold leading-snug">{u.title}</h3>
+              <p className="mt-1.5 text-xs text-muted-foreground"><span className="text-foreground/70">Problem:</span> {u.problem}</p>
+              <p className="mt-1 text-xs text-muted-foreground"><span className="text-foreground/70">Solution:</span> {u.solution}</p>
+              <div className="mt-3 pt-2 border-t text-[11px] text-muted-foreground flex justify-between">
+                <span>{u.function} · {u.owner}</span>
+                <span>{u.impact}</span>
+              </div>
+            </article>
+          ))}
+          {filteredDynamic.map(u => (
+            <article key={u.id} className="rounded-2xl border bg-card p-4 flex flex-col">
+              <div className="flex items-center justify-between">
+                <span className="chip text-[11px]">{u.capability as Capability}</span>
+                <StatusPill status={u.status as Maturity} />
               </div>
               <h3 className="mt-2 text-sm font-semibold leading-snug">{u.title}</h3>
               <p className="mt-1.5 text-xs text-muted-foreground"><span className="text-foreground/70">Problem:</span> {u.problem}</p>

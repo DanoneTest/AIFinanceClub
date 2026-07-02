@@ -1,7 +1,9 @@
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Search, Home } from "lucide-react";
 import { SearchOverlay } from "./SearchOverlay";
+import { AdminLogin } from "./admin/AdminLogin";
+import { AdminPanel } from "./admin/AdminPanel";
 
 const logo = "/logo.png";
 
@@ -24,6 +26,23 @@ function Wordmark() {
 
 export function Layout({ children }: { children: ReactNode }) {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [adminLoginOpen, setAdminLoginOpen] = useState(false);
+  const [adminPanelOpen, setAdminPanelOpen] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("admin_authenticated") === "true") {
+      setAdminPanelOpen(true);
+    }
+  }, []);
+
+  const handleAdminLoginSuccess = () => {
+    setAdminLoginOpen(false);
+    setAdminPanelOpen(true);
+  };
+
+  const handleAdminPanelClose = () => {
+    setAdminPanelOpen(false);
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -93,11 +112,18 @@ export function Layout({ children }: { children: ReactNode }) {
             <img src={logo} alt="Logo" className="h-5 w-5 object-contain" />
             <span>Finance Transformation · </span><Wordmark />
           </div>
-          <div>Built by Finance for Finance. Designed for adoption.</div>
+          <div className="flex items-center gap-4">
+            <span>Built by Finance for Finance. Designed for adoption.</span>
+            <button onClick={() => setAdminLoginOpen(true)} className="text-xs opacity-30 hover:opacity-50">
+              Admin
+            </button>
+          </div>
         </div>
       </footer>
 
       <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <AdminLogin open={adminLoginOpen} onClose={() => setAdminLoginOpen(false)} onSuccess={handleAdminLoginSuccess} />
+      <AdminPanel open={adminPanelOpen} onClose={handleAdminPanelClose} />
     </div>
   );
 }
