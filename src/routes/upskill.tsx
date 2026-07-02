@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ArrowRight, Sparkles, Copy, Check, X, Gamepad2 } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
 import { tips, tools, resources, type Tip } from "@/lib/data";
+import { pathways } from "@/lib/pathways";
 
 export const Route = createFileRoute("/upskill")({
   head: () => ({
