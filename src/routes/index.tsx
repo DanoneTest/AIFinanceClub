@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles, GraduationCap, Wrench, Users, ChevronLeft, Chevro
 import { SearchOverlay } from "@/components/SearchOverlay";
 import { WhatsNext } from "@/components/WhatsNext";
 import { news, events, faqs } from "@/lib/data";
+import { useDynamicNews, useDynamicEvents } from "@/hooks/useLocalStorageCards";
 const teamPhoto = "/ai-lympics-team.jpg";
 
 
@@ -31,9 +32,13 @@ function Index() {
   const [newsIdx, setNewsIdx] = useState(0);
   const [showMoreEvents, setShowMoreEvents] = useState(false);
   const [openFaq, setOpenFaq] = useState<string | null>(faqs[0]?.id ?? null);
+  const { cards: dynamicNews } = useDynamicNews();
+  const { cards: dynamicEvents } = useDynamicEvents();
 
-  const featured = news[newsIdx];
-  const visibleEvents = showMoreEvents ? events : events.slice(0, 3);
+  const allNews = [...news, ...dynamicNews];
+  const allEvents = [...events, ...dynamicEvents];
+  const featured = allNews[newsIdx];
+  const visibleEvents = showMoreEvents ? allEvents : allEvents.slice(0, 3);
 
   return (
     <>
@@ -92,7 +97,7 @@ function Index() {
               <h3 className="text-lg font-semibold tracking-tight">Latest news</h3>
               <Link to="/discover" className="text-xs text-accent-blue inline-flex items-center gap-1">All news <ArrowRight className="size-3" /></Link>
             </div>
-            <div className="mt-3 rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3">
+            <div className="mt-3 rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={featured.imageUrl ? { backgroundImage: `url(${featured.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
               <span className="chip bg-card/95 text-foreground text-[11px]">{featured.tag}</span>
             </div>
             <div className="mt-3 text-xs text-muted-foreground">{featured.date}</div>
@@ -100,13 +105,13 @@ function Index() {
             <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{featured.summary}</p>
             <div className="mt-3 flex items-center justify-between">
               <div className="flex gap-1.5">
-                {news.map((_, i) => (
+                {allNews.map((_, i) => (
                   <button key={i} onClick={() => setNewsIdx(i)} className={`size-1.5 rounded-full transition-all ${i === newsIdx ? "bg-accent-blue w-4" : "bg-border"}`} aria-label={`News ${i+1}`} />
                 ))}
               </div>
               <div className="flex gap-1.5">
-                <button onClick={() => setNewsIdx((newsIdx - 1 + news.length) % news.length)} className="rounded-full border px-2.5 py-1 text-xs inline-flex items-center gap-1 hover:bg-surface-2"><ChevronLeft className="size-3" /> Prev</button>
-                <button onClick={() => setNewsIdx((newsIdx + 1) % news.length)} className="rounded-full bg-navy text-navy-foreground px-2.5 py-1 text-xs inline-flex items-center gap-1">Next <ChevronRight className="size-3" /></button>
+                <button onClick={() => setNewsIdx((newsIdx - 1 + allNews.length) % allNews.length)} className="rounded-full border px-2.5 py-1 text-xs inline-flex items-center gap-1 hover:bg-surface-2"><ChevronLeft className="size-3" /> Prev</button>
+                <button onClick={() => setNewsIdx((newsIdx + 1) % allNews.length)} className="rounded-full bg-navy text-navy-foreground px-2.5 py-1 text-xs inline-flex items-center gap-1">Next <ChevronRight className="size-3" /></button>
               </div>
             </div>
           </article>
@@ -135,7 +140,7 @@ function Index() {
                 </li>
               ))}
             </ul>
-            {events.length > 3 && (
+            {allEvents.length > 3 && (
               <button onClick={() => setShowMoreEvents(v => !v)} className="mt-2 rounded-xl bg-surface-2 py-2 text-xs font-medium hover:bg-surface">
                 ▼ {showMoreEvents ? "Show less" : "Show more events"}
               </button>

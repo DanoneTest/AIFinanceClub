@@ -7,17 +7,42 @@ interface AdminPanelProps {
   onClose: () => void;
 }
 
+type DynamicNews = {
+  id: string;
+  tag: string;
+  date: string;
+  title: string;
+  summary: string;
+  imageUrl?: string;
+};
+
+type DynamicEvent = {
+  id: string;
+  month: string;
+  day: string;
+  title: string;
+  type: string;
+  meta: string;
+};
+
 const API_BASE = "http://10.1.192.240:3001";
 const TOOL_OPTIONS = ["Copilot", "Excel", "Power BI", "Power Automate", "Prompting", "Automation"];
 const CAPABILITY_OPTIONS = ["Copilot", "Power Automate", "Power Apps", "Python", "Vibe Coding"];
 const FUNCTION_OPTIONS = ["FP&A", "Controlling", "Reporting", "Treasury", "Audit", "Tax"];
 const STATUS_OPTIONS = ["Live", "Pilot", "Scaling", "Idea"];
+const MONTH_OPTIONS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
 export function AdminPanel({ open, onClose }: AdminPanelProps) {
   const [collapsed, setCollapsed] = useState(false);
-  const [activeTab, setActiveTab] = useState<"tips" | "usecases">("tips");
+  const [activeTab, setActiveTab] = useState<"tips" | "usecases" | "news" | "events">("tips");
   const { cards: tips, loading: tipsLoading } = useDynamicTips();
   const { cards: useCases, loading: useCasesLoading } = useDynamicUseCases();
+  
+  // News and Events state
+  const [newsItems, setNewsItems] = useState<DynamicNews[]>([]);
+  const [eventsItems, setEventsItems] = useState<DynamicEvent[]>([]);
+  const [newsLoading, setNewsLoading] = useState(true);
+  const [eventsLoading, setEventsLoading] = useState(true);
 
   // Tip form state
   const [tipTool, setTipTool] = useState(TOOL_OPTIONS[0]);
@@ -36,6 +61,58 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
   const [ucOwner, setUcOwner] = useState("");
   const [ucImpact, setUcImpact] = useState("");
   const [ucSuccess, setUcSuccess] = useState(false);
+
+  // News form state
+  const [newsTag, setNewsTag] = useState("");
+  const [newsDate, setNewsDate] = useState("");
+  const [newsTitle, setNewsTitle] = useState("");
+  const [newsSummary, setNewsSummary] = useState("");
+  const [newsImageUrl, setNewsImageUrl] = useState("");
+  const [newsSuccess, setNewsSuccess] = useState(false);
+
+  // Event form state
+  const [eventMonth, setEventMonth] = useState(MONTH_OPTIONS[0]);
+  const [eventDay, setEventDay] = useState("");
+  const [eventTitle, setEventTitle] = useState("");
+  const [eventType, setEventType] = useState("");
+  const [eventMeta, setEventMeta] = useState("");
+  const [eventSuccess, setEventSuccess] = useState(false);
+
+  // Fetch news and events
+  useEffect(() => {
+    if (open) {
+      fetchNews();
+      fetchEvents();
+    }
+  }, [open]);
+
+  const fetchNews = async () => {
+    try {
+      const response = await fetch(`${API_BASE}/api/news`);
+      if (response.ok) {
+        const data = await response.json();
+        setNewsItems(data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch news:", error);
+    } finally {
+      setNewsLoading(false);
+    }
+  };
+
+  const fetchEvents = async () => {
+    try {
+      const response = await fetch(`${API_BASE}/api/events`);
+      if (response.ok) {
+        const data = await response.json();
+        setEventsItems(data);
+      }
+    } catch (error) {
+      console.error("Failed to fetch events:", error);
+    } finally {
+      setEventsLoading(false);
+    }
+  };
 
   if (!open) return null;
 
@@ -138,6 +215,100 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
     }
   };
 
+  const handleAddNews = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsTitle.trim() || !newsSummary.trim()) return;
+
+    try {
+      const response = await fetch(`${API_BASE}/api/news`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          tag: newsTag,
+          date: newsDate,
+          title: newsTitle,
+          summary: newsSummary,
+          imageUrl: newsImageUrl,
+        }),
+      });
+
+      if (response.ok) {
+        setNewsTag("");
+        setNewsDate("");
+        setNewsTitle("");
+        setNewsSummary("");
+        setNewsImageUrl("");
+        setNewsSuccess(true);
+        setTimeout(() => setNewsSuccess(false), 2000);
+        window.dispatchEvent(new CustomEvent("news_updated"));
+        fetchNews();
+      }
+    } catch (error) {
+      console.error("Failed to add news:", error);
+    }
+  };
+
+  const handleAddEvent = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!eventDay.trim() || !eventTitle.trim()) return;
+
+    try {
+      const response = await fetch(`${API_BASE}/api/events`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          month: eventMonth,
+          day: eventDay,
+          title: eventTitle,
+          type: eventType,
+          meta: eventMeta,
+        }),
+      });
+
+      if (response.ok) {
+        setEventMonth(MONTH_OPTIONS[0]);
+        setEventDay("");
+        setEventTitle("");
+        setEventType("");
+        setEventMeta("");
+        setEventSuccess(true);
+        setTimeout(() => setEventSuccess(false), 2000);
+        window.dispatchEvent(new CustomEvent("events_updated"));
+        fetchEvents();
+      }
+    } catch (error) {
+      console.error("Failed to add event:", error);
+    }
+  };
+
+  const handleDeleteNews = async (id: string) => {
+    try {
+      const response = await fetch(`${API_BASE}/api/news/${id}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        window.dispatchEvent(new CustomEvent("news_updated"));
+        fetchNews();
+      }
+    } catch (error) {
+      console.error("Failed to delete news:", error);
+    }
+  };
+
+  const handleDeleteEvent = async (id: string) => {
+    try {
+      const response = await fetch(`${API_BASE}/api/events/${id}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        window.dispatchEvent(new CustomEvent("events_updated"));
+        fetchEvents();
+      }
+    } catch (error) {
+      console.error("Failed to delete event:", error);
+    }
+  };
+
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-card border-t shadow-elevated">
       <div className="container-page">
@@ -163,10 +334,10 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
         {!collapsed && (
           <div className="py-4 max-h-[70vh] overflow-y-auto">
             {/* Tabs */}
-            <div className="flex gap-2 border-b">
+            <div className="flex gap-2 border-b overflow-x-auto">
               <button
                 onClick={() => setActiveTab("tips")}
-                className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px ${
+                className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px whitespace-nowrap ${
                   activeTab === "tips" ? "border-navy text-navy" : "border-transparent text-muted-foreground"
                 }`}
               >
@@ -174,11 +345,27 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
               </button>
               <button
                 onClick={() => setActiveTab("usecases")}
-                className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px ${
+                className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px whitespace-nowrap ${
                   activeTab === "usecases" ? "border-navy text-navy" : "border-transparent text-muted-foreground"
                 }`}
               >
                 Use Cases
+              </button>
+              <button
+                onClick={() => setActiveTab("news")}
+                className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px whitespace-nowrap ${
+                  activeTab === "news" ? "border-navy text-navy" : "border-transparent text-muted-foreground"
+                }`}
+              >
+                News
+              </button>
+              <button
+                onClick={() => setActiveTab("events")}
+                className={`px-4 py-2 text-sm font-medium border-b-2 -mb-px whitespace-nowrap ${
+                  activeTab === "events" ? "border-navy text-navy" : "border-transparent text-muted-foreground"
+                }`}
+              >
+                Events
               </button>
             </div>
 
@@ -369,6 +556,189 @@ export function AdminPanel({ open, onClose }: AdminPanelProps) {
                           <span className="text-xs flex-1 truncate">{uc.title}</span>
                           <button
                             onClick={() => handleDeleteUseCase(uc.id)}
+                            className="rounded-full p-1 hover:bg-muted text-red-600"
+                          >
+                            <Trash2 className="size-4" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* News Tab */}
+            {activeTab === "news" && (
+              <div className="mt-4 grid md:grid-cols-2 gap-6">
+                {/* Add form */}
+                <div>
+                  <h4 className="text-sm font-semibold mb-3">Add New News Item</h4>
+                  <form onSubmit={handleAddNews} className="space-y-3">
+                    <label className="block">
+                      <span className="text-xs text-muted-foreground">Badge</span>
+                      <input
+                        type="text"
+                        value={newsTag}
+                        onChange={e => setNewsTag(e.target.value)}
+                        placeholder="e.g., AI Tip"
+                        className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="text-xs text-muted-foreground">Date</span>
+                      <input
+                        type="text"
+                        value={newsDate}
+                        onChange={e => setNewsDate(e.target.value)}
+                        placeholder="e.g., Jun 2025"
+                        className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="text-xs text-muted-foreground">Title *</span>
+                      <input
+                        type="text"
+                        value={newsTitle}
+                        onChange={e => setNewsTitle(e.target.value)}
+                        required
+                        className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="text-xs text-muted-foreground">Description *</span>
+                      <textarea
+                        value={newsSummary}
+                        onChange={e => setNewsSummary(e.target.value)}
+                        required
+                        rows={3}
+                        className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="text-xs text-muted-foreground">Image URL (optional)</span>
+                      <input
+                        type="text"
+                        value={newsImageUrl}
+                        onChange={e => setNewsImageUrl(e.target.value)}
+                        placeholder="Leave empty for default gradient"
+                        className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
+                      />
+                    </label>
+                    <button type="submit" className="rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
+                      Add News
+                    </button>
+                    {newsSuccess && <p className="text-xs text-emerald-600">News added successfully!</p>}
+                  </form>
+                </div>
+
+                {/* Delete list */}
+                <div>
+                  <h4 className="text-sm font-semibold mb-3">Dynamic News ({newsItems.length})</h4>
+                  {newsLoading ? (
+                    <p className="text-xs text-muted-foreground">Loading...</p>
+                  ) : newsItems.length === 0 ? (
+                    <p className="text-xs text-muted-foreground">No dynamic news yet.</p>
+                  ) : (
+                    <div className="space-y-2 max-h-96 overflow-y-auto">
+                      {newsItems.map(news => (
+                        <div key={news.id} className="flex items-center justify-between gap-2 p-2 rounded-lg border bg-background">
+                          <span className="text-xs flex-1 truncate">{news.title}</span>
+                          <button
+                            onClick={() => handleDeleteNews(news.id)}
+                            className="rounded-full p-1 hover:bg-muted text-red-600"
+                          >
+                            <Trash2 className="size-4" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Events Tab */}
+            {activeTab === "events" && (
+              <div className="mt-4 grid md:grid-cols-2 gap-6">
+                {/* Add form */}
+                <div>
+                  <h4 className="text-sm font-semibold mb-3">Add New Event</h4>
+                  <form onSubmit={handleAddEvent} className="space-y-3">
+                    <label className="block">
+                      <span className="text-xs text-muted-foreground">Month</span>
+                      <select
+                        value={eventMonth}
+                        onChange={e => setEventMonth(e.target.value)}
+                        className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
+                      >
+                        {MONTH_OPTIONS.map(m => <option key={m} value={m}>{m}</option>)}
+                      </select>
+                    </label>
+                    <label className="block">
+                      <span className="text-xs text-muted-foreground">Day *</span>
+                      <input
+                        type="number"
+                        min="1"
+                        max="31"
+                        value={eventDay}
+                        onChange={e => setEventDay(e.target.value)}
+                        required
+                        className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="text-xs text-muted-foreground">Title *</span>
+                      <input
+                        type="text"
+                        value={eventTitle}
+                        onChange={e => setEventTitle(e.target.value)}
+                        required
+                        placeholder="e.g., AI Gate Committee"
+                        className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="text-xs text-muted-foreground">Category</span>
+                      <input
+                        type="text"
+                        value={eventType}
+                        onChange={e => setEventType(e.target.value)}
+                        placeholder="e.g., AI Governance, FD Call"
+                        className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
+                      />
+                    </label>
+                    <label className="block">
+                      <span className="text-xs text-muted-foreground">Time</span>
+                      <input
+                        type="text"
+                        value={eventMeta}
+                        onChange={e => setEventMeta(e.target.value)}
+                        placeholder="e.g., 14:00 CET"
+                        className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm"
+                      />
+                    </label>
+                    <button type="submit" className="rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
+                      Add Event
+                    </button>
+                    {eventSuccess && <p className="text-xs text-emerald-600">Event added successfully!</p>}
+                  </form>
+                </div>
+
+                {/* Delete list */}
+                <div>
+                  <h4 className="text-sm font-semibold mb-3">Dynamic Events ({eventsItems.length})</h4>
+                  {eventsLoading ? (
+                    <p className="text-xs text-muted-foreground">Loading...</p>
+                  ) : eventsItems.length === 0 ? (
+                    <p className="text-xs text-muted-foreground">No dynamic events yet.</p>
+                  ) : (
+                    <div className="space-y-2 max-h-96 overflow-y-auto">
+                      {eventsItems.map(event => (
+                        <div key={event.id} className="flex items-center justify-between gap-2 p-2 rounded-lg border bg-background">
+                          <span className="text-xs flex-1 truncate">{event.title} ({event.month} {event.day})</span>
+                          <button
+                            onClick={() => handleDeleteEvent(event.id)}
                             className="rounded-full p-1 hover:bg-muted text-red-600"
                           >
                             <Trash2 className="size-4" />

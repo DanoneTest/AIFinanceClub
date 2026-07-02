@@ -14,6 +14,8 @@ app.use(express.json());
 const DATA_DIR = path.join(__dirname, 'data');
 const TIPS_FILE = path.join(DATA_DIR, 'tips.json');
 const USE_CASES_FILE = path.join(DATA_DIR, 'use_cases.json');
+const NEWS_FILE = path.join(DATA_DIR, 'news.json');
+const EVENTS_FILE = path.join(DATA_DIR, 'events.json');
 
 // Initialize data files
 async function initDataFiles() {
@@ -32,6 +34,20 @@ async function initDataFiles() {
     } catch {
       await fs.writeFile(USE_CASES_FILE, '[]');
       console.log('Created use_cases.json');
+    }
+    
+    try {
+      await fs.access(NEWS_FILE);
+    } catch {
+      await fs.writeFile(NEWS_FILE, '[]');
+      console.log('Created news.json');
+    }
+    
+    try {
+      await fs.access(EVENTS_FILE);
+    } catch {
+      await fs.writeFile(EVENTS_FILE, '[]');
+      console.log('Created events.json');
     }
   } catch (error) {
     console.error('Error initializing data files:', error);
@@ -117,6 +133,78 @@ app.delete('/api/use-cases/:id', async (req, res) => {
     res.json({ success: true });
   } catch (error) {
     res.status(500).json({ error: 'Failed to delete use case' });
+  }
+});
+
+// News endpoints
+app.get('/api/news', async (req, res) => {
+  try {
+    const newsItems = await readJSON(NEWS_FILE);
+    res.json(newsItems);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to read news' });
+  }
+});
+
+app.post('/api/news', async (req, res) => {
+  try {
+    const newsItems = await readJSON(NEWS_FILE);
+    const newNews = {
+      ...req.body,
+      id: `news-${Date.now()}`
+    };
+    newsItems.push(newNews);
+    await writeJSON(NEWS_FILE, newsItems);
+    res.json(newNews);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to create news' });
+  }
+});
+
+app.delete('/api/news/:id', async (req, res) => {
+  try {
+    const newsItems = await readJSON(NEWS_FILE);
+    const filtered = newsItems.filter(n => n.id !== req.params.id);
+    await writeJSON(NEWS_FILE, filtered);
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete news' });
+  }
+});
+
+// Events endpoints
+app.get('/api/events', async (req, res) => {
+  try {
+    const eventsItems = await readJSON(EVENTS_FILE);
+    res.json(eventsItems);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to read events' });
+  }
+});
+
+app.post('/api/events', async (req, res) => {
+  try {
+    const eventsItems = await readJSON(EVENTS_FILE);
+    const newEvent = {
+      ...req.body,
+      id: `event-${Date.now()}`
+    };
+    eventsItems.push(newEvent);
+    await writeJSON(EVENTS_FILE, eventsItems);
+    res.json(newEvent);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to create event' });
+  }
+});
+
+app.delete('/api/events/:id', async (req, res) => {
+  try {
+    const eventsItems = await readJSON(EVENTS_FILE);
+    const filtered = eventsItems.filter(e => e.id !== req.params.id);
+    await writeJSON(EVENTS_FILE, filtered);
+    res.json({ success: true });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to delete event' });
   }
 });
 

@@ -24,6 +24,24 @@ export type DynamicUseCase = {
   owner: string;
 };
 
+export type DynamicNews = {
+  id: string;
+  tag: string;
+  date: string;
+  title: string;
+  summary: string;
+  imageUrl?: string;
+};
+
+export type DynamicEvent = {
+  id: string;
+  month: string;
+  day: string;
+  title: string;
+  type: string;
+  meta: string;
+};
+
 export function useDynamicCards<T>(endpoint: string, eventName: string) {
   const [cards, setCards] = useState<T[]>([]);
   const [loading, setLoading] = useState(true);
@@ -68,5 +86,13 @@ export function useDynamicTips() {
 
 export function useDynamicUseCases() {
   return useDynamicCards<DynamicUseCase>("/api/use-cases", "use_cases_updated");
+}
+
+export function useDynamicNews() {
+  return useDynamicCards<DynamicNews>("/api/news", "news_updated");
+}
+
+export function useDynamicEvents() {
+  return useDynamicCards<DynamicEvent>("/api/events", "events_updated");
 }
 
