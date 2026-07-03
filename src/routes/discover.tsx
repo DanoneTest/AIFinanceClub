@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Shield, Scale, Compass, Route as RouteIcon, Gavel, Play, Target, BarChart3, CheckCircle2, XCircle, AlertCircle, Lock } from "lucide-react";
+import { Shield, Scale, Compass, Route as RouteIcon, Gavel, Play, Target, BarChart3, CheckCircle2, XCircle, AlertCircle, Lock, ExternalLink } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
 
 const sponsorPhoto = "/jurgen-esser.png";
