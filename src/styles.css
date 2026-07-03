@@ -148,9 +148,10 @@
 
 @utility hero-gradient {
   background:
-    radial-gradient(1200px 600px at 80% -10%, color-mix(in oklab, var(--navy) 55%, transparent), transparent 60%),
-    radial-gradient(900px 500px at 0% 10%, color-mix(in oklab, var(--accent-blue) 45%, transparent), transparent 55%),
-    linear-gradient(180deg, color-mix(in oklab, var(--navy) 30%, var(--background)), color-mix(in oklab, var(--accent-blue) 25%, var(--surface)));
+    radial-gradient(1200px 700px at 85% 100%, oklch(0.45 0.14 250), transparent 60%),
+    radial-gradient(900px 600px at 0% 0%, oklch(0.18 0.07 260), transparent 55%),
+    linear-gradient(160deg, oklch(0.16 0.06 260) 0%, oklch(0.24 0.10 258) 50%, oklch(0.32 0.13 252) 100%);
+  color: oklch(0.985 0.003 264);
 }
 
 @utility chip {
