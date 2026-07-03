@@ -43,9 +43,9 @@ function Index() {
   return (
     <>
       {/* Hero */}
-      <section className="hero-gradient">
+      <section className="bg-navy text-navy-foreground">
         <div className="container-page pt-10 pb-10 md:pt-14 md:pb-12 text-center">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground animate-fade-up">Finance Transformation</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] opacity-70 animate-fade-up">Finance Transformation</p>
           <h1 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight animate-fade-up">
             <span className="inline-flex items-baseline">
               <span>AI</span>
@@ -53,7 +53,7 @@ function Index() {
               <span className="lowercase">finance club</span>
             </span>
           </h1>
-          <p className="mt-3 text-base md:text-lg text-muted-foreground max-w-xl mx-auto animate-fade-up">
+          <p className="mt-3 text-base md:text-lg opacity-80 max-w-xl mx-auto animate-fade-up">
             Built by Finance for Finance.<br/>Designed for adoption.
           </p>
         </div>
