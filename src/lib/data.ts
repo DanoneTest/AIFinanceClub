@@ -7,13 +7,23 @@ export type News = {
   summary: string;
   date: string;
   image?: string;
+  imageUrl?: string;
+  link?: string;
 };
 
 export const news: News[] = [
-  { id: "n1", title: "Tip of the Month - June Edition", tag: "AI Tip", summary: "Verify your Onedrive shared files and spread of confidential data.", date: "Jun 2025" },
-  { id: "n2", title: "AI Boost Beta launches for Finance", tag: "Learning", summary: "A selected Finance learning pathway is now available to help teams build practical AI confidence.", date: "Jun 2025" },
-  { id: "n3", title: "AI Champions community expands", tag: "Community", summary: "More Finance teams are now represented in the AI Champions network.", date: "May 2025" },
-  { id: "n4", title: "Use case scorecard introduced", tag: "Explore & Build", summary: "AI initiatives can now be tracked from idea to live impact.", date: "May 2025" },
+  { id: "n1", title: "AI.Finance Club Launch", tag: "Ai.finance Club", summary: "", date: "" },
+  { id: "n2", title: "Tip of the Month - July 2026", tag: "Tips & Tricks", summary: "Pioches dans la liste", date: "" },
+  { id: "n3", title: "Copilot Finance Minilab Kick-off", tag: "Minilab", summary: "50 Finance AI Champions representing a panel of the 3 world zones test two available functionalities (insights and financial reconciliations) during two months and build their business cases. Co-built with Microsoft.", date: "29 Jun 2026", link: "https://danone.sharepoint.com/:p:/s/FinanceDigitalAIAccelaration/IQAShybgLMmkTpB82hapFHv1AUbJqk_3AnDaTbo9pDGOmLI?e=QjimNS" },
+  { id: "n4", title: "Tip of the Month - June 2026", tag: "Tips & Tricks", summary: "Compliance with the use of \"/\"", date: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQCOd1UdkSa3TKYMVDKRD9NkASzLA5Qg5V1EDc_MLG6af7o?e=4hor5U" },
+  { id: "n5", title: "Finance AI.Lympics - Rueil Edition", tag: "Event", summary: "Building on the Lafayette success, Finance AI Day Rueil expanded the experience to a larger audience, showcasing Finance AI Champions, AI Lab use cases, and immersive AI.Lympics activities. More than 150 Danoners attended, with 94% reporting increased motivation to use AI and a 4.8/5 average rating.", date: "21 May 2026", link: "https://danone.sharepoint.com/:b:/s/FinanceDigitalAIAccelaration/IQBi7-fU9YWAR47fwCV_Zv42AZa2h04XlqFQk3FtRJTJPxM?e=AARaUJ" },
+  { id: "n6", title: "Tip of the Month - May 2026", tag: "Tips & Tricks", summary: "Use Facilitator to keep track of meetings' agenda", date: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQARKnDUMeTcQJedTETW6yQgAWangzfXKePdY6xV3SQNHzM?e=Fa4sii" },
+  { id: "n7", title: "AI.Finance Club Minilab Kick-off", tag: "Minilab", summary: "5 Finance AI Champions co-building the AI.Finance club, testing Sharepoint and Lovable. Launched March 9th to co-build mockups on Sharepoint, then testing phase on Lovable.", date: "29 Jun 2026", link: "https://danone.sharepoint.com/:p:/s/FinanceDigitalAIAccelaration/IQDv2qOderLxRZVhe1pidFLNAXaQLPXxxX1NwYXlqTY9DPo?e=dFDjnU" },
+  { id: "n8", title: "Tip of the Month - April 2026", tag: "Tips & Tricks", summary: "Customize your own financial podcast with Copilot Notebooks", date: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQALW2vIkTDkTqvzkxmvEWG4AYCjU2Syth1EeKj4_lPwNz0?e=huVhDl" },
+  { id: "n9", title: "Tip of the Month - March 2026", tag: "Tips & Tricks", summary: "Edit with Copilot for Brand Margins Drivers Analysis", date: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQAA0nBBOL9sSr-lDM-DTzK8AaBcd-ECabaf6ekk7i6Skp4?e=vxKAG4" },
+  { id: "n10", title: "Tip of the Month - February 2026", tag: "Tips & Tricks", summary: "Have Copilot pre-writing your emails in Outlook", date: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQBA-_NobHfzT4UDheUjZnvXAQ_6kPlhjfRSev4F2ivzx58?e=tOi4Ru" },
+  { id: "n11", title: "Finance AI.Lympics - Lafayette Edition", tag: "Event", summary: "Finance AI Day Lafayette brought together more than 200 Finance Danoners for the first-ever AI-focused Finance event. The event achieved a 4.8/5 satisfaction score, with 94% of participants learning reusable AI tips.", date: "27 Jan 2026", link: "https://danone.sharepoint.com/:b:/s/FinanceDigitalAIAccelaration/IQCZQbs0fWS7SanDX18SPD4LAb1V0-EwEB8aywV-kqiyZb8?e=58lVG4" },
+  { id: "n12", title: "Tip of the Month - January 2026", tag: "Tips & Tricks", summary: "Prompt efficiency with Prompt Coach Assistant", date: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQCZbd2EgaixSY24XmNB7v0KAUAWTnZfCB0jxXOyQrMMDxo?e=Ka8P0h" },
 ];
 
 export type Tip = {
