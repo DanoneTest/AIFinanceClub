@@ -97,7 +97,7 @@ function Index() {
               <h3 className="text-lg font-semibold tracking-tight">Latest news</h3>
               <Link to="/discover" className="text-xs text-accent-blue inline-flex items-center gap-1">All news <ArrowRight className="size-3" /></Link>
             </div>
-            <div className="mt-3 rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={featured.imageUrl ? { backgroundImage: `url(${featured.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
+            <div className="mt-3 rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={"imageUrl" in featured && featured.imageUrl ? { backgroundImage: `url(${featured.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
               <span className="chip bg-card/95 text-foreground text-[11px]">{featured.tag}</span>
             </div>
             <div className="mt-3 text-xs text-muted-foreground">{featured.date}</div>
