@@ -174,7 +174,7 @@ function Index() {
                 <span className="font-medium">{f.q}</span>
                 <span className="text-accent-blue text-xl leading-none group-open:rotate-45 transition-transform">+</span>
               </summary>
-              <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+              <p className="mt-2 text-sm text-muted-foreground [&_a]:text-accent-blue [&_a]:underline" dangerouslySetInnerHTML={{ __html: f.a }} />
             </details>
           ))}
         </div>
