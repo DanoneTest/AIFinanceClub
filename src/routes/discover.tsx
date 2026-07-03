@@ -201,16 +201,14 @@ function Discover() {
                 <li key={i} className="flex gap-2"><span className="font-semibold text-accent-blue">{i+1}.</span>{q}</li>
               ))}
             </ol>
-            <div className="mt-4">
-              <iframe
-                src="https://player.vimeo.com/video/1101636689?h=a95dad4483"
-                width="100%"
-                style={{ aspectRatio: "16/9" }}
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
+            <a
+              href="https://vimeo.com/1101636689/a95dad4483?share=copy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium hover:bg-navy/90 transition-colors"
+            >
+              <Play className="size-3.5" /> Watch AI Governance at Danone
+            </a>
           </div>
         </div>
 
