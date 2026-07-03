@@ -67,7 +67,7 @@ const JOURNEY = [
 
 const GOLDEN_RULES = [
   { icon: CheckCircle2, color: "text-emerald-600 bg-emerald-50", title: "Always verify AI outputs", body: "before sharing or making decisions. AI can be wrong — you remain accountable at all times." },
-  { icon: XCircle, color: "text-red-600 bg-red-50", title: "Never paste confidential data", body: "(unpublished results, customer data, M&A info) into any unapproved tool — including public ChatGPT, Gemini or personal AI tools." },
+  { icon: XCircle, color: "text-red-600 bg-red-50", title: "NEVER PASTE CONFIDENTIAL DATA into any unapproved tool", body: "(unpublished results, customer data, M&A info) — including public ChatGPT, Claude, Gemini, DeepSeek or personal AI tools." },
   { icon: CheckCircle2, color: "text-emerald-600 bg-emerald-50", title: "Report any incident or unexpected behaviour", body: "to your local Champion or via the AI in Finance Teams channel. No panic — but the team must know." },
   { icon: AlertCircle, color: "text-amber-600 bg-amber-50", title: "AI is an assistant, not a decision-maker.", body: "Every AI-generated output must be reviewed and validated by a human before being shared or acted upon." },
   { icon: CheckCircle2, color: "text-emerald-600 bg-emerald-50", title: "Apply the Decision Science Canvas", body: "before starting any AI use case: define the decision, measure success, assess value vs cost, check data availability and identify responsible AI risks." },
