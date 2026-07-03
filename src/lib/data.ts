@@ -167,10 +167,11 @@ export type FAQ = { id: string; q: string; a: string };
 export const faqs: FAQ[] = [
   { id: "f1", q: "What is AI.finance?", a: "AI.finance is the Finance Transformation hub for AI capabilities, learning, use cases and the Champions community." },
   { id: "f2", q: "Who can use Copilot M365 with internal data?", a: "Anyone with an M365 licence may use internal non-classified data. Confidential or unpublished data is not allowed." },
-  { id: "f3", q: "How do I submit an AI idea?", a: "Use the AI.DEA form on Explore & Build. The AI Gate Committee reviews ideas every ~3 months." },
-  { id: "f4", q: "Can I use public ChatGPT or Gemini for Finance data?", a: "No. Public ChatGPT, Gemini, or any unapproved tool must never receive Danone data." },
-  { id: "f5", q: "How do I become an AI Champion?", a: "Express interest from the AI Champions page. You don't need to be technical — curiosity and willingness to share is what matters." },
-  { id: "f6", q: "Where can I learn AI for Finance?", a: "Start with AI Boost on the Upskill page, then explore 9 partner platforms including LinkedIn Learning, DataCamp and the Microsoft AI Skill Navigator." },
+  { id: "f3", q: "I have an AI idea — what should I do?", a: 'Use the AI.DEA form on Explore & Build — <a href="/explore" class="text-accent-blue underline">submit it here</a>. The AI Gate Committee reviews ideas every ~3 months.' },
+  { id: "f4", q: "Can I use public ChatGPT or Gemini for Finance data?", a: "No. Public ChatGPT, Claude, Gemini, DeepSeek, or any unapproved tool must never receive Danone data." },
+  { id: "f5", q: "Can I become an AI Champion?", a: 'Express interest from the AI Champions page — <a href="/champions" class="text-accent-blue underline">Join us</a>. You don\'t need to be technical — curiosity and willingness to share is what matters.' },
+  { id: "f6", q: "Where can I learn AI for Finance?", a: 'Start with <a href="/upskill" class="text-accent-blue underline">AI Boost on the Upskill page</a>, then explore 9 partner platforms including LinkedIn Learning, DataCamp and the Microsoft AI Skill Navigator.' },
+  { id: "f7", q: "What AI initiatives are already live in Finance?", a: 'Explore the live <a href="/explore" class="text-accent-blue underline">use cases</a> across FP&A, Controlling, Tax, Treasury, Audit and more on the Explore & Build page.' },
 ];
 
 // Unified search index
