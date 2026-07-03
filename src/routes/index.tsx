@@ -207,12 +207,9 @@ function Index() {
             <p className="mt-2 text-sm text-muted-foreground">
               It acts as a central accelerator, combining strategy, tools, and community to boost productivity, insights, and decision-making across Finance.
             </p>
-            <button className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
-              <Mail className="size-3.5" /> Contact Us
-            </button>
-            <div className="mt-2">
-              <a href="mailto:ai.finance@danone.com" className="text-sm text-accent-blue">ai.finance@danone.com</a>
-            </div>
+            <a href="mailto:ai.finance@danone.com" className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
+              <Mail className="size-3.5" /> ai.finance@danone.com
+            </a>
           </div>
           <img src={teamPhoto} alt="AI.finance club team" className="w-full h-full rounded-xl object-cover shadow-elevated" />
         </div>
