@@ -265,12 +265,12 @@ function Discover() {
         </div>
         <div className="mt-4">
           <a
-            className="text-sm text-accent-blue inline-flex items-center gap-1"
             href="https://danone.sharepoint.com/sites/DMS-Policies-and-Positions/Publishing%20Area/Responsible%20Business%20Practices/Artificial%20Intelligence/26-05_Danone%20Responsible%20AI%20Policy_internal.pdf?web=1"
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium hover:bg-navy/90 transition-colors"
           >
-            Danone Responsible AI Policy
+            <ExternalLink className="size-3.5" /> Read the Danone Responsible AI Policy
           </a>
         </div>
       </section>
