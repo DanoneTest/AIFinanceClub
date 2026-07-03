@@ -67,7 +67,7 @@ const JOURNEY = [
 
 const GOLDEN_RULES = [
   { icon: CheckCircle2, color: "text-emerald-600 bg-emerald-50", title: "Always verify AI outputs", body: "before sharing or making decisions. AI can be wrong — you remain accountable at all times." },
-  { icon: XCircle, color: "text-red-600 bg-red-50", title: "NEVER PASTE CONFIDENTIAL DATA into any unapproved tool", body: "(unpublished results, customer data, M&A info) — including public ChatGPT, Claude, Gemini, DeepSeek or personal AI tools." },
+  { icon: XCircle, color: "text-red-600 bg-red-50", title: "Never paste confidential data", body: "(unpublished results, customer data, M&A info) into any unapproved tool — including public ChatGPT, Gemini or personal AI tools." },
   { icon: CheckCircle2, color: "text-emerald-600 bg-emerald-50", title: "Report any incident or unexpected behaviour", body: "to your local Champion or via the AI in Finance Teams channel. No panic — but the team must know." },
   { icon: AlertCircle, color: "text-amber-600 bg-amber-50", title: "AI is an assistant, not a decision-maker.", body: "Every AI-generated output must be reviewed and validated by a human before being shared or acted upon." },
   { icon: CheckCircle2, color: "text-emerald-600 bg-emerald-50", title: "Apply the Decision Science Canvas", body: "before starting any AI use case: define the decision, measure success, assess value vs cost, check data availability and identify responsible AI risks." },
@@ -233,7 +233,7 @@ function Discover() {
               { k: "Copilot M365", v: "✅ M365 licence — Internal non-classified data OK. Verify classification.", i: CheckCircle2, c: "text-emerald-600" },
               { k: "Power Automate", v: "✅ Available to all — Sensitive flows reviewed by manager before go-live", i: CheckCircle2, c: "text-emerald-600" },
               { k: "Custom tools", v: "🔒 Validated projects only — AI Committee brief + IT access required", i: Lock, c: "text-amber-600" },
-              { k: "Forbidden", v: "Public ChatGPT, Claude, Gemini, DeepSeek, or any unapproved tool with Danone data", i: XCircle, c: "text-red-600" },
+              { k: "Forbidden", v: "Public ChatGPT, Gemini, or any unapproved tool with Danone data", i: XCircle, c: "text-red-600" },
             ].map((r, i) => (
               <li key={i} className="grid grid-cols-[140px_1fr] gap-3 items-start">
                 <span className="text-muted-foreground text-sm flex items-center gap-1.5"><r.i className={`size-3.5 ${r.c}`} />{r.k}</span>
@@ -257,7 +257,8 @@ function Discover() {
           ))}
         </div>
         <div className="mt-4">
-          <a className="text-sm text-accent-blue inline-flex items-center gap-1" href="https://danone.sharepoint.com/sites/DMS-Policies-and-Positions/Publishing%20Area/Responsible%20Business%20Practices/Artificial%20Intelligence/26-05_Danone%20Responsible%20AI%20Policy_internal.pdf?web=1" target="_blank" rel="noopener noreferrer">Danone Responsible AI Policy →</a>
+          <a className="text-sm text-accent-blue inline-flex items-center gap-1" href="#">Read the Responsible AI Policy →</a>
+          <span className="ml-2 text-xs text-muted-foreground">(link to be provided)</span>
         </div>
       </section>
 

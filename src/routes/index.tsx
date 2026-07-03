@@ -43,9 +43,9 @@ function Index() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-navy text-navy-foreground">
+      <section className="hero-gradient">
         <div className="container-page pt-10 pb-10 md:pt-14 md:pb-12 text-center">
-          <p className="text-[11px] uppercase tracking-[0.25em] opacity-70 animate-fade-up">Finance Transformation</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground animate-fade-up">Finance Transformation</p>
           <h1 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight animate-fade-up">
             <span className="inline-flex items-baseline">
               <span>AI</span>
@@ -53,7 +53,7 @@ function Index() {
               <span className="lowercase">finance club</span>
             </span>
           </h1>
-          <p className="mt-3 text-base md:text-lg opacity-80 max-w-xl mx-auto animate-fade-up">
+          <p className="mt-3 text-base md:text-lg text-muted-foreground max-w-xl mx-auto animate-fade-up">
             Built by Finance for Finance.<br/>Designed for adoption.
           </p>
         </div>
@@ -97,24 +97,12 @@ function Index() {
               <h3 className="text-lg font-semibold tracking-tight">Latest news</h3>
               <Link to="/discover" className="text-xs text-accent-blue inline-flex items-center gap-1">All news <ArrowRight className="size-3" /></Link>
             </div>
-            {(() => {
-              const featuredLink = (featured as any).link as string | undefined;
-              const CardInner = (
-                <>
-                  <div className="rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={(featured as any).imageUrl ? { backgroundImage: `url(${(featured as any).imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
-                    <span className="chip bg-card/95 text-foreground text-[11px]">{featured.tag}</span>
-                  </div>
-                  <div className="mt-3 text-xs text-muted-foreground">{featured.date}</div>
-                  <h4 className="mt-1 font-semibold leading-snug">{featured.title}</h4>
-                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{featured.summary}</p>
-                </>
-              );
-              return featuredLink ? (
-                <a href={featuredLink} target="_blank" rel="noopener noreferrer" className="mt-3 block hover:opacity-90 transition">{CardInner}</a>
-              ) : (
-                <div className="mt-3">{CardInner}</div>
-              );
-            })()}
+            <div className="mt-3 rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={featured.imageUrl ? { backgroundImage: `url(${featured.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
+              <span className="chip bg-card/95 text-foreground text-[11px]">{featured.tag}</span>
+            </div>
+            <div className="mt-3 text-xs text-muted-foreground">{featured.date}</div>
+            <h4 className="mt-1 font-semibold leading-snug">{featured.title}</h4>
+            <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{featured.summary}</p>
             <div className="mt-3 flex items-center justify-between">
               <div className="flex gap-1.5">
                 {allNews.map((_, i) => (
@@ -174,7 +162,7 @@ function Index() {
                 <span className="font-medium">{f.q}</span>
                 <span className="text-accent-blue text-xl leading-none group-open:rotate-45 transition-transform">+</span>
               </summary>
-              <p className="mt-2 text-sm text-muted-foreground [&_a]:text-accent-blue [&_a]:underline" dangerouslySetInnerHTML={{ __html: f.a }} />
+              <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
             </details>
           ))}
         </div>
@@ -199,11 +187,11 @@ function Index() {
             <p className="mt-2 text-sm text-muted-foreground">
               It acts as a central accelerator, combining strategy, tools, and community to boost productivity, insights, and decision-making across Finance.
             </p>
-            <a href="mailto:ai.finance@danone.com" className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
-              <Mail className="size-3.5" /> ai.finance@danone.com
-            </a>
+            <button className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
+              <Mail className="size-3.5" /> Contact Us
+            </button>
           </div>
-          <img src={teamPhoto} alt="AI.finance club team" className="w-full h-64 md:h-80 rounded-xl object-cover object-center shadow-elevated" />
+          <img src={teamPhoto} alt="AI.finance club team" className="w-full h-auto rounded-xl object-cover shadow-elevated" />
         </div>
 
 
