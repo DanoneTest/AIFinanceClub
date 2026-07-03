@@ -6,14 +6,24 @@ export type News = {
   tag: string;
   summary: string;
   date: string;
-  image?: string;
+  image?: string | null;
+  time?: string;
+  link?: string | null;
 };
 
 export const news: News[] = [
-  { id: "n1", title: "Tip of the Month - June Edition", tag: "AI Tip", summary: "Verify your Onedrive shared files and spread of confidential data.", date: "Jun 2025" },
-  { id: "n2", title: "AI Boost Beta launches for Finance", tag: "Learning", summary: "A selected Finance learning pathway is now available to help teams build practical AI confidence.", date: "Jun 2025" },
-  { id: "n3", title: "AI Champions community expands", tag: "Community", summary: "More Finance teams are now represented in the AI Champions network.", date: "May 2025" },
-  { id: "n4", title: "Use case scorecard introduced", tag: "Explore & Build", summary: "AI initiatives can now be tracked from idea to live impact.", date: "May 2025" },
+  { id: "n1", tag: "Ai.finance Club", title: "AI.Finance Club Launch", summary: "", date: "", time: "", link: null, image: null },
+  { id: "n2", tag: "Tips & Tricks", title: "Tip of the Month - July 2026", summary: "Pioches dans la liste", date: "", time: "", link: null, image: null },
+  { id: "n3", tag: "Minilab", title: "Copilot Finance Minilab Kick-off", summary: "50 Finance AI Champions representing a panel of the 3 world zones test two available functionalities (insights and financial reconciliations) during two months and build their business cases. Co-built with Microsoft.", date: "29 Jun 2026", time: "3pm–3:30pm", link: "https://danone.sharepoint.com/:p:/s/FinanceDigitalAIAccelaration/IQAShybgLMmkTpB82hapFHv1AUbJqk_3AnDaTbo9pDGOmLI?e=QjimNS", image: null },
+  { id: "n4", tag: "Tips & Tricks", title: "Tip of the Month - June 2026", summary: "Compliance with the use of \"/\"", date: "", time: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQCOd1UdkSa3TKYMVDKRD9NkASzLA5Qg5V1EDc_MLG6af7o?e=4hor5U", image: null },
+  { id: "n5", tag: "Event", title: "Finance AI.Lympics - Rueil Edition", summary: "Building on the Lafayette success, Finance AI Day Rueil expanded the experience to a larger audience, showcasing Finance AI Champions, AI Lab use cases, and immersive AI.Lympics activities. More than 150 Danoners attended, with 94% reporting increased motivation to use AI and a 4.8/5 average rating.", date: "21 May 2026", time: "All day", link: "https://danone.sharepoint.com/:b:/s/FinanceDigitalAIAccelaration/IQBi7-fU9YWAR47fwCV_Zv42AZa2h04XlqFQk3FtRJTJPxM?e=AARaUJ", image: null },
+  { id: "n6", tag: "Tips & Tricks", title: "Tip of the Month - May 2026", summary: "Use Facilitator to keep track of meetings' agenda", date: "", time: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQARKnDUMeTcQJedTETW6yQgAWangzfXKePdY6xV3SQNHzM?e=Fa4sii", image: null },
+  { id: "n7", tag: "Minilab", title: "AI.Finance Club Minilab Kick-off", summary: "5 Finance AI Champions co-building the AI.Finance club, testing Sharepoint and Lovable. Launched March 9th to co-build mockups on Sharepoint, then testing phase on Lovable to deliver back to Champions on July 7th.", date: "29 Jun 2026", time: "4pm–4:30pm", link: "https://danone.sharepoint.com/:p:/s/FinanceDigitalAIAccelaration/IQDv2qOderLxRZVhe1pidFLNAXaQLPXxxX1NwYXlqTY9DPo?e=dFDjnU", image: null },
+  { id: "n8", tag: "Tips & Tricks", title: "Tip of the Month - April 2026", summary: "Customize your own financial podcast with Copilot Notebooks", date: "", time: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQALW2vIkTDkTqvzkxmvEWG4AYCjU2Syth1EeKj4_lPwNz0?e=huVhDl", image: null },
+  { id: "n9", tag: "Tips & Tricks", title: "Tip of the Month - March 2026", summary: "Edit with Copilot for Brand Margins Drivers Analysis", date: "", time: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQAA0nBBOL9sSr-lDM-DTzK8AaBcd-ECabaf6ekk7i6Skp4?e=vxKAG4", image: null },
+  { id: "n10", tag: "Tips & Tricks", title: "Tip of the Month - February 2026", summary: "Have Copilot pre-writing your emails in Outlook", date: "", time: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQBA-_NobHfzT4UDheUjZnvXAQ_6kPlhjfRSev4F2ivzx58?e=tOi4Ru", image: null },
+  { id: "n11", tag: "Event", title: "Finance AI.Lympics - Lafayette Edition", summary: "Finance AI Day Lafayette brought together more than 200 Finance Danoners for the first-ever AI-focused Finance event. The event achieved a 4.8/5 satisfaction score, with 94% of participants learning reusable AI tips and 80% feeling more inspired to use AI in their daily work.", date: "27 Jan 2026", time: "All day", link: "https://danone.sharepoint.com/:b:/s/FinanceDigitalAIAccelaration/IQCZQbs0fWS7SanDX18SPD4LAb1V0-EwEB8aywV-kqiyZb8?e=58lVG4", image: null },
+  { id: "n12", tag: "Tips & Tricks", title: "Tip of the Month - January 2026", summary: "Prompt efficiency with Prompt Coach Assistant", date: "", time: "", link: "https://danone.sharepoint.com/:v:/s/FinanceDigitalAIAccelaration/IQCZbd2EgaixSY24XmNB7v0KAUAWTnZfCB0jxXOyQrMMDxo?e=Ka8P0h", image: null },
 ];
 
 export type Tip = {
@@ -157,10 +167,11 @@ export type FAQ = { id: string; q: string; a: string };
 export const faqs: FAQ[] = [
   { id: "f1", q: "What is AI.finance?", a: "AI.finance is the Finance Transformation hub for AI capabilities, learning, use cases and the Champions community." },
   { id: "f2", q: "Who can use Copilot M365 with internal data?", a: "Anyone with an M365 licence may use internal non-classified data. Confidential or unpublished data is not allowed." },
-  { id: "f3", q: "How do I submit an AI idea?", a: "Use the AI.DEA form on Explore & Build. The AI Gate Committee reviews ideas every ~3 months." },
-  { id: "f4", q: "Can I use public ChatGPT or Gemini for Finance data?", a: "No. Public ChatGPT, Gemini, or any unapproved tool must never receive Danone data." },
-  { id: "f5", q: "How do I become an AI Champion?", a: "Express interest from the AI Champions page. You don't need to be technical — curiosity and willingness to share is what matters." },
+  { id: "f3", q: "I have an AI idea. How do I submit it?", a: "If you have an AI idea, submit it here. The AI Gate Committee reviews ideas every ~3 months." },
+  { id: "f4", q: "Can I use public ChatGPT or Gemini for Finance data?", a: "No. Public ChatGPT, Claude, Gemini, DeepSeek, or any unapproved tool must never receive Danone data." },
+  { id: "f5", q: "Can I become an AI Champion?", a: "Yes. Join us from the AI Champions page. You don't need to be technical — curiosity and willingness to share is what matters." },
   { id: "f6", q: "Where can I learn AI for Finance?", a: "Start with AI Boost on the Upskill page, then explore 9 partner platforms including LinkedIn Learning, DataCamp and the Microsoft AI Skill Navigator." },
+  { id: "f7", q: "What AI initiatives and projects already exist in Finance?", a: "You can explore existing use cases in the Explore & Build page." },
 ];
 
 // Unified search index

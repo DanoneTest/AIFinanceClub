@@ -97,12 +97,25 @@ function Index() {
               <h3 className="text-lg font-semibold tracking-tight">Latest news</h3>
               <Link to="/discover" className="text-xs text-accent-blue inline-flex items-center gap-1">All news <ArrowRight className="size-3" /></Link>
             </div>
-            <div className="mt-3 rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={featured.imageUrl ? { backgroundImage: `url(${featured.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
-              <span className="chip bg-card/95 text-foreground text-[11px]">{featured.tag}</span>
-            </div>
-            <div className="mt-3 text-xs text-muted-foreground">{featured.date}</div>
-            <h4 className="mt-1 font-semibold leading-snug">{featured.title}</h4>
-            <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{featured.summary}</p>
+            {featured.link ? (
+              <a href={featured.link} target="_blank" rel="noopener noreferrer" className="block">
+                <div className="mt-3 rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={(featured as any).image || (featured as any).imageUrl ? { backgroundImage: `url(${(featured as any).image ?? (featured as any).imageUrl})`, backgroundSize: "cover", backgroundPosition: "center" } : {}}>
+                  <span className="chip bg-card/95 text-foreground text-[11px]">{featured.tag}</span>
+                </div>
+                <div className="mt-3 text-xs text-muted-foreground">{featured.date}</div>
+                <h4 className="mt-1 font-semibold leading-snug">{featured.title}</h4>
+                <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{featured.summary}</p>
+              </a>
+            ) : (
+              <>
+                <div className="mt-3 rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={(featured as any).image || (featured as any).imageUrl ? { backgroundImage: `url(${(featured as any).image ?? (featured as any).imageUrl})`, backgroundSize: "cover", backgroundPosition: "center" } : {}}>
+                  <span className="chip bg-card/95 text-foreground text-[11px]">{featured.tag}</span>
+                </div>
+                <div className="mt-3 text-xs text-muted-foreground">{featured.date}</div>
+                <h4 className="mt-1 font-semibold leading-snug">{featured.title}</h4>
+                <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{featured.summary}</p>
+              </>
+            )}
             <div className="mt-3 flex items-center justify-between">
               <div className="flex gap-1.5">
                 {allNews.map((_, i) => (
@@ -162,7 +175,27 @@ function Index() {
                 <span className="font-medium">{f.q}</span>
                 <span className="text-accent-blue text-xl leading-none group-open:rotate-45 transition-transform">+</span>
               </summary>
-              <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {f.id === "f6" ? (
+                  <>
+                    Start with <a href="/upskill#ai-boost" target="_blank" rel="noopener noreferrer" className="text-accent-blue">AI Boost on the Upskill page</a>, then explore 9 partner platforms including LinkedIn Learning, DataCamp and the Microsoft AI Skill Navigator.
+                  </>
+                ) : f.id === "f7" ? (
+                  <>
+                    You can explore existing <a href="/explore#usecases" target="_blank" rel="noopener noreferrer" className="text-accent-blue">use cases</a> in the Explore & Build page.
+                  </>
+                ) : f.id === "f5" ? (
+                  <>
+                    Yes. <a href="/champions#apply" target="_blank" rel="noopener noreferrer" className="text-accent-blue">Join us</a> from the AI Champions page. You don't need to be technical — curiosity and willingness to share is what matters.
+                  </>
+                ) : f.id === "f3" ? (
+                  <>
+                    If you have an AI idea, <a href="/explore#idea" target="_blank" rel="noopener noreferrer" className="text-accent-blue">submit it here</a>. The AI Gate Committee reviews ideas every ~3 months.
+                  </>
+                ) : (
+                  f.a
+                )}
+              </p>
             </details>
           ))}
         </div>
@@ -190,8 +223,11 @@ function Index() {
             <button className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
               <Mail className="size-3.5" /> Contact Us
             </button>
+            <div className="mt-2">
+              <a href="mailto:ai.finance@danone.com" className="text-sm text-accent-blue">ai.finance@danone.com</a>
+            </div>
           </div>
-          <img src={teamPhoto} alt="AI.finance club team" className="w-full h-auto rounded-xl object-cover shadow-elevated" />
+          <img src={teamPhoto} alt="AI.finance club team" className="w-full h-full rounded-xl object-cover shadow-elevated" />
         </div>
 
 
