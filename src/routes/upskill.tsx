@@ -217,14 +217,24 @@ function Upskill() {
 
       {/* Play the Game */}
       <section id="play" className="container-page py-10">
-        <div className="rounded-2xl border bg-gradient-to-br from-navy to-accent-blue text-navy-foreground p-6 md:p-8 flex items-center gap-5 flex-wrap">
-          <Gamepad2 className="size-10" />
-          <div className="flex-1 min-w-[200px]">
-            <div className="text-[11px] uppercase tracking-[0.18em] opacity-80">Coming soon</div>
-            <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Play the Game</h2>
-            <p className="mt-1 text-sm opacity-90">An interactive AI.finance challenge — content placeholder. To be provided.</p>
+        <div className="rounded-2xl border bg-gradient-to-br from-navy to-accent-blue text-navy-foreground p-6 md:p-8">
+          <div className="flex items-center gap-5 flex-wrap">
+            <Gamepad2 className="size-10" />
+            <div className="flex-1 min-w-[200px]">
+              <div className="text-[11px] uppercase tracking-[0.18em] opacity-80">Watch</div>
+              <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Play the Game</h2>
+              <p className="mt-1 text-sm opacity-90">An interactive AI.finance challenge.</p>
+            </div>
           </div>
-          <button className="rounded-full bg-background text-foreground px-5 py-2 text-sm font-medium">Notify me</button>
+          <div className="mt-5 relative w-full overflow-hidden rounded-xl" style={{ paddingTop: "56.25%" }}>
+            <iframe
+              src="https://player.vimeo.com/video/1101636689?h=a95dad4483"
+              title="AI.finance video"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full border-0"
+            />
+          </div>
         </div>
       </section>
 
