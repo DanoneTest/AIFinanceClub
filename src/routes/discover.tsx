@@ -233,7 +233,7 @@ function Discover() {
               { k: "Copilot M365", v: "✅ M365 licence — Internal non-classified data OK. Verify classification.", i: CheckCircle2, c: "text-emerald-600" },
               { k: "Power Automate", v: "✅ Available to all — Sensitive flows reviewed by manager before go-live", i: CheckCircle2, c: "text-emerald-600" },
               { k: "Custom tools", v: "🔒 Validated projects only — AI Committee brief + IT access required", i: Lock, c: "text-amber-600" },
-              { k: "Forbidden", v: "Public ChatGPT, Gemini, or any unapproved tool with Danone data", i: XCircle, c: "text-red-600" },
+              { k: "Forbidden", v: "Public ChatGPT, Claude, Gemini, DeepSeek, or any unapproved tool with Danone data", i: XCircle, c: "text-red-600" },
             ].map((r, i) => (
               <li key={i} className="grid grid-cols-[140px_1fr] gap-3 items-start">
                 <span className="text-muted-foreground text-sm flex items-center gap-1.5"><r.i className={`size-3.5 ${r.c}`} />{r.k}</span>
