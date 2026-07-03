@@ -97,12 +97,24 @@ function Index() {
               <h3 className="text-lg font-semibold tracking-tight">Latest news</h3>
               <Link to="/discover" className="text-xs text-accent-blue inline-flex items-center gap-1">All news <ArrowRight className="size-3" /></Link>
             </div>
-            <div className="mt-3 rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={featured.imageUrl ? { backgroundImage: `url(${featured.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
-              <span className="chip bg-card/95 text-foreground text-[11px]">{featured.tag}</span>
-            </div>
-            <div className="mt-3 text-xs text-muted-foreground">{featured.date}</div>
-            <h4 className="mt-1 font-semibold leading-snug">{featured.title}</h4>
-            <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{featured.summary}</p>
+            {(() => {
+              const featuredLink = (featured as any).link as string | undefined;
+              const CardInner = (
+                <>
+                  <div className="rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={(featured as any).imageUrl ? { backgroundImage: `url(${(featured as any).imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
+                    <span className="chip bg-card/95 text-foreground text-[11px]">{featured.tag}</span>
+                  </div>
+                  <div className="mt-3 text-xs text-muted-foreground">{featured.date}</div>
+                  <h4 className="mt-1 font-semibold leading-snug">{featured.title}</h4>
+                  <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{featured.summary}</p>
+                </>
+              );
+              return featuredLink ? (
+                <a href={featuredLink} target="_blank" rel="noopener noreferrer" className="mt-3 block hover:opacity-90 transition">{CardInner}</a>
+              ) : (
+                <div className="mt-3">{CardInner}</div>
+              );
+            })()}
             <div className="mt-3 flex items-center justify-between">
               <div className="flex gap-1.5">
                 {allNews.map((_, i) => (
