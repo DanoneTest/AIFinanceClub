@@ -154,6 +154,20 @@
   color: oklch(0.985 0.003 264);
 }
 
+/* Ensure hero/banner subtitles and inactive tab buttons are readable on the dark gradient. */
+.hero-gradient p,
+.hero-gradient .text-muted-foreground {
+  color: white;
+}
+
+.hero-gradient a[class*="bg-card"],
+.hero-gradient button[class*="bg-card"] {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: white;
+}
+
+
 @utility chip {
   display: inline-flex;
   align-items: center;
