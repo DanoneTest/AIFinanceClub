@@ -124,18 +124,19 @@ export type Resource = {
   id: string;
   name: string;
   description: string;
+  link?: string;
 };
 
 // 9 Learning platforms
 export const resources: Resource[] = [
-  { id: "r1", name: "Danone Digital & AI Academy", description: "Company-wide foundation for digital and AI literacy." },
-  { id: "r2", name: "Campus X", description: "Cross-functional learning hub for Danone." },
-  { id: "r3", name: "LinkedIn Learning", description: "Curated AI, productivity, and business learning content." },
-  { id: "r4", name: "DataCamp", description: "Hands-on data and Python learning tracks." },
-  { id: "r5", name: "Microsoft Hub", description: "Official Copilot and M365 enablement." },
-  { id: "r6", name: "ESI", description: "Executive Skills Institute training paths." },
+  { id: "r1", name: "Danone Digital & AI Academy", description: "Company-wide foundation for digital and AI literacy.", link: "https://danone.sharepoint.com/sites/GTI-CopilotM365PilotGroup/SitePages/Copilot%20Hub.aspx?csf=1&web=1&e=cu4W7w&ovuser=4720ed5e-c545-46eb-99a5-958dd333e9f2%2camandine.motte%40danone.com&OR=Teams-HL&CT=1760538040658&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNTA5MTExNjAxOCJ9&CID=b7a6cfa1-602a-0000-8a87-cf5247a26b38&cidOR=SPO" },
+  { id: "r2", name: "Campus X", description: "Cross-functional learning hub for Danone.", link: "https://danone.edcast.com/user/login" },
+  { id: "r3", name: "LinkedIn Learning", description: "Curated AI, productivity, and business learning content.", link: "https://www.linkedin.com/learning/" },
+  { id: "r4", name: "DataCamp", description: "Hands-on data and Python learning tracks.", link: "https://www.datacamp.com/users/sign_in?redirect=http%3A%2F%2Fapp.datacamp.com%2F" },
+  { id: "r5", name: "Microsoft Hub", description: "Official Copilot and M365 enablement.", link: "https://danone.sharepoint.com/sites/GTI-CopilotM365PilotGroup/SitePages/Copilot%20Hub.aspx?csf=1&web=1&e=cu4W7w&ovuser=4720ed5e-c545-46eb-99a5-958dd333e9f2%2camandine.motte%40danone.com&OR=Teams-HL&CT=1760538040658&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNTA5MTExNjAxOCJ9&CID=b7a6cfa1-602a-0000-8a87-cf5247a26b38&cidOR=SPO" },
+  { id: "r6", name: "ESI", description: "Executive Skills Institute training paths.", link: "https://esi.microsoft.com/" },
   { id: "r7", name: "Ad Hoc Trainings", description: "Targeted sessions for teams, tools, or use cases." },
-  { id: "r8", name: "Microsoft AI Skill Navigator", description: "Identify the right AI learning by role and level." },
+  { id: "r8", name: "Microsoft AI Skill Navigator", description: "Identify the right AI learning by role and level.", link: "https://aiskillsnavigator.microsoft.com/" },
 ];
 
 export type EventItem = {
@@ -158,20 +159,20 @@ export const events: EventItem[] = [
 
 export type Newsletter = { id: string; issue: string; summary: string };
 export const newsletters: Newsletter[] = [
-  { id: "nl1", issue: "June 2025", summary: "AI Boost Beta & Copilot Tips" },
+  { id: "nl1", issue: "June 2025", summary: "AI Power Up Beta & Copilot Tips" },
   { id: "nl2", issue: "May 2025", summary: "Champions Month Highlights" },
   { id: "nl3", issue: "April 2025", summary: "Explore & Build Special" },
 ];
 
 export type FAQ = { id: string; q: string; a: string };
 export const faqs: FAQ[] = [
-  { id: "f1", q: "What is AI.finance?", a: "AI.finance is the Finance Transformation hub for AI capabilities, learning, use cases and the Champions community." },
-  { id: "f2", q: "Who can use Copilot M365 with internal data?", a: "Anyone with an M365 licence may use internal non-classified data. Confidential or unpublished data is not allowed." },
-  { id: "f3", q: "I have an AI idea. How do I submit it?", a: "If you have an AI idea, submit it here. The AI Gate Committee reviews ideas every ~3 months." },
-  { id: "f4", q: "Can I use public ChatGPT or Gemini for Finance data?", a: "No. Public ChatGPT, Claude, Gemini, DeepSeek, or any unapproved tool must never receive Danone data." },
-  { id: "f5", q: "Can I become an AI Champion?", a: "Yes. Join us from the AI Champions page. You don't need to be technical — curiosity and willingness to share is what matters." },
-  { id: "f6", q: "Where can I learn AI for Finance?", a: "Start with AI Boost on the Upskill page, then explore 9 partner platforms including LinkedIn Learning, DataCamp and the Microsoft AI Skill Navigator." },
-  { id: "f7", q: "What AI initiatives and projects already exist in Finance?", a: "You can explore existing use cases in the Explore & Build page." },
+  { id: "f1", q: "What is AI.finance Club?", a: "The Finance AI Club is a place where anyone in Danone Finance can learn how to use AI in their daily work. Whether you're just curious about AI or already experimenting with tools like Copilot or ChatGPT, the Club helps you understand the basics, discover finance use cases, learn Danone guidelines, and access useful resources to get started safely and confidently. The goal is simple: make AI accessible, practical, and relevant for everyone in Danone Finance." },
+  { id: "f2", q: "This world is new to me. How do I start?", a: "Start small. Learn the basics with AI Power Up on the Upskill page, explore a few finance use cases, and try AI on a simple task you already do today. The Finance AI Club will guide you through the first steps, best practices, and resources to help you build confidence." },
+  { id: "f3", q: "Who can use Copilot M365 with internal data?", a: "Anyone with an active Microsoft 365 Copilot license can use Copilot on the Danone data they already have permission to access. Copilot follows the same security and access rights as Microsoft 365. No license yet? Request one here." },
+  { id: "f4", q: "Can I use public ChatGPT or Gemini for Finance data?", a: "No. Public ChatGPT, Gemini, or any unapproved tool must never receive Danone data." },
+  { id: "f5", q: "What AI initiatives and projects already exist in Danone Finance?", a: "Danone Finance is already running a variety of AI initiatives, ranging from Copilot adoption and upskilling programs to business-focused AI projects, communities, hackathons, and automation initiatives. Explore existing projects, learn from successful use cases, and discover how teams across Finance are leveraging AI to create value." },
+  { id: "f6", q: "Can I become an AI Champion?", a: "Of course! AI Champions help test new AI solutions, share best practices, and support AI adoption across Danone Finance. Today, the community includes more than 400 Champions worldwide. No expertise required, curiosity and willingness to contribute are enough. Join us." },
+  { id: "f7", q: "Copilot said: I have an AI idea, but I don't know how to proceed", a: "Great! Many AI initiatives start with a simple idea. Share it with the Finance AI community, your local AI Champion, or the Finance Transformation team. Together, we can assess the opportunity, explore the best approach, and help turn your idea into a real project. When your idea is mature, submit it here and we can review it together." },
 ];
 
 // Unified search index

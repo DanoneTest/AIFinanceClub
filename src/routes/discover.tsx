@@ -2,13 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Shield, Scale, Compass, Route as RouteIcon, Gavel, Play, Target, BarChart3, CheckCircle2, XCircle, AlertCircle, Lock, ExternalLink } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
 
-const sponsorPhoto = "/jurgen-esser.png";
-
 export const Route = createFileRoute("/discover")({
   head: () => ({
     meta: [
       { title: "Discover — AI.finance" },
-      { name: "description", content: "Ambition, journey, governance, responsible AI, and the AI Gate Committee for Finance." },
     ],
   }),
   component: Discover,
@@ -80,7 +77,6 @@ function Discover() {
         <div className="container-page pt-10 pb-10 text-center">
           <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">Discover AI in Finance.</h1>
           <p className="mt-3 text-base text-muted-foreground max-w-2xl mx-auto">
-            Ambition, journey, governance, and the responsible use of AI shaping Finance.
           </p>
           <nav className="mt-5 flex flex-wrap justify-center gap-2">
             {SECTIONS.map((s, i) => (
@@ -103,7 +99,11 @@ function Discover() {
             <div>
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Executive sponsor</div>
               <div className="mt-3 rounded-xl bg-surface-2 aspect-video overflow-hidden relative">
-                <img src={sponsorPhoto} alt="Jurgen Esser" className="w-full h-full object-cover" />
+                <video
+                  src="/Official video for AI Day - Sharepoint.mp4"
+                  controls
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
               </div>
               <div className="mt-3">
                 <div className="font-semibold">Jurgen Esser</div>
@@ -124,7 +124,6 @@ function Discover() {
                   — Jurgen Esser<span className="text-muted-foreground font-normal">, Deputy CEO & CFO Danone</span>
                 </footer>
               </blockquote>
-              <button className="mt-4 self-start rounded-full border bg-card px-4 py-2 text-sm font-medium">Read full message</button>
             </div>
 
           </div>

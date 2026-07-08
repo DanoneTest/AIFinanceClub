@@ -12,9 +12,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "AI.finance — Finance Transformation" },
-      { name: "description", content: "Built by Finance for Finance. Designed for adoption." },
+      { name: "description", content: " Designed for adoption." },
       { property: "og:title", content: "AI.finance" },
-      { property: "og:description", content: "Built by Finance for Finance. Designed for adoption." },
+      { property: "og:description", content: " Designed for adoption." },
     ],
   }),
   component: Index,
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 
 const journeys = [
   { to: "/discover", n: "1", label: "Discover", subtitle: "Ambition, governance, journey.", icon: Sparkles },
-  { to: "/upskill", n: "2", label: "Upskill", subtitle: "AI Boost, learning, tips.", icon: GraduationCap },
+  { to: "/upskill", n: "2", label: "Upskill", subtitle: "AI Power Up, learning, tips.", icon: GraduationCap },
   { to: "/explore", n: "3", label: "Explore & Build", subtitle: "Capabilities, use cases, ideas.", icon: Wrench },
   { to: "/champions", n: "4", label: "AI Champions", subtitle: "400+ Champions across Finance.", icon: Users },
 ] as const;
@@ -54,7 +54,7 @@ function Index() {
             </span>
           </h1>
           <p className="mt-3 text-base md:text-lg text-muted-foreground max-w-xl mx-auto animate-fade-up">
-            Built by Finance for Finance.<br/>Designed for adoption.
+          <br/>Designed for adoption.
           </p>
         </div>
       </section>
@@ -163,21 +163,25 @@ function Index() {
                 <span className="text-accent-blue text-xl leading-none group-open:rotate-45 transition-transform">+</span>
               </summary>
               <p className="mt-2 text-sm text-muted-foreground">
-                {f.id === "f6" ? (
+                {f.id === "f2" ? (
                   <>
-                    Start with <a href="/upskill#ai-boost" target="_blank" rel="noopener noreferrer" className="text-accent-blue">AI Boost on the Upskill page</a>, then explore 9 partner platforms including LinkedIn Learning, DataCamp and the Microsoft AI Skill Navigator.
-                  </>
-                ) : f.id === "f7" ? (
-                  <>
-                    You can explore existing <a href="/explore#usecases" target="_blank" rel="noopener noreferrer" className="text-accent-blue">use cases</a> in the Explore & Build page.
-                  </>
-                ) : f.id === "f5" ? (
-                  <>
-                    Yes. <a href="/champions#apply" target="_blank" rel="noopener noreferrer" className="text-accent-blue">Join us</a> from the AI Champions page. You don't need to be technical — curiosity and willingness to share is what matters.
+                    Start small. Learn the basics with <a href="/upskill#ai-boost" className="text-accent-blue">AI Power Up on the Upskill page</a>, explore a few finance use cases, and try AI on a simple task you already do today. The Finance AI Club will guide you through the first steps, best practices, and resources to help you build confidence.
                   </>
                 ) : f.id === "f3" ? (
                   <>
-                    If you have an AI idea, <a href="/explore#idea" target="_blank" rel="noopener noreferrer" className="text-accent-blue">submit it here</a>. The AI Gate Committee reviews ideas every ~3 months.
+                    Anyone with an active Microsoft 365 Copilot license can use Copilot on the Danone data they already have permission to access. Copilot follows the same security and access rights as Microsoft 365. No license yet? Request one <a href="/discover#governance" className="text-accent-blue">here</a>.
+                  </>
+                ) : f.id === "f5" ? (
+                  <>
+                    Danone Finance is already running a variety of AI initiatives, ranging from Copilot adoption and upskilling programs to business-focused AI projects, communities, hackathons, and automation initiatives. Explore existing projects, learn from successful <a href="/explore#usecases" className="text-accent-blue">use cases</a>, and discover how teams across Finance are leveraging AI to create value.
+                  </>
+                ) : f.id === "f6" ? (
+                  <>
+                    Of course! AI Champions help test new AI solutions, share best practices, and support AI adoption across Danone Finance. Today, the community includes more than 400 Champions worldwide. No expertise required, curiosity and willingness to contribute are enough. <a href="/champions#apply" className="text-accent-blue">Join us</a>.
+                  </>
+                ) : f.id === "f7" ? (
+                  <>
+                    Great! Many AI initiatives start with a simple idea. Share it with the Finance AI community, your local AI Champion, or the Finance Transformation team. Together, we can assess the opportunity, explore the best approach, and help turn your idea into a real project. When your idea is mature, <a href="/explore#idea" className="text-accent-blue">submit it here</a> and we can review it together.
                   </>
                 ) : (
                   f.a
@@ -208,7 +212,7 @@ function Index() {
               It acts as a central accelerator, combining strategy, tools, and community to boost productivity, insights, and decision-making across Finance.
             </p>
             <a href="mailto:ai.finance@danone.com" className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-navy text-navy-foreground px-4 py-2 text-sm font-medium">
-              <Mail className="size-3.5" /> ai.finance@danone.com
+              <Mail className="size-3.5" /> Contact Us
             </a>
           </div>
           <img src={teamPhoto} alt="AI.finance club team" className="w-full h-full rounded-xl object-cover shadow-elevated" />

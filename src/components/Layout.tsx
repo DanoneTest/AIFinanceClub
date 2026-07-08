@@ -113,7 +113,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <span>Finance Transformation · </span><Wordmark />
           </div>
           <div className="flex items-center gap-4">
-            <span>Built by Finance for Finance. Designed for adoption.</span>
+            <span> Designed for adoption.</span>
             <button onClick={() => setAdminLoginOpen(true)} className="text-xs opacity-30 hover:opacity-50">
               Admin
             </button>

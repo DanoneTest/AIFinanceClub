@@ -10,7 +10,7 @@ export const Route = createFileRoute("/upskill")({
   head: () => ({
     meta: [
       { title: "Upskill — AI.finance" },
-      { name: "description", content: "AI Boost, learning platforms, and practical tips for Finance." },
+      { name: "description", content: "AI Power Up, learning platforms, and practical tips for Finance." },
     ],
   }),
   component: Upskill,
@@ -82,7 +82,7 @@ function Upskill() {
             One Finance learning path, the right resources, and tips you can use today.
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-2">
-            <a href="#ai-boost" className="rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium">AI Boost</a>
+            <a href="#ai-boost" className="rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium">AI Power Up</a>
             <a href="#resources" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Learning Platforms</a>
             <a href="#tips" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Tips & Tricks</a>
             <a href="#play" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Play the Game</a>
@@ -90,12 +90,12 @@ function Upskill() {
         </div>
       </section>
 
-      {/* AI Boost — 3 paths */}
+      {/* AI Power Up — 3 paths */}
       <section id="ai-boost" className="container-page py-10">
         <div className="flex items-center gap-3">
           <Sparkles className="size-5 text-accent-blue" />
           <span className="chip chip-active">Beta</span>
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">AI Boost</h2>
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">AI Power Up</h2>
         </div>
         <p className="mt-2 text-sm text-muted-foreground max-w-2xl">A selected Finance learning path — choose the level that matches where you are today.</p>
 
@@ -133,7 +133,7 @@ function Upskill() {
         <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Learning platforms for Finance.</h2>
         <div className="mt-5 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {resources.map(r => (
-            <a key={r.id} href="#" className="rounded-2xl border bg-card p-4 hover:shadow-soft transition flex flex-col">
+            <a key={r.id} href={r.link ?? "#"} target={r.link ? "_blank" : undefined} rel={r.link ? "noopener noreferrer" : undefined} className="rounded-2xl border bg-card p-4 hover:shadow-soft transition flex flex-col">
               <div className="font-semibold text-sm">{r.name}</div>
               <p className="mt-1 text-xs text-muted-foreground flex-1">{r.description}</p>
               <span className="mt-3 text-xs text-accent-blue inline-flex items-center gap-1">Open <ArrowRight className="size-3" /></span>
@@ -214,16 +214,15 @@ function Upskill() {
         </div>
       </section>
 
-      {/* Play the Game */}
+      {/* Play the AI.lympics Game */}
       <section id="play" className="container-page py-10">
         <div className="rounded-2xl border bg-gradient-to-br from-navy to-accent-blue text-navy-foreground p-6 md:p-8 flex items-center gap-5 flex-wrap">
           <Gamepad2 className="size-10" />
           <div className="flex-1 min-w-[200px]">
             <div className="text-[11px] uppercase tracking-[0.18em] opacity-80">Coming soon</div>
-            <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Play the Game</h2>
-            <p className="mt-1 text-sm opacity-90">An interactive AI.finance challenge — content placeholder. To be provided.</p>
+            <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Play the AI.lympics Game</h2>
+            <p className="mt-1 text-sm opacity-90">An interactive AI.Finance challenge to master M365 copilot.</p>
           </div>
-          <button className="rounded-full bg-background text-foreground px-5 py-2 text-sm font-medium">Notify me</button>
         </div>
       </section>
 
@@ -269,7 +268,7 @@ function Upskill() {
         <div className="fixed inset-0 z-50 bg-foreground/40 backdrop-blur-md flex items-center justify-center p-4" onClick={() => setShowQuiz(false)}>
           <div onClick={e => e.stopPropagation()} className="bg-card border rounded-3xl max-w-md w-full p-6 shadow-elevated">
             <div className="flex items-start justify-between">
-              <h3 className="text-xl font-semibold tracking-tight">Find your AI Boost path</h3>
+              <h3 className="text-xl font-semibold tracking-tight">Find your AI Power Up path</h3>
               <button onClick={() => setShowQuiz(false)} className="rounded-full p-1.5 hover:bg-muted"><X className="size-4" /></button>
             </div>
             <p className="mt-2 text-sm text-muted-foreground">A 4-question quiz that recommends Discover, Apply, or Lead. Content to be provided.</p>
