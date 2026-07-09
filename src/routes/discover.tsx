@@ -57,7 +57,7 @@ const JOURNEY = [
     items: [],
     groups: [
       { title: "Upskilling", items: ["Champions animation", "AI.Lympics", "AI Sandbox"] },
-      { title: "Scale for Value", items: ["AI Lab Flagships", "Advanced Forecasting", "Agents in DBS & Controlling", "Global Portfolio"] },
+      { title: "Scale for Value", items: ["AI Lab Flagships", "AI Champs Mini Labs", "Agents in DBS & Controlling"] },
     ],
   },
 ];
