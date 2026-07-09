@@ -53,8 +53,18 @@ function Index() {
               <span className="lowercase">finance club</span>
             </span>
           </h1>
+
+          <div className="mt-4 mb-3 max-w-3xl mx-auto text-center animate-fade-up">
+            <p className="text-base md:text-lg text-white/90 leading-relaxed">
+              Everything Finance teams need to get started with AI.
+            </p>
+            <p className="mt-1 text-sm md:text-base text-white/85 leading-relaxed">
+              Learning · Use cases · Governance · Community
+            </p>
+          </div>
+
           <p className="mt-3 text-base md:text-lg text-muted-foreground max-w-xl mx-auto animate-fade-up">
-          <br/>Designed for adoption.
+            Designed for adoption.
           </p>
         </div>
       </section>
@@ -215,7 +225,18 @@ function Index() {
               <Mail className="size-3.5" /> Contact Us
             </a>
           </div>
-          <img src={teamPhoto} alt="AI.finance club team" className="w-full h-full rounded-xl object-cover shadow-elevated" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <img
+              src="/20260521_191014 (1).jpg"
+              alt="AI.finance team photo 1"
+              className="w-full h-56 md:h-64 rounded-xl object-cover shadow-elevated"
+            />
+            <img
+              src={teamPhoto}
+              alt="AI.finance team photo 2"
+              className="w-full h-56 md:h-64 rounded-xl object-cover shadow-elevated"
+            />
+          </div>
         </div>
 
 
