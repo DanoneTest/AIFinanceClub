@@ -100,20 +100,7 @@ function Champions() {
             )}
           </div>
         </div>
-      </section>
-
-      {/* March Campaign placeholder */}
-      <section className="container-page py-8">
-        <div className="rounded-2xl border bg-gradient-to-r from-emerald-50 to-emerald-100/50 dark:from-emerald-900/20 dark:to-emerald-900/10 p-5 flex items-center gap-4 flex-wrap">
-          <Calendar className="size-8 text-emerald-600" />
-          <div className="flex-1 min-w-[200px]">
-            <div className="text-[11px] uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Placeholder</div>
-            <div className="font-semibold">March Campaign — AI Champion Month</div>
-            <div className="text-sm text-muted-foreground">Content will be provided later.</div>
-          </div>
-          <button className="rounded-full bg-emerald-700 text-white px-4 py-2 text-sm font-medium">Learn more</button>
-        </div>
-      </section>
+      </section>  
 
       {/* Apply */}
       <section id="apply" className="container-page py-10">
