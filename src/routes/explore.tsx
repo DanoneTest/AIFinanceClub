@@ -108,7 +108,7 @@ function Explore() {
               rows: [
                 ["What it does", "No-code workflow automation · Triggers and automatic actions across Microsoft tools"],
                 ["Finance uses", "Approval circuits · Budget alerts · Supplier data extraction · SharePoint ↔ Teams sync"],
-                ["Access", <><a href="https://make.powerautomate.com/" target="_blank" rel="noopener noreferrer" className="text-accent-blue underline">Available O365</a> · Library of Finance flows · Support via your local Champion</>],
+                ["Access", <><a href="https://make.powerautomate.com/" target="_blank" rel="noopener noreferrer" className="text-accent-blue underline">Available 365</a> · Library of Finance flows · Support via your local Champion</>],
               ],
             },
             {
