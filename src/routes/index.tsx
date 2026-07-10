@@ -5,7 +5,7 @@ import { SearchOverlay } from "@/components/SearchOverlay";
 import { WhatsNext } from "@/components/WhatsNext";
 import { news, events, faqs } from "@/lib/data";
 import { useDynamicNews, useDynamicEvents } from "@/hooks/useLocalStorageCards";
-const teamPhoto = "/ai-lympics-team.jpg";
+const teamPhoto = "/Club%20Team.png";
 
 
 export const Route = createFileRoute("/")({
@@ -225,21 +225,12 @@ function Index() {
               <Mail className="size-3.5" /> Contact Us
             </a>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 items-stretch">
-            <div className="rounded-xl bg-surface-2 overflow-hidden shadow-elevated h-64 md:h-72 flex items-center justify-center">
-              <img
-                src="/20260521_191014 (1).jpg"
-                alt="AI.finance team photo 1"
-                className="w-full h-full rounded-xl object-contain"
-              />
-            </div>
-            <div className="rounded-xl bg-surface-2 overflow-hidden shadow-elevated h-64 md:h-72 flex items-center justify-center">
-              <img
-                src={teamPhoto}
-                alt="AI.finance team photo 2"
-                className="w-full h-full rounded-xl object-contain"
-              />
-            </div>
+          <div className="rounded-xl overflow-hidden shadow-elevated">
+            <img
+              src={teamPhoto}
+              alt="AI.finance team photo"
+              className="w-full h-auto object-cover"
+            />
           </div>
         </div>
 
