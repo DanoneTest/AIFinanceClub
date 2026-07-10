@@ -16,7 +16,7 @@ export const Route = createFileRoute("/explore")({
 });
 
 const FUNCTIONS = ["All", "FP&A", "Controlling", "Reporting", "Treasury", "Audit", "Tax"];
-const CAP_FILTERS = ["All", "Copilot", "Power Automate", "Power Apps", "Python", "Vibe Coding"];
+const CAP_FILTERS = ["All", "Copilot", "Power Automate", "Power Apps", "GitHub", "Vibe Coding"];
 const STAGES: { name: Maturity; desc: string }[] = [
   { name: "Idea", desc: "Opportunity identified." },
   { name: "Pilot", desc: "Small test with users." },
@@ -79,7 +79,7 @@ function Explore() {
               rows: [
                 ["What it does", "Conversational AI: writes, summarises, reformulates, brainstorms, answers in natural language"],
                 ["Finance uses", "Committee notes · Variance commentary · Policy Q&A · Presentation first drafts"],
-                ["Access", "Via O365 browser — no request needed · Finance user guide · Tips & Tricks"],
+                ["Access", <>Via O365 browser — no request needed · Finance user guide · <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" className="text-accent-blue underline">Tips & Tricks</a></>],
               ],
             },
             {
@@ -89,7 +89,7 @@ function Explore() {
               rows: [
                 ["Excel", "Natural language formulas · Column analysis · Auto pivot tables · Anomaly detection"],
                 ["Outlook / Teams", "Email thread summary · Meeting summary with actions · Transcription"],
-                ["Access", "Check with your manager for licence · Request form · Per-app guide"],
+                ["Access", <>Check with your manager for licence · <a href="https://danone.sharepoint.com/sites/GTI-CopilotM365PilotGroup/SitePages/Copilot%20Hub.aspx" target="_blank" rel="noopener noreferrer" className="text-accent-blue underline">Request form</a> · Per-app guide</>],
               ],
             },
             {
@@ -98,7 +98,7 @@ function Explore() {
               statusTone: "bg-amber-100 text-amber-700",
               rows: [
                 ["What it does", "Natural language Q&A on dashboards · Auto visual generation · Close report summaries"],
-                ["Access", "Access request form · Lead time: 5 days · Finance guide"],
+                ["Access", <><a href="https://forms.office.com" target="_blank" rel="noopener noreferrer" className="text-accent-blue underline">Access request form</a> · Lead time: 5 days · Finance guide</>],
               ],
             },
             {
@@ -108,7 +108,7 @@ function Explore() {
               rows: [
                 ["What it does", "No-code workflow automation · Triggers and automatic actions across Microsoft tools"],
                 ["Finance uses", "Approval circuits · Budget alerts · Supplier data extraction · SharePoint ↔ Teams sync"],
-                ["Access", "Available O365 · Library of Finance flows · Support via your local Champion"],
+                ["Access", <><a href="https://make.powerautomate.com/" target="_blank" rel="noopener noreferrer" className="text-accent-blue underline">Available O365</a> · Library of Finance flows · Support via your local Champion</>],
               ],
             },
             {
@@ -118,12 +118,12 @@ function Explore() {
               rows: [
                 ["What it does", "Build apps and workflows without heavy development"],
                 ["Finance uses", "Centralized data capture · Approval apps · Lightweight internal tools"],
-                ["Access", "Request via IT · Champion support available"],
+                ["Access", <><a href="https://make.powerapps.com/" target="_blank" rel="noopener noreferrer" className="text-accent-blue underline">Request via IT</a> · Champion support available</>],
               ],
             },
             {
               name: "More Advanced Tools — Azure OpenAI, Agents, Python",
-              status: "Validated projects only",
+              status: "contact the Ai.Finance Team",
               statusTone: "bg-rose-100 text-rose-700",
               rows: [
                 ["What they do", "Custom AI solutions: agents, advanced automation, ML models, complex data pipelines"],
