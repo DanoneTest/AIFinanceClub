@@ -74,12 +74,12 @@ function Explore() {
           {[
             {
               name: "Copilot Chat",
-              status: "Available to all (O365)",
+              status: "Available to all",
               statusTone: "bg-emerald-100 text-emerald-700",
               rows: [
                 ["What it does", "Conversational AI: writes, summarises, reformulates, brainstorms, answers in natural language"],
                 ["Finance uses", "Committee notes · Variance commentary · Policy Q&A · Presentation first drafts"],
-                ["Access", <>Via O365 browser — no request needed · Finance user guide · <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" className="text-accent-blue underline">Tips & Tricks</a></>],
+                ["Access", <>Via browser — no request needed · Finance user guide · <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" className="text-accent-blue underline">CoPilot Chat</a></>],
               ],
             },
             {
@@ -103,7 +103,7 @@ function Explore() {
             },
             {
               name: "Power Automate",
-              status: "Available to all (O365)",
+              status: "Available to all",
               statusTone: "bg-emerald-100 text-emerald-700",
               rows: [
                 ["What it does", "No-code workflow automation · Triggers and automatic actions across Microsoft tools"],
