@@ -92,10 +92,16 @@ function Upskill() {
 
       {/* AI Power Up — 3 paths */}
       <section id="ai-boost" className="container-page py-10">
-        <div className="flex items-center gap-3">
-          <Sparkles className="size-5 text-accent-blue" />
-          <span className="chip chip-active">Beta</span>
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">AI Power Up</h2>
+        <div className="flex items-center justify-between gap-3 flex-wrap">
+          <div className="flex items-center gap-3">
+            <Sparkles className="size-5 text-accent-blue" />
+            <span className="chip chip-active">Beta</span>
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">AI Power Up</h2>
+          </div>
+          <div className="flex items-center gap-3">
+            <img src="/copilot-avatar.png" alt="Copilot" className="h-12 md:h-14 w-auto" />
+            <img src="/ddai-academy-logo.png" alt="DDAI Academy" className="h-12 md:h-14 w-auto" />
+          </div>
         </div>
         <p className="mt-2 text-sm text-muted-foreground max-w-2xl">A selected Finance learning path — choose the level that matches where you are today.</p>
 
@@ -136,7 +142,9 @@ function Upskill() {
             <a key={r.id} href={r.link ?? "#"} target={r.link ? "_blank" : undefined} rel={r.link ? "noopener noreferrer" : undefined} className="rounded-2xl border bg-card p-4 hover:shadow-soft transition flex flex-col">
               <div className="font-semibold text-sm">{r.name}</div>
               <p className="mt-1 text-xs text-muted-foreground flex-1">{r.description}</p>
-              <span className="mt-3 text-xs text-accent-blue inline-flex items-center gap-1">Open <ArrowRight className="size-3" /></span>
+              <span className="mt-3 text-xs text-accent-blue inline-flex items-center gap-1">
+                {r.link ? "Open" : "In Progress"} <ArrowRight className="size-3" />
+              </span>
             </a>
           ))}
         </div>
@@ -219,7 +227,7 @@ function Upskill() {
         <div className="rounded-2xl border bg-gradient-to-br from-navy to-accent-blue text-navy-foreground p-6 md:p-8 flex items-center gap-5 flex-wrap">
           <Gamepad2 className="size-10" />
           <div className="flex-1 min-w-[200px]">
-            <div className="text-[11px] uppercase tracking-[0.18em] opacity-80">Coming soon</div>
+            <div className="text-lg font-semibold uppercase tracking-[0.18em] text-red-600">Coming soon</div>
             <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Play the AI.lympics Game</h2>
             <p className="mt-1 text-sm opacity-90">An interactive AI.Finance challenge to master M365 copilot.</p>
           </div>

@@ -75,7 +75,7 @@ export const champions: Champion[] = [
 ];
 
 export const regions = ["EMEA", "AMER", "APAC"];
-export const functions = ["FP&A", "Controlling", "Reporting", "Treasury", "Audit", "Tax"];
+export const functions = ["FP&A", "Controlling", "Reporting", "Treasury", "Audit", "Tax", "Sustainability", "DBS", "Finance Transformation", "Investor Relations", "Consolidation & Reporting", "Business Development and Strategy", "Corporate Finance", "Internal Control", "IT&Data", "Commercial Finance", "FDA", "Operations Finance"];
 export const expertiseTags = ["Copilot", "Power BI", "Power Automate", "AI Use Cases", "Prompting", "Python", "Power Apps"];
 
 export type Capability = "Copilot" | "Power Automate" | "Power Apps" | "Python" | "Vibe Coding";
@@ -151,7 +151,7 @@ export type EventItem = {
 };
 
 export const events: EventItem[] = [
-  { id: "e1", title: "AI Gate Committee", type: "AI Governance", description: " 14:00 CET", date: "Jun 10", day: "10", month: "JUN", meta: " 14:00 CET" },
+
   { id: "e2", title: "FD Call - June", type: "FD Call", description: " 14:30 CET", date: "Jun 16", day: "16", month: "JUN", meta: " 14:30 CET" },
   { id: "e3", title: "Mini-Lab: Copilot for Finance", type: "Mini-Lab", description: "Champions only", date: "Jun 17", day: "17", month: "JUN", meta: "Champions only" },
   { id: "e4", title: "AI Finance Demo Day", type: "Event", description: "See practical use cases from Finance teams.", date: "Jul 18", day: "18", month: "JUL", meta: "Hybrid" },

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { ArrowRight, Trophy } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
 import { capabilities, useCases, type Capability, type Maturity } from "@/lib/data";
 import { useDynamicUseCases } from "@/hooks/useLocalStorageCards";
@@ -128,7 +128,7 @@ function Explore() {
               rows: [
                 ["What they do", "Custom AI solutions: agents, advanced automation, ML models, complex data pipelines"],
                 ["Examples", "Talk to My Anything · DBS Agent · Python for Controlling · Advanced Forecasting models"],
-                ["Access", "Submit to AI GATE Committee via Understand page · Brief + Validation + IT access"],
+                ["Access", "Contact the Ai.Finance Team · Brief + Validation + IT access"],
               ],
             },
           ].map(c => (
@@ -254,12 +254,12 @@ function Explore() {
       <section id="idea" className="container-page py-10">
         <div className="rounded-2xl border bg-card p-6 md:p-8">
           <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">I Have an Idea</div>
-          <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Submit your next AI use case.</h2>
+          <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Submit your AI.Idea or existing use-case you want to put in the portfolio</h2>
 
           {submitted ? (
             <div className="mt-6 rounded-xl bg-surface-2 p-5 text-center">
               <div className="text-lg font-semibold">Idea submitted</div>
-              <p className="mt-1 text-sm text-muted-foreground">Thanks — your idea will be reviewed by the AI Gate Committee.</p>
+              <p className="mt-1 text-sm text-muted-foreground">Thanks — your idea will be reviewed by the AI.finance team.</p>
               <button onClick={() => setSubmitted(false)} className="mt-3 rounded-full border px-4 py-2 text-sm">Submit another</button>
             </div>
           ) : (
@@ -270,13 +270,11 @@ function Explore() {
               <Field label="Expected benefit" full><textarea className={inputClass} rows={2} required /></Field>
               <Field label="Tools or capabilities"><input className={inputClass} placeholder="Copilot, Power Automate, Power Apps…" /></Field>
               <Field label="Team / contact"><input className={inputClass} /></Field>
-              <div className="md:col-span-2 flex flex-wrap items-center gap-4">
-                <label className="inline-flex items-center gap-2 text-sm">
-                  <input type="checkbox" className="size-4 rounded border-input accent-navy" />
-                  <Trophy className="size-4 text-amber-600" />
-                  <span>Submit this use case to the Finance Awards</span>
-                </label>
-                <button type="submit" className="rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium inline-flex items-center gap-2 ml-auto">
+              <Field label="Attachments" full>
+                <input type="file" multiple className={inputClass} />
+              </Field>
+              <div className="md:col-span-2 flex justify-end">
+                <button type="submit" className="rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium inline-flex items-center gap-2">
                   Submit idea <ArrowRight className="size-4" />
                 </button>
               </div>

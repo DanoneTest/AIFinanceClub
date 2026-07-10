@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { Play, MapPin, Calendar, Lock } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
-import { champions, regions, functions, expertiseTags } from "@/lib/data";
+import { champions, regions, functions } from "@/lib/data";
 
 export const Route = createFileRoute("/champions")({
   head: () => ({
@@ -17,7 +17,6 @@ export const Route = createFileRoute("/champions")({
 function Champions() {
   const [region, setRegion] = useState<string>("All");
   const [fn, setFn] = useState<string>("All");
-  const [tag, setTag] = useState<string>("All");
   const [country, setCountry] = useState<string>("All");
 
   const countries = useMemo(() => Array.from(new Set(champions.map(c => c.country))).sort(), []);
@@ -31,10 +30,9 @@ function Champions() {
     return champions.filter(c =>
       (region === "All" || c.region === region) &&
       (fn === "All" || c.function === fn) &&
-      (tag === "All" || c.expertise.includes(tag)) &&
       (country === "All" || c.country === country)
     );
-  }, [region, fn, tag, country]);
+  }, [region, fn, country]);
 
   return (
     <>
@@ -57,13 +55,12 @@ function Champions() {
       {/* Directory */}
       <section id="directory" className="container-page py-10">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Champion Directory</h2>
-        <p className="mt-1 text-sm text-muted-foreground">Filter by country, region, function, or expertise.</p>
+        <p className="mt-1 text-sm text-muted-foreground">Filter by region, CBU, or function.</p>
 
         <div className="mt-5 space-y-2">
-          <FilterRow label="Country" options={["All", ...countries]} value={country} onChange={setCountry} />
           <FilterRow label="Region" options={["All", ...regions]} value={region} onChange={setRegion} />
+          <FilterRow label="CBU" options={["All", ...countries]} value={country} onChange={setCountry} />
           <FilterRow label="Function" options={["All", ...functions]} value={fn} onChange={setFn} />
-          <FilterRow label="Expertise" options={["All", ...expertiseTags]} value={tag} onChange={setTag} />
         </div>
 
         <div className="mt-5 max-h-[600px] overflow-y-auto pr-1">
@@ -80,8 +77,8 @@ function Champions() {
                   </div>
                 </div>
                 <div className="mt-3 grid grid-cols-3 gap-2 text-[11px]">
-                  <div><div className="text-muted-foreground">Country</div>{c.country}</div>
                   <div><div className="text-muted-foreground">Region</div>{c.region}</div>
+                  <div><div className="text-muted-foreground">CBU</div>{c.country}</div>
                   <div><div className="text-muted-foreground">Function</div>{c.function}</div>
                 </div>
                 <div className="mt-3 flex flex-wrap gap-1">
