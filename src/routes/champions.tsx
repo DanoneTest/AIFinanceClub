@@ -162,7 +162,7 @@ function Champions() {
             </div>
           </div>
 
-          <button className="mt-6 rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium">Apply now</button>
+          <a href="https://forms.office.com/e/1TvUkFsmUn" target="_blank" rel="noopener noreferrer" className="mt-6 rounded-full bg-navy text-navy-foreground px-5 py-2 text-sm font-medium inline-block text-center">Apply now</a>
         </div>
       </section>
 
