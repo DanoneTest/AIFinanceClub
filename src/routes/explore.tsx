@@ -138,8 +138,8 @@ function Explore() {
                 <span className={`shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-medium ${c.statusTone}`}>{c.status}</span>
               </div>
               <dl className="mt-3 space-y-1.5 text-xs">
-                {c.rows.map(([k, v]) => (
-                  <div key={k} className="grid grid-cols-[110px_1fr] gap-2">
+                {c.rows.map(([k, v], i) => (
+                  <div key={i} className="grid grid-cols-[110px_1fr] gap-2">
                     <dt className="text-muted-foreground">{k}</dt>
                     <dd className="text-foreground">{v}</dd>
                   </div>
