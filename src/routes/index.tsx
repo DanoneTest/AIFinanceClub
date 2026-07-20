@@ -105,7 +105,6 @@ function Index() {
           <article className="rounded-2xl border bg-card p-5 flex flex-col">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold tracking-tight">Latest news</h3>
-              <Link to="/discover" className="text-xs text-accent-blue inline-flex items-center gap-1">All news <ArrowRight className="size-3" /></Link>
             </div>
             <div className="mt-3 rounded-xl h-40 bg-gradient-to-br from-navy to-accent-blue relative overflow-hidden flex items-end p-3" style={"imageUrl" in featured && featured.imageUrl ? { backgroundImage: `url(${featured.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}>
               <span className="chip bg-card/95 text-foreground text-[11px]">{featured.tag}</span>
@@ -130,7 +129,6 @@ function Index() {
           <article className="rounded-2xl border bg-card p-5 flex flex-col">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold tracking-tight">Upcoming events</h3>
-              <button className="text-xs text-accent-blue inline-flex items-center gap-1">Add all <ArrowRight className="size-3" /></button>
             </div>
             <ul className="mt-2 divide-y">
               {visibleEvents.map(e => (
@@ -210,7 +208,7 @@ function Index() {
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground mb-3">
           AI.finance Team
         </div>
-        <div className="rounded-2xl border bg-surface p-6 md:p-8 grid gap-6 md:grid-cols-[1.1fr_1fr] items-center">
+        <div className="rounded-2xl border bg-surface p-6 md:p-8 grid gap-6 md:grid-cols-[1fr_3fr] items-center">
           <div>
             <h3 className="text-xl md:text-2xl font-semibold tracking-tight">
               <span className="inline-flex items-baseline">AI<span className="mx-0.5 inline-block size-1.5 rounded-full bg-accent-blue translate-y-[-1px]" />finance</span> Team
