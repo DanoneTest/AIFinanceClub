@@ -87,14 +87,14 @@ function Discover() {
       </section>
 
       {/* Ambition */}
-      <section id="ambition" className="container-page py-10">
+      <section id="ambition" className="container-page pt-10 pb-6">
         <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Ambition</div>
         <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">AI as a daily Finance partner.</h2>
 
         <div className="mt-6 rounded-2xl border bg-card p-6">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Executive sponsor */}
-            <div>
+            <div className="flex flex-col">
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Executive sponsor</div>
               <div className="mt-3 rounded-xl bg-surface-2 aspect-video overflow-hidden relative">
                 <video
@@ -103,23 +103,21 @@ function Discover() {
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
-              <div className="mt-3">
-                <div className="font-semibold">Jurgen Esser</div>
-                <div className="text-sm text-muted-foreground">Deputy CEO & CFO Danone</div>
-              </div>
-              
             </div>
 
             {/* Quote */}
             <div className="md:border-l md:pl-8 flex flex-col">
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Key quote</div>
-              <blockquote className="mt-3 flex-1 rounded-2xl bg-surface border p-6 relative">
-                <span className="absolute top-2 left-4 text-6xl leading-none text-accent-blue/30 font-serif">"</span>
-                <p className="relative text-lg md:text-xl font-medium italic text-foreground/90 leading-relaxed">
-                  First superpower, the power of visible leadership. Visible leadership by showing us the way on how to apply AI on our daily work. I want to pass a big thank you to the Champions we have in the AI community in finance and the Second superpower is about upskilling at scale.
-                </p>
-                <footer className="mt-4 text-sm font-semibold text-foreground not-italic">
-                  — Jurgen Esser<span className="text-muted-foreground font-normal">, Deputy CEO & CFO Danone</span>
+              <blockquote className="mt-3 flex-1 rounded-2xl bg-surface border p-5 relative flex flex-col justify-between">
+                <div>
+                  <span className="absolute top-2 left-4 text-6xl leading-none text-accent-blue/30 font-serif">"</span>
+                  <p className="relative text-lg md:text-xl font-medium italic text-foreground/90 leading-relaxed" style={{ lineHeight: '1.65' }}>
+                    First superpower, the power of visible leadership. Visible leadership by showing us the way on how to apply AI on our daily work. I want to pass a big thank you to the Champions we have in the AI community in finance and the Second superpower is about upskilling at scale.
+                  </p>
+                </div>
+                <footer className="mt-4 text-foreground not-italic">
+                  <div className="text-4xl md:text-5xl font-bold">Jurgen Esser</div>
+                  <div className="mt-1 text-sm text-muted-foreground font-normal">Deputy CEO & CFO Danone</div>
                 </footer>
               </blockquote>
             </div>
