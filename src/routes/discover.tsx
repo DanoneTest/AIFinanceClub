@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Shield, Scale, Compass, Route as RouteIcon, Play, Target, BarChart3, CheckCircle2, XCircle, AlertCircle, Lock, ExternalLink } from "lucide-react";
+import { Shield, Scale, Compass, Route as RouteIcon, Play, Target, BarChart3, CheckCircle2, XCircle, AlertCircle, Lock, ExternalLink, Users } from "lucide-react";
 import { WhatsNext } from "@/components/WhatsNext";
 
 export const Route = createFileRoute("/discover")({
@@ -14,6 +14,7 @@ export const Route = createFileRoute("/discover")({
 const SECTIONS = [
   { id: "ambition", label: "Ambition", icon: Compass },
   { id: "journey", label: "Journey", icon: RouteIcon },
+  { id: "organisation", label: "AI Organisation", icon: Users },
   { id: "governance", label: "AI Governance", icon: Scale },
   { id: "responsible", label: "Responsible AI", icon: Shield },
 ];
@@ -164,6 +165,17 @@ function Discover() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* AI Organisation */}
+      <section id="organisation" className="container-page py-10">
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">AI Organisation</div>
+        <h2 className="mt-1 text-2xl md:text-4xl font-semibold tracking-tight">AI Organisation</h2>
+        <p className="mt-3 text-sm text-muted-foreground">This section contains information about how AI is organized within Finance. Content will be added here soon.</p>
+        
+        <div className="mt-6 rounded-2xl border bg-card p-6">
+          <p className="text-muted-foreground">Placeholder content for AI Organisation structure and team information.</p>
         </div>
       </section>
 
