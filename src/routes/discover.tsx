@@ -117,7 +117,7 @@ function Discover() {
                   </p>
                 </div>
                 <footer className="mt-4 text-foreground not-italic">
-                  <div className="text-4xl md:text-5xl font-bold">Jurgen Esser</div>
+                  <div className="text-4xl md:text-5xl font-bold">Juergen Esser</div>
                   <div className="mt-1 text-sm text-muted-foreground font-normal">Deputy CEO & CFO Danone</div>
                 </footer>
               </blockquote>
