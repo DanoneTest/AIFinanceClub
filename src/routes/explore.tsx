@@ -8,7 +8,7 @@ import { useDynamicUseCases } from "@/hooks/useLocalStorageCards";
 export const Route = createFileRoute("/explore")({
   head: () => ({
     meta: [
-      { title: "Explore & Build — AI.finance" },
+      { title: "Explore Portfolio — AI.finance" },
       { name: "description", content: "Capabilities, use cases, and submit your next AI idea for Finance." },
     ],
   }),

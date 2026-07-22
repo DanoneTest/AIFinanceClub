@@ -11,7 +11,7 @@ const logo = "/logo.png";
 const NAV = [
   { to: "/discover", label: "Discover", n: "1" },
   { to: "/upskill", label: "Upskill", n: "2" },
-  { to: "/explore", label: "Explore & Build", n: "3" },
+  { to: "/explore", label: "Explore Portfolio", n: "3" },
   { to: "/champions", label: "AI Champions", n: "4" },
 ] as const;
 

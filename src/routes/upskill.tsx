@@ -237,7 +237,7 @@ function Upskill() {
       <WhatsNext
         headline="Ready to put AI into practice?"
         subtitle="Explore capabilities, use cases, and submit your own idea."
-        actions={[{ to: "/explore", label: "Go to Explore & Build" }]}
+        actions={[{ to: "/explore", label: "Go to Explore Portfolio" }]}
       />
 
       {/* Tip Modal */}
