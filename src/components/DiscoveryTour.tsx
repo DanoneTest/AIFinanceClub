@@ -1,11 +1,13 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 
 type Step = {
   id: string;
   targetSelector: string;
   title: string;
   lines: [string, string, string];
+  navigateTo?: string;
 };
 
 const STEPS: Step[] = [
@@ -74,10 +76,11 @@ const STEPS: Step[] = [
     targetSelector: '[data-tour="hero-capsules"]',
     title: "Quick navigation capsules",
     lines: [
-      "Every page has a hero banner with capsule buttons.",
+      "Every inner page has a hero with capsule buttons.",
       "Tap them to jump straight to sections on that page.",
       "They're your shortcut for fast navigation everywhere.",
     ],
+    navigateTo: "/discover",
   },
   {
     id: "island",
@@ -98,6 +101,8 @@ export function DiscoveryTour({ open, onClose }: { open: boolean; onClose: () =>
   const [rect, setRect] = useState<Rect | null>(null);
   const [tooltipPos, setTooltipPos] = useState<{ top: number; left: number; placement: "top" | "bottom" }>({ top: 0, left: 0, placement: "bottom" });
   const tooltipRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const currentPath = useRouterState({ select: s => s.location.pathname });
 
   const step = STEPS[stepIdx];
 
@@ -127,12 +132,27 @@ export function DiscoveryTour({ open, onClose }: { open: boolean; onClose: () =>
   }, [step]);
 
   useEffect(() => {
-    if (!open) return;
-    const el = document.querySelector(step?.targetSelector ?? "") as HTMLElement | null;
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-    const t = setTimeout(computePosition, 350);
-    return () => clearTimeout(t);
-  }, [open, stepIdx, computePosition, step]);
+    if (!open || !step) return;
+    let cancelled = false;
+    const run = async () => {
+      if (step.navigateTo && currentPath !== step.navigateTo) {
+        await navigate({ to: step.navigateTo });
+      }
+      // poll for target to appear (up to ~2s)
+      for (let i = 0; i < 20 && !cancelled; i++) {
+        const el = document.querySelector(step.targetSelector) as HTMLElement | null;
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+          setTimeout(() => { if (!cancelled) computePosition(); }, 300);
+          return;
+        }
+        await new Promise(r => setTimeout(r, 100));
+      }
+      if (!cancelled) computePosition();
+    };
+    run();
+    return () => { cancelled = true; };
+  }, [open, stepIdx, computePosition, step, navigate, currentPath]);
 
   useEffect(() => {
     if (!open) return;
