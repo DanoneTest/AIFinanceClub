@@ -71,6 +71,7 @@ export function Layout({ children }: { children: ReactNode }) {
               <Link
                 key={item.to}
                 to={item.to}
+                data-tour={`nav-${item.to.replace("/", "")}`}
                 activeProps={{ className: "text-foreground bg-surface-2" }}
                 inactiveProps={{ className: "text-muted-foreground" }}
                 className="px-3 py-1.5 rounded-full text-sm hover:text-foreground transition-colors"
