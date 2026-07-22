@@ -9,11 +9,7 @@ export function FloatingIsland() {
   const [tourOpen, setTourOpen] = useState(false);
 
   const handleFeedback = () => {
-    if (FEEDBACK_URL && FEEDBACK_URL !== "#") {
-      window.open(FEEDBACK_URL, "_blank", "noopener,noreferrer");
-    } else {
-      alert("Feedback form coming soon.");
-    }
+    window.open(FEEDBACK_URL, "_blank", "noopener,noreferrer");
   };
 
   return (
