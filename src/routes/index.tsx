@@ -70,7 +70,7 @@ function Index() {
       </section>
 
       {/* Journey cards — compact */}
-      <section className="container-page py-8">
+      <section className="container-page py-8" data-tour="hero-capsules">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {journeys.map(j => {
             const Icon = j.icon;
