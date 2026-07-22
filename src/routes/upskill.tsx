@@ -81,7 +81,7 @@ function Upskill() {
           <p className="mt-3 text-base text-muted-foreground max-w-2xl mx-auto">
             One Finance learning path, the right resources, and tips you can use today.
           </p>
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
+          <div data-tour="hero-capsules" className="mt-5 flex flex-wrap justify-center gap-2">
             <a href="#ai-boost" className="rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium">AI Power Up</a>
             <a href="#resources" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Learning Platforms</a>
             <a href="#tips" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Tips & Tricks</a>
