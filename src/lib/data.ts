@@ -151,10 +151,9 @@ export type EventItem = {
 };
 
 export const events: EventItem[] = [
-
-  { id: "e2", title: "FD Call - June", type: "FD Call", description: " 14:30 CET", date: "Jun 16", day: "16", month: "JUN", meta: " 14:30 CET" },
-  { id: "e3", title: "Mini-Lab: Copilot for Finance", type: "Mini-Lab", description: "Champions only", date: "Jun 17", day: "17", month: "JUN", meta: "Champions only" },
-  { id: "e4", title: "AI Finance Demo Day", type: "Event", description: "See practical use cases from Finance teams.", date: "Jul 18", day: "18", month: "JUL", meta: "Hybrid" },
+  { id: "e1", title: "Finance AI Champions Community - Quarterly 2", type: "AI Champion Community", description: "Quarterly community call for Finance AI Champions.", date: "Jul 23", day: "23", month: "JUL", meta: "10:00 CET" },
+  { id: "e2", title: "Copilot Finance Minilab - Meeting with Microsoft", type: "Champion Mini-Lab", description: "Co-building session with Microsoft for Copilot in Finance.", date: "Jul 22", day: "22", month: "JUL", meta: "15:30 CET" },
+  { id: "e3", title: "Finance AI Champions Community - Quarterly 3", type: "AI Champion Community", description: "Quarterly community call for Finance AI Champions.", date: "Sep 16", day: "16", month: "SEP", meta: "10:00 CET" },
 ];
 
 export type Newsletter = { id: string; issue: string; summary: string };
