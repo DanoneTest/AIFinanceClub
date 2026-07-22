@@ -127,6 +127,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
       <AdminLogin open={adminLoginOpen} onClose={() => setAdminLoginOpen(false)} onSuccess={handleAdminLoginSuccess} />
       <AdminPanel open={adminPanelOpen} onClose={handleAdminPanelClose} />
+      <FloatingIsland />
     </div>
   );
 }
