@@ -76,10 +76,11 @@ const STEPS: Step[] = [
     targetSelector: '[data-tour="hero-capsules"]',
     title: "Quick navigation capsules",
     lines: [
-      "Every page has a hero banner with capsule buttons.",
+      "Every inner page has a hero with capsule buttons.",
       "Tap them to jump straight to sections on that page.",
       "They're your shortcut for fast navigation everywhere.",
     ],
+    navigateTo: "/discover",
   },
   {
     id: "island",
