@@ -2,18 +2,14 @@ import { useState } from "react";
 import { Compass, MessageSquare } from "lucide-react";
 import { DiscoveryTour } from "./DiscoveryTour";
 
-// TODO: replace with the Microsoft Form link when ready
-const FEEDBACK_URL = "#";
+const FEEDBACK_URL =
+  "https://forms.office.com/e/kN3S3BW2ai?embed=true";
 
 export function FloatingIsland() {
   const [tourOpen, setTourOpen] = useState(false);
 
   const handleFeedback = () => {
-    if (FEEDBACK_URL && FEEDBACK_URL !== "#") {
-      window.open(FEEDBACK_URL, "_blank", "noopener,noreferrer");
-    } else {
-      alert("Feedback form coming soon.");
-    }
+    window.open(FEEDBACK_URL, "_blank", "noopener,noreferrer");
   };
 
   return (
