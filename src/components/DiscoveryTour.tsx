@@ -1,11 +1,13 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 
 type Step = {
   id: string;
   targetSelector: string;
   title: string;
   lines: [string, string, string];
+  navigateTo?: string;
 };
 
 const STEPS: Step[] = [
