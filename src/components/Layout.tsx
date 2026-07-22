@@ -4,6 +4,7 @@ import { Search, Home } from "lucide-react";
 import { SearchOverlay } from "./SearchOverlay";
 import { AdminLogin } from "./admin/AdminLogin";
 import { AdminPanel } from "./admin/AdminPanel";
+import { FloatingIsland } from "./FloatingIsland";
 
 const logo = "/logo.png";
 
