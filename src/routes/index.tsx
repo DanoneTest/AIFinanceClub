@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
 const journeys = [
   { to: "/discover", n: "1", label: "Discover", subtitle: "Ambition, governance, journey.", icon: Sparkles },
   { to: "/upskill", n: "2", label: "Upskill", subtitle: "AI Power Up, learning, tips.", icon: GraduationCap },
-  { to: "/explore", n: "3", label: "Explore & Build", subtitle: "Capabilities, use cases, ideas.", icon: Wrench },
+  { to: "/explore", n: "3", label: "Explore Portfolio", subtitle: "Capabilities, use cases, ideas.", icon: Wrench },
   { to: "/champions", n: "4", label: "AI Champions", subtitle: "400+ Champions across Finance.", icon: Users },
 ] as const;
 

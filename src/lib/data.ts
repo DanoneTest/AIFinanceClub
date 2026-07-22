@@ -161,7 +161,7 @@ export type Newsletter = { id: string; issue: string; summary: string };
 export const newsletters: Newsletter[] = [
   { id: "nl1", issue: "June 2025", summary: "AI Power Up Beta & Copilot Tips" },
   { id: "nl2", issue: "May 2025", summary: "Champions Month Highlights" },
-  { id: "nl3", issue: "April 2025", summary: "Explore & Build Special" },
+  { id: "nl3", issue: "April 2025", summary: "Explore Portfolio Special" },
 ];
 
 export type FAQ = { id: string; q: string; a: string };

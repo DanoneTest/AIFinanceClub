@@ -44,7 +44,7 @@ const STEPS: Step[] = [
   {
     id: "explore",
     targetSelector: '[data-tour="nav-explore"]',
-    title: "Explore & Build",
+    title: "Explore Portfolio",
     lines: [
       "Turn ideas into real impact for Finance teams.",
       "Browse AI capabilities and a searchable use-case library.",
