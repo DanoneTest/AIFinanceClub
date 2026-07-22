@@ -58,7 +58,7 @@ function Explore() {
             AI tools powering Finance use cases, a searchable library, and your idea submission.
           </p>
           <div data-tour="hero-capsules" className="mt-5 flex flex-wrap justify-center gap-2">
-            <a href="#capabilities" className="rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium">Capabilities</a>
+            <a href="#ai-automation-tools" className="rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium">AI & Automation tools</a>
             <a href="#usecases" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Use Cases</a>
             <a href="#idea" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">I Have an Idea</a>
           </div>
@@ -66,10 +66,10 @@ function Explore() {
       </section>
 
 
-      {/* Capabilities */}
-      <section id="capabilities" className="container-page py-10">
-        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Capabilities</div>
-        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Available Capabilities - AI Tools at Danone.</h2>
+      {/* AI & Automation tools */}
+      <section id="ai-automation-tools" className="container-page py-10">
+        <div className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">AI & Automation tools</div>
+        <h2 className="mt-1 text-2xl md:text-3xl font-semibold tracking-tight">Available AI & Automation tools at Danone.</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
             {
