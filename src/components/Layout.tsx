@@ -4,6 +4,7 @@ import { Search, Home } from "lucide-react";
 import { SearchOverlay } from "./SearchOverlay";
 import { AdminLogin } from "./admin/AdminLogin";
 import { AdminPanel } from "./admin/AdminPanel";
+import { FloatingIsland } from "./FloatingIsland";
 
 const logo = "/logo.png";
 
@@ -70,6 +71,7 @@ export function Layout({ children }: { children: ReactNode }) {
               <Link
                 key={item.to}
                 to={item.to}
+                data-tour={`nav-${item.to.replace("/", "")}`}
                 activeProps={{ className: "text-foreground bg-surface-2" }}
                 inactiveProps={{ className: "text-muted-foreground" }}
                 className="px-3 py-1.5 rounded-full text-sm hover:text-foreground transition-colors"
@@ -79,6 +81,7 @@ export function Layout({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <button
+            data-tour="search"
             onClick={() => setSearchOpen(true)}
             className="inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors"
           >
@@ -124,6 +127,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
       <AdminLogin open={adminLoginOpen} onClose={() => setAdminLoginOpen(false)} onSuccess={handleAdminLoginSuccess} />
       <AdminPanel open={adminPanelOpen} onClose={handleAdminPanelClose} />
+      <FloatingIsland />
     </div>
   );
 }

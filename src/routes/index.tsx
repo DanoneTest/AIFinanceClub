@@ -43,7 +43,7 @@ function Index() {
   return (
     <>
       {/* Hero */}
-      <section className="hero-gradient">
+      <section className="hero-gradient" data-tour="hero">
         <div className="container-page pt-10 pb-10 md:pt-14 md:pb-12 text-center">
           <p className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground animate-fade-up">Finance Transformation</p>
           <h1 className="mt-3 text-4xl md:text-6xl font-semibold tracking-tight animate-fade-up">
@@ -70,7 +70,7 @@ function Index() {
       </section>
 
       {/* Journey cards — compact */}
-      <section className="container-page py-8">
+      <section className="container-page py-8" data-tour="hero-capsules">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {journeys.map(j => {
             const Icon = j.icon;
