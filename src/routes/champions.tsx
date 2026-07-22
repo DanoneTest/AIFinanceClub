@@ -42,7 +42,7 @@ function Champions() {
           <p className="mt-3 text-base text-muted-foreground max-w-2xl mx-auto">
             400+ AI Champions help Finance teams learn, experiment, and scale practical AI use cases.
           </p>
-          <div className="mt-5 flex flex-wrap justify-center gap-2">
+          <div data-tour="hero-capsules" className="mt-5 flex flex-wrap justify-center gap-2">
             <a href="#directory" className="rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium">Meet My Champion</a>
             <button className="rounded-full bg-foreground text-background px-4 py-1.5 text-sm font-medium">Champion Corner</button>
             <a href="#apply" className="rounded-full border bg-card px-4 py-1.5 text-sm font-medium">Apply to join</a>
