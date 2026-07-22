@@ -10,7 +10,7 @@ import path from "node:path";
 
 export default defineConfig({
   root: path.resolve(__dirname, "static-export"),
-  base: "./",
+  base: "/AIFinanceClub/",
   publicDir: path.resolve(__dirname, "public"),
   resolve: {
     alias: {
