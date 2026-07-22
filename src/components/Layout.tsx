@@ -81,6 +81,7 @@ export function Layout({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <button
+            data-tour="search"
             onClick={() => setSearchOpen(true)}
             className="inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground hover:bg-surface-2 transition-colors"
           >
