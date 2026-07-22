@@ -77,7 +77,7 @@ function Discover() {
           <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">Discover AI in Finance.</h1>
           <p className="mt-3 text-base text-muted-foreground max-w-2xl mx-auto">
           </p>
-          <nav className="mt-5 flex flex-wrap justify-center gap-2">
+          <nav data-tour="hero-capsules" className="mt-5 flex flex-wrap justify-center gap-2">
             {SECTIONS.map((s, i) => (
               <a key={s.id} href={`#${s.id}`} className={i === 0 ? "rounded-full bg-navy text-navy-foreground px-4 py-1.5 text-sm font-medium" : "rounded-full border bg-card px-4 py-1.5 text-sm font-medium"}>
                 {s.label}
