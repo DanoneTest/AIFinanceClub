@@ -189,7 +189,7 @@ function Index() {
                   </>
                 ) : f.id === "f7" ? (
                   <>
-                    Great! Many AI initiatives start with a simple idea. Share it with the Finance AI community, your local AI Champion, or the Finance Transformation team. Together, we can assess the opportunity, explore the best approach, and help turn your idea into a real project. When your idea is mature, <a href="/explore#idea" className="text-accent-blue">submit it here</a> and we can review it together.
+                    As of Sept 2026 you MUST go through the Finance AI Boost program to ensure compliance with EU AI Act. This program is designed to create a safe path for you to build and sustain your solution.
                   </>
                 ) : (
                   f.a
