@@ -99,7 +99,7 @@ function Discover() {
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Executive sponsor</div>
               <div className="mt-3 rounded-xl bg-surface-2 aspect-video overflow-hidden relative">
                 <video
-                  src="/Official video for AI Day - Sharepoint.mp4"
+                  src="Official video for AI Day - Sharepoint.mp4"
                   controls
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />

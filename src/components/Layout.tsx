@@ -6,7 +6,7 @@ import { AdminLogin } from "./admin/AdminLogin";
 import { AdminPanel } from "./admin/AdminPanel";
 import { FloatingIsland } from "./FloatingIsland";
 
-const logo = "/logo.png";
+const logo = "logo.png";
 
 const NAV = [
   { to: "/discover", label: "Discover", n: "1" },

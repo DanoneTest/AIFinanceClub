@@ -99,8 +99,8 @@ function Upskill() {
             <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">AI Power Up</h2>
           </div>
           <div className="flex items-center gap-3">
-            <img src="/copilot-avatar.png" alt="Copilot" className="h-12 md:h-14 w-auto" />
-            <img src="/ddai-academy-logo.png" alt="DDAI Academy" className="h-12 md:h-14 w-auto" />
+            <img src="copilot-avatar.png" alt="Copilot" className="h-12 md:h-14 w-auto" />
+            <img src="ddai-academy-logo.png" alt="DDAI Academy" className="h-12 md:h-14 w-auto" />
           </div>
         </div>
         <p className="mt-2 text-sm text-muted-foreground max-w-2xl">A selected Finance learning path — choose the level that matches where you are today.</p>
